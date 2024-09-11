@@ -518,25 +518,25 @@ iframe {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Estilos para la sección de Shorts */
+/* Sección de Shorts */
 #shorts-section {
-    height: 100vh;
-    overflow: hidden; /* Esto oculta el scroll vertical */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow: hidden; /* Oculta el scroll en la sección de shorts */
     position: relative;
 }
 
 .shorts-container {
     display: flex;
-    flex-direction: column;
-    gap: 0; /* Espaciado entre shorts, puedes ajustar esto si es necesario */
-    overflow-y: auto; /* Permite el desplazamiento vertical dentro del contenedor */
-    height: 100%; /* Ocupa toda la altura del contenedor */
+    flex-direction: column; /* Coloca los shorts en una columna */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow-y: auto; /* Permite el scroll vertical */
 }
 
 .short-item {
-    height: 100vh; /* Altura de cada short igual a la altura de la ventana */
+    height: 100vh; /* Cada short ocupa toda la altura de la ventana */
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* Para que los iframes se posicionen dentro del short */
 }
