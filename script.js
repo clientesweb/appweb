@@ -4,10 +4,16 @@ var container = document.querySelector(".container");
 
 // -------- Function -------- 
 
+var menuIcon = document.querySelector(".menu-icon");
+var sidebar = document.querySelector(".sidebar");
+var mainContainer = document.querySelector(".container");
+
+// -------- Function -------- 
 menuIcon.onclick = function(){
     sidebar.classList.toggle("small-sidebar");
-    container.classList.toggle("large-container");
+    mainContainer.classList.toggle("large-container");
 }
+
 // IDs de los videos de YouTube de la playlist (ejemplo de IDs)
 const youtubeVideos = [
     '9Nr3SMzGuoU', // Video 1
@@ -17,7 +23,7 @@ const youtubeVideos = [
 ];
 
 let currentIndex = 0; // Índice del video actual
-const container = document.getElementById('shorts-container');
+const shortsContainer = document.getElementById('shorts-container');
 
 // Función para cargar un nuevo short de YouTube
 function loadNewShort() {
@@ -33,7 +39,7 @@ function loadNewShort() {
         allowfullscreen></iframe>`;
     
     // Agregar el iframe al contenedor
-    container.appendChild(newShort);
+    shortsContainer.appendChild(newShort);
     currentIndex++;
 }
 
@@ -41,7 +47,7 @@ function loadNewShort() {
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
-    const containerHeight = container.scrollHeight;
+    const containerHeight = shortsContainer.scrollHeight;
 
     // Cuando el usuario está cerca del final, cargar más videos
     if (scrollTop + windowHeight >= containerHeight - 100) {
