@@ -589,6 +589,7 @@ nav {
 #shorts-section {
     margin: 20px 0;
 }
+
 @media (max-width: 768px) {
     .background-container {
         background-image: url('Caf.jpg'); /* Imagen optimizada para móviles */
