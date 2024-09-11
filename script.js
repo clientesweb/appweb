@@ -8,15 +8,15 @@ menuIcon.onclick = function(){
     sidebar.classList.toggle("small-sidebar");
     container.classList.toggle("large-container");
 }
-// IDs de los videos de YouTube (puedes obtener estos de tu playlist de shorts)
+// IDs de los videos de YouTube de la playlist (ejemplo de IDs)
 const youtubeVideos = [
-    'https://www.youtube.com/shorts/9Nr3SMzGuoU?feature=share',
-    'https://www.youtube.com/shorts/5Ia0gTq0kq8?feature=share',
-    'https://www.youtube.com/shorts/-8OGNYFZJtM?feature=share',
-    // Añade los IDs de todos los videos de la playlist
+    '9Nr3SMzGuoU', // Video 1
+    '5Ia0gTq0kq8', // Video 2
+    '-8OGNYFZJtM', // Video 3
+    // Agrega más videos según tu playlist
 ];
 
-let currentIndex = 0;
+let currentIndex = 0; // Índice del video actual
 const container = document.getElementById('shorts-container');
 
 // Función para cargar un nuevo short de YouTube
@@ -26,17 +26,18 @@ function loadNewShort() {
     // Crear un nuevo iframe para el video
     const newShort = document.createElement('div');
     newShort.classList.add('short-item');
-    newShort.innerHTML = `<iframe width="100%" height="100%" 
-                          src="https://www.youtube.com/embed/${youtubeVideos[currentIndex]}?rel=0&autoplay=0" 
-                          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowfullscreen></iframe>`;
+    newShort.innerHTML = `
+        <iframe width="100%" height="100%" 
+        src="https://www.youtube.com/embed/${youtubeVideos[currentIndex]}?rel=0&autoplay=0" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>`;
     
-    // Agregarlo al contenedor
+    // Agregar el iframe al contenedor
     container.appendChild(newShort);
     currentIndex++;
 }
 
-// Escuchar el evento de scroll
+// Escuchar el evento de scroll para cargar más videos
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
@@ -48,6 +49,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Cargar los primeros videos al inicio
+// Cargar los primeros shorts al cargar la página
 loadNewShort();
 loadNewShort();
