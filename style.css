@@ -477,6 +477,7 @@ nav{
 .bottom center a:hover{
     text-decoration: underline;    
 }
+
 /* Sección de Videos */
 #videos, #playlists, #shorts {
     margin: 50px 0;
@@ -518,18 +519,19 @@ iframe {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Sección de Shorts */
+/* Estilos para la sección de Shorts */
 #shorts-section {
     height: 100vh; /* Ocupa toda la altura de la ventana */
-    overflow: hidden; /* Oculta el scroll en la sección de shorts */
+    overflow: hidden; /* Oculta el scroll del contenedor principal */
     position: relative;
 }
 
 .shorts-container {
     display: flex;
     flex-direction: column; /* Coloca los shorts en una columna */
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    overflow-y: auto; /* Permite el scroll vertical */
+    gap: 0; /* Espaciado entre shorts, puedes ajustar esto si es necesario */
+    overflow-y: auto; /* Permite el scroll vertical dentro del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
 }
 
 .short-item {
@@ -538,5 +540,5 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Para que los iframes se posicionen dentro del short */
+    /* Asegúrate de que el short esté centrado */
 }
