@@ -14,69 +14,44 @@ menuIcon.onclick = function(){
     mainContainer.classList.toggle("large-container");
 }
 
-// IDs de los videos de YouTube de los shorts
-const youtubeShorts = [
-    '9Nr3SMzGuoU',
-    '5Ia0gTq0kq8',
-    '-8OGNYFZJtM',
-];
+ document.addEventListener('DOMContentLoaded', () => {
+    // Lista de IDs de YouTube Shorts
+    const shortsIds = [
+        '5Ia0gTq0kq8',
+        '9Nr3SMzGuoU',
+        '-8OGNYFZJtM'
+        // Agrega más IDs de Shorts aquí
+    ];
 
-let currentIndex = 0;
-const shortsContainer = document.getElementById('shorts-container');
+    const shortsSection = document.getElementById('shorts-section');
 
-// Función para cargar un nuevo short de YouTube
-function loadNewShort() {
-    if (currentIndex >= youtubeShorts.length) return;
+    // Función para crear un elemento de Short
+    function createShortElement(videoId) {
+        const shortItem = document.createElement('div');
+        shortItem.className = 'short-item';
+        shortItem.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
+                    allowfullscreen>
+            </iframe>
+        `;
+        return shortItem;
+    }
 
-    const newShort = document.createElement('div');
-    newShort.classList.add('short-item');
-    newShort.innerHTML = `
-        <iframe src="https://www.youtube.com/embed/${youtubeShorts[currentIndex]}?autoplay=0" 
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>`;
-    
-    shortsContainer.appendChild(newShort);
-    observeShort(newShort);
-    currentIndex++;
-}
-
-// Función para pausar todos los iframes
-function pauseAllIframes() {
-    const iframes = document.querySelectorAll('.short-item iframe');
-    iframes.forEach(iframe => {
-        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    // Cargar Shorts
+    shortsIds.forEach(id => {
+        const shortElement = createShortElement(id);
+        shortsSection.appendChild(shortElement);
     });
-}
 
-// Intersection Observer para manejar la reproducción automática
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const iframe = entry.target.querySelector('iframe');
-        if (entry.isIntersecting) {
-            // Cuando el short está visible, reproducir el video
-            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        } else {
-            // Cuando el short sale de la vista, pausar el video
-            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    // Implementar scroll infinito
+    shortsSection.addEventListener('scroll', () => {
+        if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
+            // Cargar más Shorts cuando el usuario se acerca al final
+            const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
+            if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
+                const newShort = createShortElement(randomId);
+                shortsSection.appendChild(newShort);
+            }
         }
     });
-}, { threshold: 0.7 }); // Umbral para determinar la visibilidad del short
-
-function observeShort(short) {
-    observer.observe(short);
-}
-
-// Inicializar la carga de shorts
-loadNewShort();
-loadNewShort();
-
-// Cargar más shorts al hacer scroll
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    const containerHeight = shortsContainer.scrollHeight;
-
-    if (scrollTop + windowHeight >= containerHeight - 100) {
-        loadNewShort();
-    }
 });
