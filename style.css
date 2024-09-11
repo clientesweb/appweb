@@ -536,3 +536,11 @@ body {
     height: 100%;
     border: none;
 }
+.background-container {
+    background-image: url('cafe.svg'); /* Reemplaza con la ruta a tu imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100vh; /* Ajusta según tus necesidades */
+}
