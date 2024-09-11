@@ -40,6 +40,7 @@ function loadNewShort() {
     
     // Agregar el iframe al contenedor
     container.appendChild(newShort);
+    observeShort(newShort); // Observar el nuevo short
     currentIndex++;
 }
 
@@ -65,17 +66,14 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 }); // El 50% del video debe estar visible para que se reproduzca
 
+// Función para observar un short individual
+function observeShort(short) {
+    observer.observe(short);
+}
+
 // Cargar los primeros shorts al cargar la página
 loadNewShort();
 loadNewShort();
-
-// Función para observar todos los shorts cargados
-function observeShorts() {
-    const shorts = document.querySelectorAll('.short-item');
-    shorts.forEach(short => {
-        observer.observe(short);
-    });
-}
 
 // Escuchar el evento de scroll para cargar más videos y observarlos
 window.addEventListener('scroll', () => {
@@ -86,9 +84,10 @@ window.addEventListener('scroll', () => {
     // Cuando el usuario está cerca del final, cargar más videos
     if (scrollTop + windowHeight >= containerHeight - 100) {
         loadNewShort();
-        observeShorts(); // Observar los nuevos shorts cargados
     }
 });
 
-// Inicialmente observar los primeros shorts
-observeShorts();
+// Inicialmente observar los primeros shorts cargados
+document.querySelectorAll('.short-item').forEach(short => {
+    observeShort(short);
+});
