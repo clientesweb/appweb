@@ -519,26 +519,28 @@ iframe {
     scrollbar-width: none;  /* Firefox */
 }
 
+/* Estilos básicos */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
 /* Estilos para la sección de Shorts */
 #shorts-section {
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    overflow: hidden; /* Oculta el scroll del contenedor principal */
-    position: relative;
-}
-
-.shorts-container {
     display: flex;
-    flex-direction: column; /* Coloca los shorts en una columna */
-    gap: 0; /* Espaciado entre shorts, puedes ajustar esto si es necesario */
-    overflow-y: auto; /* Permite el scroll vertical dentro del contenedor */
-    height: 100%; /* Ocupa toda la altura del contenedor */
-}
-
-.short-item {
-    height: 100vh; /* Cada short ocupa toda la altura de la ventana */
-    width: 100%;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* Asegúrate de que el short esté centrado */
+    overflow-y: auto;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+}
+.short-item {
+    width: 100%;
+    max-width: 350px;
+    height: calc(100vh - 100px);
+    margin-bottom: 0;
+    scroll-snap-align: start;
+}
+.short-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
