@@ -54,4 +54,4 @@ menuIcon.onclick = function(){
             }
         }
     });
-});
+}); 
