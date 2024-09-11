@@ -53,12 +53,14 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         const iframe = entry.target.querySelector('iframe');
         if (entry.isIntersecting) {
+            // Cuando el short está visible, reproducir el video
             iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
         } else {
+            // Cuando el short sale de la vista, pausar el video
             iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.7 }); // Umbral para determinar la visibilidad del short
 
 function observeShort(short) {
     observer.observe(short);
