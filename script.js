@@ -23,7 +23,7 @@ const youtubeVideos = [
 ];
 
 let currentIndex = 0; // Índice del video actual
-const shortsContainer = document.getElementById('shorts-container');
+const container = document.getElementById('shorts-container');
 
 // Función para cargar un nuevo short de YouTube
 function loadNewShort() {
@@ -39,22 +39,56 @@ function loadNewShort() {
         allowfullscreen></iframe>`;
     
     // Agregar el iframe al contenedor
-    shortsContainer.appendChild(newShort);
+    container.appendChild(newShort);
     currentIndex++;
 }
 
-// Escuchar el evento de scroll para cargar más videos
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const windowHeight = window.innerHeight;
-    const containerHeight = shortsContainer.scrollHeight;
+// Función para pausar todos los iframes
+function pauseAllIframes() {
+    const iframes = document.querySelectorAll('.short-item iframe');
+    iframes.forEach(iframe => {
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    });
+}
 
-    // Cuando el usuario está cerca del final, cargar más videos
-    if (scrollTop + windowHeight >= containerHeight - 100) {
-        loadNewShort();
-    }
-});
+// Intersection Observer para detectar cuándo un iframe está visible
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const iframe = entry.target.querySelector('iframe');
+        if (entry.isIntersecting) {
+            // Cuando el iframe está visible, reproducir el video
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        } else {
+            // Cuando el iframe sale de la vista, pausar el video
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+    });
+}, { threshold: 0.5 }); // El 50% del video debe estar visible para que se reproduzca
 
 // Cargar los primeros shorts al cargar la página
 loadNewShort();
 loadNewShort();
+
+// Función para observar todos los shorts cargados
+function observeShorts() {
+    const shorts = document.querySelectorAll('.short-item');
+    shorts.forEach(short => {
+        observer.observe(short);
+    });
+}
+
+// Escuchar el evento de scroll para cargar más videos y observarlos
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const containerHeight = container.scrollHeight;
+
+    // Cuando el usuario está cerca del final, cargar más videos
+    if (scrollTop + windowHeight >= containerHeight - 100) {
+        loadNewShort();
+        observeShorts(); // Observar los nuevos shorts cargados
+    }
+});
+
+// Inicialmente observar los primeros shorts
+observeShorts();
