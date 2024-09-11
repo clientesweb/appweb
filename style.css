@@ -477,3 +477,43 @@ nav{
 .bottom center a:hover{
     text-decoration: underline;    
 }
+/* Sección de Videos */
+#videos, #playlists, #shorts {
+    margin: 50px 0;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.video-slider, .playlist-slider, .shorts-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.video-item, .playlist-item, .short-item {
+    flex: 0 0 300px; /* Cada item tendrá un ancho de 300px */
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+.video-slider::-webkit-scrollbar, .playlist-slider::-webkit-scrollbar, .shorts-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.video-slider, .playlist-slider, .shorts-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
