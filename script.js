@@ -14,33 +14,29 @@ menuIcon.onclick = function(){
     mainContainer.classList.toggle("large-container");
 }
 
-// IDs de los videos de YouTube de la playlist (ejemplo de IDs)
-const youtubeVideos = [
-    '9Nr3SMzGuoU', // Video 1
-    '5Ia0gTq0kq8', // Video 2
-    '-8OGNYFZJtM', // Video 3
-    // Agrega más videos según tu playlist
+// IDs de los videos de YouTube de los shorts
+const youtubeShorts = [
+    '9Nr3SMzGuoU',
+    '5Ia0gTq0kq8',
+    '-8OGNYFZJtM',
 ];
 
-let currentIndex = 0; // Índice del video actual
+let currentIndex = 0;
 const shortsContainer = document.getElementById('shorts-container');
 
 // Función para cargar un nuevo short de YouTube
 function loadNewShort() {
-    if (currentIndex >= youtubeVideos.length) return; // Si no hay más videos, detener carga
+    if (currentIndex >= youtubeShorts.length) return;
 
-    // Crear un nuevo iframe para el video
     const newShort = document.createElement('div');
     newShort.classList.add('short-item');
     newShort.innerHTML = `
-        <iframe width="100%" height="100%" 
-        src="https://www.youtube.com/embed/${youtubeVideos[currentIndex]}?rel=0&autoplay=0" 
+        <iframe src="https://www.youtube.com/embed/${youtubeShorts[currentIndex]}?autoplay=0" 
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>`;
     
-    // Agregar el iframe al contenedor
     shortsContainer.appendChild(newShort);
-    observeShort(newShort); // Observar el nuevo short
+    observeShort(newShort);
     currentIndex++;
 }
 
@@ -52,52 +48,33 @@ function pauseAllIframes() {
     });
 }
 
-// Intersection Observer para detectar cuándo un iframe está visible
+// Intersection Observer para manejar la reproducción automática
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         const iframe = entry.target.querySelector('iframe');
         if (entry.isIntersecting) {
-            // Cuando el iframe está visible, reproducir el video
             iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
         } else {
-            // Cuando el iframe sale de la vista, pausar el video
             iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         }
     });
-}, { threshold: 0.5 }); // El 50% del video debe estar visible para que se reproduzca
+}, { threshold: 0.5 });
 
-// Función para observar un short individual
 function observeShort(short) {
     observer.observe(short);
 }
 
-// Cargar los primeros shorts al cargar la página
+// Inicializar la carga de shorts
 loadNewShort();
 loadNewShort();
 
-// Escuchar el evento de scroll para cargar más videos y observarlos
+// Cargar más shorts al hacer scroll
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const containerHeight = shortsContainer.scrollHeight;
 
-    // Cuando el usuario está cerca del final, cargar más videos
     if (scrollTop + windowHeight >= containerHeight - 100) {
         loadNewShort();
     }
 });
-
-// Inicialmente observar los primeros shorts cargados
-document.querySelectorAll('.short-item').forEach(short => {
-    observeShort(short);
-});
-
-// Funcionalidad de la barra lateral y contenedor
-var menuIcon = document.querySelector(".menu-icon");
-var sidebar = document.querySelector(".sidebar");
-var mainContainer = document.querySelector(".container");
-
-menuIcon.onclick = function(){
-    sidebar.classList.toggle("small-sidebar");
-    mainContainer.classList.toggle("large-container");
-}
