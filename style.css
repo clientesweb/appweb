@@ -544,7 +544,7 @@ body {
 }
 
 .background-container {
-    background-image: url('cafe.svg'); /* Reemplaza con la ruta a tu imagen de fondo */
+    background-image: url('caf.jpg'); /* Reemplaza con la ruta a tu imagen de fondo */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -591,12 +591,12 @@ nav {
 }
 @media (max-width: 768px) {
     .background-container {
-        background-image: url('cafe-small.jpg'); /* Imagen optimizada para móviles */
+        background-image: url('caf.jpg'); /* Imagen optimizada para móviles */
     }
 }
 
 @media (min-width: 769px) {
     .background-container {
-        background-image: url('cafe-large.jpg'); /* Imagen optimizada para pantallas grandes */
+        background-image: url('caf.jpg'); /* Imagen optimizada para pantallas grandes */
     }
 }
