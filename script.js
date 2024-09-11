@@ -19,10 +19,10 @@ menuIcon.onclick = function(){
     const shortsIds = [
         '5Ia0gTq0kq8',
         '9Nr3SMzGuoU',
-        '-8OGNYFZJtM'
-        'QlQdYxAT_fk'
-        '5E24fAubqm0'
-        'X1IVvJuR8aA'
+        '-8OGNYFZJtM',
+        'QlQdYxAT_fk',
+        '5E24fAubqm0',
+        'X1IVvJuR8aA',
         'S3oYxa0WHlI'
         // Agrega más IDs de Shorts aquí
     ];
