@@ -14,48 +14,28 @@ menuIcon.onclick = function(){
     mainContainer.classList.toggle("large-container");
 }
 
- document.addEventListener('DOMContentLoaded', () => {
-    // Lista de IDs de YouTube Shorts
-    const shortsIds = [
-        '5Ia0gTq0kq8',
-        '9Nr3SMzGuoU',
-        '-8OGNYFZJtM',
-        'QlQdYxAT_fk',
-        '5E24fAubqm0',
-        'X1IVvJuR8aA',
-        'S3oYxa0WHlI'
-        // Agrega más IDs de Shorts aquí
-    ];
-
-    const shortsSection = document.getElementById('shorts-section');
-
-    // Función para crear un elemento de Short
-    function createShortElement(videoId) {
-        const shortItem = document.createElement('div');
-        shortItem.className = 'short-item';
-        shortItem.innerHTML = `
-            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
-                    allowfullscreen>
-            </iframe>
-        `;
-        return shortItem;
-    }
-
-    // Cargar Shorts
-    shortsIds.forEach(id => {
-        const shortElement = createShortElement(id);
-        shortsSection.appendChild(shortElement);
-    });
-
-    // Implementar scroll infinito
-    shortsSection.addEventListener('scroll', () => {
-        if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
-            // Cargar más Shorts cuando el usuario se acerca al final
-            const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
-            if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
-                const newShort = createShortElement(randomId);
-                shortsSection.appendChild(newShort);
+ $(document).ready(function(){
+    $('.slick-list').slick({
+        slidesToShow: 3, // Número de slides a mostrar a la vez
+        slidesToScroll: 1, // Número de slides a desplazar a la vez
+        draggable: true, // Habilitar arrastre
+        autoplay: true, // Opcional: para que el slider se desplace automáticamente
+        autoplaySpeed: 2000, // Opcional: velocidad del autoplay en milisegundos
+        dots: true, // Opcional: para mostrar los puntos de navegación
+        infinite: true, // Opcional: para hacer el slider infinito
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
             }
-        }
+        ]
     });
-}); 
+});
