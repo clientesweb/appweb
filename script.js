@@ -2,22 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var menuIcon = document.querySelector('.menu-icon');
     var sidebar = document.querySelector('.sidebar');
 
+    console.log('menuIcon:', menuIcon); // Para verificar que el icono del menú se está seleccionando
+    console.log('sidebar:', sidebar);   // Para verificar que la barra lateral se está seleccionando
+
     // Al hacer clic en el icono del menú, mostrar/ocultar la barra lateral
     menuIcon.addEventListener('click', function() {
+        console.log('Menu icon clicked'); // Para confirmar que el clic está siendo registrado
         sidebar.classList.toggle('show');
+        console.log('Sidebar classes:', sidebar.classList); // Para ver las clases que tiene el sidebar
     });
 });
-// -------- Function -------- 
-
-var menuIcon = document.querySelector(".menu-icon");
-var sidebar = document.querySelector(".sidebar");
-var mainContainer = document.querySelector(".container");
-
-// -------- Function -------- 
-menuIcon.onclick = function(){
-    sidebar.classList.toggle("small-sidebar");
-    mainContainer.classList.toggle("large-container");
-}
  document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
     const shortsIds = [
