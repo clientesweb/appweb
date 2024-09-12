@@ -515,26 +515,35 @@ body {
 /* Sección de Shorts */
 #shorts-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    height: calc(100vh - 100px); /* Ajustar la altura para no cubrir el footer */
-    scroll-snap-type: y mandatory;
-    padding-bottom: 100px; /* Espacio para el footer */
+    overflow-x: auto; /* Desplazamiento horizontal */
+    scroll-snap-type: x mandatory; /* Para hacer que se alinee con los elementos */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+    height: 100vh; /* Ajustar altura al 100% de la ventana */
+    padding: 20px 0; /* Espacio arriba y abajo */
 }
 
 .short-item {
-    width: 100%;
-    max-width: 350px;
-    height: calc(100vh - 100px); /* Ajustar la altura para el contenedor */
-    margin-bottom: 0;
-    scroll-snap-align: start;
+    flex: 0 0 auto; /* Para que los elementos no se estiren */
+    width: 100vw; /* Ancho completo de la ventana */
+    height: 90vh; /* Altura vertical de la ventana (ajustar si es necesario) */
+    margin-right: 10px; /* Espacio entre los shorts */
+    scroll-snap-align: start; /* Alinear el inicio del elemento */
 }
 
 .short-item iframe {
     width: 100%;
     height: 100%;
     border: none;
+    border-radius: 10px; /* Bordes redondeados para una apariencia uniforme */
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+#shorts-section::-webkit-scrollbar {
+    display: none;
+}
+#shorts-section {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 /* Aplica el fondo a toda la página */
 body {
