@@ -7,6 +7,8 @@
     <title>Cafe Club Tv</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 </head>
 <body>
  <div class="background-container">
@@ -21,7 +23,6 @@
                 <input type="text" placeholder="Bienvenidos a nuestra web">
                 <img src="images/search.png">
             </div>
-            <img src="" class="">
         </div>
         <div class="nav-right flex-div">
             <img src="">
@@ -29,6 +30,22 @@
             <img src="">
             <img src="Project-images/logi.png" class="">
         </div>
+    </nav>
+
+    <!-- Submenú -->
+    <nav class="main-nav">
+        <ul class="nav-menu">
+            <li><a href="#">Inicio</a></li>
+            <li>
+                <a href="#">Servicios</a>
+                <ul class="sub-menu">
+                    <li><a href="#">Servicio 1</a></li>
+                    <li><a href="#">Servicio 2</a></li>
+                    <li><a href="#">Servicio 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
     </nav>
 
     <!-- -------- Main ------- -->
@@ -55,7 +72,17 @@
 
         <!-- Sección de Shorts -->
         <section id="shorts-section">
-            <!-- Los Shorts se cargarán aquí dinámicamente -->
+            <div class="shorts-slider">
+                <div class="shorts-item">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="shorts-item">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div class="shorts-item">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -67,6 +94,33 @@
         </center>
     </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="script.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.playlist-slider').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            draggable: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            dots: true
+        });
+
+        $('.shorts-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            draggable: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true,
+            dots: true
+        });
+    });
+    </script>
 </body>
 </html>
