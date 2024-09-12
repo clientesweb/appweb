@@ -507,8 +507,43 @@ iframe {
 #shorts-section {
     margin: 0; /* Elimina márgenes externos */
     padding: 0; /* Elimina padding interno si es necesario */
+    overflow: hidden; /* Evita desbordamientos */
 }
 
+.shorts-slider {
+    display: flex;
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+    gap: 10px; /* Espacio entre items */
+    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+}
+
+.short-item {
+    flex: 0 0 auto; /* Los elementos no se estiran */
+    width: 300px; /* Ancho fijo para los shorts */
+    height: 500px; /* Altura fija para los shorts */
+    margin-right: 10px; /* Espacio entre los shorts */
+    scroll-snap-align: start; /* Alinea el inicio del elemento */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta desbordamientos */
+}
+
+.short-item iframe {
+    width: 100%; /* El iframe ocupa el ancho del contenedor */
+    height: 100%; /* El iframe ocupa la altura del contenedor */
+    border: none;
+    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+#shorts-section::-webkit-scrollbar {
+    display: none;
+}
+#shorts-section {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
 /* Estilo para cada item de shorts */
 .short-item {
     flex: 0 0 auto; /* Los elementos no se estiran */
