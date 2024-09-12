@@ -503,16 +503,91 @@ iframe {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Estilo para la sección de Shorts */
+/* Estilo para la sección de shorts */
 #shorts-section {
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0; /* Elimina padding interno si es necesario */
+}
+
+/* Estilo para los elementos de shorts */
+.short-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 500px;
+    margin-right: 10px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
-    padding: 0 10px; /* Ajusta el padding para evitar desbordamientos */
-    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho y alto */
-    height: 100vh; /* Altura completa de la ventana */
-    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+}
+
+/* Ajuste para iframe dentro de shorts */
+.short-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+}
+
+/* Ocultar barras de scroll */
+#shorts-section::-webkit-scrollbar {
+    display: none;
+}
+#shorts-section {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Estilo para la sección de patrocinadores */
+#sponsors-section {
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0; /* Elimina padding interno si es necesario */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: #f1f1f1;
+}
+
+/* Estilo para el slider de patrocinadores */
+.sponsors-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Estilo para los elementos de patrocinadores */
+.sponsor-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    scroll-snap-align: start;
+}
+
+/* Ajuste para las imágenes dentro de patrocinadores */
+.sponsor-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Ocultar barras de scroll */
+#sponsors-section::-webkit-scrollbar {
+    display: none;
+}
+#sponsors-section {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 }
 
 /* Estilo para cada item de shorts */
@@ -613,28 +688,4 @@ iframe {
 #sponsors-section {
     -ms-overflow-style: none; /* IE y Edge */
     scrollbar-width: none; /* Firefox */
-}
-/* Ajustar padding y margen en la sección de shorts */
-#shorts-section {
-    margin: 0; /* Elimina márgenes externos */
-    padding: 0; /* Elimina padding interno si es necesario */
-}
-
-/* Ajustar padding y margen en la sección de patrocinadores */
-#sponsors-section {
-    margin: 0; /* Elimina márgenes externos */
-    padding: 0; /* Elimina padding interno si es necesario */
-}
-
-/* Si hay algún margen o padding en el contenedor principal */
-.main-container {
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilo adicional para asegurar que el contenedor de patrocinadores no tenga espacio extra */
-.sponsors-slider {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box; /* Asegura que el padding y el borde no agreguen espacio adicional */
 }
