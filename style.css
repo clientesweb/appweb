@@ -567,3 +567,45 @@ iframe {
         height: 350px; /* Ajustar altura */
     }
 }
+/* Estilo para la sección de patrocinadores */
+#sponsors-section {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    position: relative;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    height: 150px; /* Altura del contenedor */
+    background-color: #f1f1f1; /* Color de fondo (ajustar según diseño) */
+}
+
+.sponsors-slider {
+    display: flex;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Evita el salto de línea entre los elementos */
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+    height: 100%;
+    align-items: center;
+}
+
+.sponsor-item {
+    flex: 0 0 auto; /* Los elementos no se estiran */
+    width: 150px; /* Ancho fijo para los logos */
+    height: 100%; /* Altura del contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px; /* Espacio entre los logos */
+}
+
+.sponsor-item img {
+    max-width: 100%; /* Asegura que el logo se ajuste al ancho del contenedor */
+    max-height: 100%; /* Asegura que el logo se ajuste a la altura del contenedor */
+    object-fit: contain; /* Mantiene la proporción del logo */
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+#sponsors-section::-webkit-scrollbar {
+    display: none;
+}
+#sponsors-section {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
