@@ -15,14 +15,14 @@ menuIcon.onclick = function(){
 }
 
 $(document).ready(function(){
-    $('.slick-list').slick({
-        slidesToShow: 1, // Muestra un slide a la vez
-        slidesToScroll: 1, // Desplaza un slide a la vez
-        infinite: true, // Habilita el desplazamiento infinito
-        autoplay: true, // Habilita el autoplay
-        autoplaySpeed: 5000, // Velocidad de autoplay en milisegundos (5 segundos)
-        arrows: true, // Activa las flechas de navegación
-        dots: true, // Habilita los puntos de navegación
-        speed: 1000 // Velocidad de transición entre slides en milisegundos (1 segundo)
+    $('.slick-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: true, // Puedes activar/desactivar las flechas
+        dots: true, // Puedes activar/desactivar los puntos de navegación
+        autoplay: true,
+        autoplaySpeed: 3000, // Tiempo entre cada slide (en milisegundos)
+        draggable: true // Permite arrastrar el slider
     });
 });
