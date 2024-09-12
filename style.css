@@ -541,7 +541,7 @@ iframe {
     }
 
     .short-item {
-        width: 270px; /* Ajustar ancho */
+        width: 250px; /* Ajustar ancho */
         height: 400px; /* Ajustar altura */
     }
 }
