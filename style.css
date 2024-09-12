@@ -73,7 +73,7 @@ nav {
     width: 15px;
 }
 
-/* Ocultar barra lateral inicialmente */
+/* Agrega transición para suavizar el efecto de despliegue */
 .sidebar {
     background-color: #fff;
     width: 250px;
@@ -81,7 +81,7 @@ nav {
     position: fixed;
     top: 0;
     left: -250px; /* Fuera de la pantalla inicialmente */
-    transition: none;
+    transition: left 0.3s ease; /* Agrega transición */
     z-index: 1000;
 }
 
@@ -89,36 +89,26 @@ nav {
     left: 0; /* Mostrar la barra lateral cuando se activa */
 }
 
-.menu-icon {
-    cursor: pointer;
-    z-index: 1001; /* Para asegurarse de que el ícono de menú esté sobre otros elementos */
-}
-
-/* Para pantallas menores a 768px */
+/* Responsividad */
 @media (max-width: 768px) {
     .sidebar {
-        width: 250px;
-        transform: translateX(0); /* Hacer visible siempre en móviles para la prueba */
+        width: 200px; /* Ajusta según necesites */
+        left: -200px; /* Ajusta según necesites */
     }
-}
+
     .sidebar.show {
-        transform: translateX(0); /* Mostrar la barra lateral al activarse */
-    }
-
-    .menu-icon {
-        display: block; /* Mostrar el ícono del menú en dispositivos móviles */
+        left: 0; /* Mostrar la barra lateral en dispositivos móviles */
     }
 }
 
-/* Para pantallas menores a 480px */
 @media (max-width: 480px) {
     .sidebar {
         width: 100%;
-        transform: translateX(-100%);
+        left: -100%; /* Ocultar completamente en dispositivos más pequeños */
     }
 
     .sidebar.show {
-        transform: translateX(0);
+        left: 0; /* Mostrar la barra lateral en dispositivos más pequeños */
     }
 }
 
