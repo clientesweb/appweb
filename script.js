@@ -16,26 +16,15 @@ menuIcon.onclick = function(){
 
  $(document).ready(function(){
     $('.slick-list').slick({
-        slidesToShow: 3, // Número de slides a mostrar a la vez
-        slidesToScroll: 1, // Número de slides a desplazar a la vez
-        draggable: true, // Habilitar arrastre
+        slidesToShow: 1, // Muestra un slide a la vez en vista vertical
+        slidesToScroll: 1, // Desplaza un slide a la vez
+        draggable: true, // Habilita arrastre
+        vertical: true, // Hacer el slider vertical
+        verticalSwiping: true, // Habilita el arrastre vertical
         autoplay: true, // Opcional: para que el slider se desplace automáticamente
-        autoplaySpeed: 2000, // Opcional: velocidad del autoplay en milisegundos
+        autoplaySpeed: 3000, // Opcional: velocidad del autoplay en milisegundos
         dots: true, // Opcional: para mostrar los puntos de navegación
         infinite: true, // Opcional: para hacer el slider infinito
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
+        arrows: true // Mostrar flechas de navegación
     });
 });
