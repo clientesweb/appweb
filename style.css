@@ -609,8 +609,7 @@ nav {
 
 .slick-track {
     display: flex;
-    flex-direction: column; /* Desplazamiento vertical */
-    height: 100%;
+    flex-direction: row; /* Desplazamiento horizontal */
 }
 
 .slick-slide {
@@ -618,10 +617,15 @@ nav {
     justify-content: center;
     align-items: center;
     height: 100%; /* Asegura que cada slide llene el contenedor verticalmente */
+    width: 100vw; /* Asegura que cada slide llene el contenedor horizontalmente */
 }
 
 .slick-item {
-    height: 100%; /* Ajusta la altura de cada item del slider */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ajusta la altura del contenido del slider */
+    width: 100%; /* Ajusta el ancho del contenido del slider */
 }
 
 iframe {
