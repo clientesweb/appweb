@@ -601,3 +601,17 @@ nav {
         background-image: url('Caf.jpg'); /* Imagen optimizada para pantallas grandes */
     }
 }
+.slick-list {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.slick-item {
+    margin: 0 10px;
+    /* Ajusta según el diseño que prefieras */
+}
+
+.slick-slide {
+    display: flex;
+    justify-content: center;
+}
