@@ -20,9 +20,9 @@ $(document).ready(function(){
         slidesToScroll: 1, // Desplaza un slide a la vez
         infinite: true, // Habilita el desplazamiento infinito
         autoplay: true, // Habilita el autoplay
-        autoplaySpeed: 3000, // Velocidad de autoplay en milisegundos
+        autoplaySpeed: 5000, // Velocidad de autoplay en milisegundos (5 segundos)
         arrows: true, // Activa las flechas de navegación
         dots: true, // Habilita los puntos de navegación
-        speed: 500 // Velocidad de transición entre slides
+        speed: 1000 // Velocidad de transición entre slides en milisegundos (1 segundo)
     });
 });
