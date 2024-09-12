@@ -14,17 +14,17 @@ menuIcon.onclick = function(){
     mainContainer.classList.toggle("large-container");
 }
 
- $(document).ready(function(){
+$(document).ready(function(){
     $('.slick-list').slick({
-        slidesToShow: 1, // Muestra un slide a la vez en vista vertical
+        vertical: true, // Habilita el desplazamiento vertical
+        verticalSwiping: true, // Habilita el desplazamiento vertical con swiping
+        slidesToShow: 1, // Muestra un slide a la vez
         slidesToScroll: 1, // Desplaza un slide a la vez
-        draggable: true, // Habilita arrastre
-        vertical: true, // Hacer el slider vertical
-        verticalSwiping: true, // Habilita el arrastre vertical
-        autoplay: true, // Opcional: para que el slider se desplace automáticamente
-        autoplaySpeed: 3000, // Opcional: velocidad del autoplay en milisegundos
-        dots: true, // Opcional: para mostrar los puntos de navegación
-        infinite: true, // Opcional: para hacer el slider infinito
-        arrows: true // Mostrar flechas de navegación
+        infinite: true, // Habilita el desplazamiento infinito
+        autoplay: true, // Habilita el autoplay
+        autoplaySpeed: 3000, // Velocidad de autoplay en milisegundos
+        arrows: false, // Desactiva las flechas de navegación si no son necesarias
+        dots: true, // Habilita los puntos de navegación
+        speed: 500 // Velocidad de transición entre slides
     });
 });
