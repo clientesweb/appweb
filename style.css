@@ -614,3 +614,27 @@ iframe {
     -ms-overflow-style: none; /* IE y Edge */
     scrollbar-width: none; /* Firefox */
 }
+/* Ajustar padding y margen en la sección de shorts */
+#shorts-section {
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0; /* Elimina padding interno si es necesario */
+}
+
+/* Ajustar padding y margen en la sección de patrocinadores */
+#sponsors-section {
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0; /* Elimina padding interno si es necesario */
+}
+
+/* Si hay algún margen o padding en el contenedor principal */
+.main-container {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo adicional para asegurar que el contenedor de patrocinadores no tenga espacio extra */
+.sponsors-slider {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Asegura que el padding y el borde no agreguen espacio adicional */
+}
