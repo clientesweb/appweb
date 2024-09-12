@@ -602,23 +602,19 @@ nav {
     }
 }
 .slick-list {
-    margin: 0 auto;
-    width: 90%;
-}
-
-.slick-list {
     overflow: hidden;
     position: relative;
-    height: 100vh; /* Ajusta según tus necesidades */
+    height: auto; /* Ajusta la altura según el contenido de los shorts */
 }
 
 .slick-track {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Mantén el desplazamiento horizontal */
 }
 
 .slick-item {
-    height: 100%; /* Ajusta según el tamaño de tus elementos */
+    width: 100%; /* Ajusta el ancho para que el contenido ocupe todo el espacio */
+    height: auto; /* Ajusta la altura según el contenido */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -631,7 +627,7 @@ nav {
     height: 100%; /* Asegura que las slides llenen el contenedor */
 }
 
-.slick-prev, .slick-next {
-    font-size: 24px; /* Ajusta el tamaño del icono de navegación */
-    color: #000; /* Ajusta el color del icono */
+iframe {
+    width: 100%; /* Ajusta el ancho del iframe al 100% del contenedor */
+    height: auto; /* Ajusta la altura del iframe automáticamente */
 }
