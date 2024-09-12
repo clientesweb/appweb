@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -36,12 +35,6 @@ nav {
     margin-right: 25px;
 }
 
-.nav-right .user-icon {
-    width: 35px;
-    border-radius: 50%;
-    margin-right: 0;
-}
-
 .nav-left .menu-icon {
     width: 22px;
     margin-right: 25px;
@@ -51,30 +44,7 @@ nav {
     width: 100px;
 }
 
-.nav-middle .mic-icon {
-    width: 16px;
-}
-
-.nav-middle .search-box {
-    border: 1px solid #ccc;
-    margin-right: 15px;
-    padding: 8px 12px;
-    border-radius: 25px;
-}
-
-.nav-middle .search-box input {
-    width: 400px;
-    border: 0;
-    outline: 0;
-    background: transparent;
-}
-
-.nav-middle .search-box img {
-    width: 15px;
-}
-
-/* ------- Sidebar-------- */
-
+/* Sidebar */
 .sidebar {
     background: #fff;
     width: 15%;
@@ -85,28 +55,11 @@ nav {
     padding-top: 80px;
 }
 
-.shortcut-links a img {
-    width: 20px;
-    margin-right: 20px;
-}
-
 .shortcut-links a {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    width: fit-content;
-    flex-wrap: wrap;
-}
-
-.shortcut-links a:first-child {
-    color: #ed3833;
-}
-
-.sidebar hr {
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    width: 85%;
+    color: #5a5a5a;
 }
 
 .subscribed-list h3 {
@@ -119,49 +72,16 @@ nav {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    width: fit-content;
-    flex-wrap: wrap;
-}
-
-.subscribed-list a img {
-    width: 25px;
-    border-radius: 50%;
-    margin-right: 20px;
 }
 
 .small-sidebar {
     width: 5%;
 }
 
-.small-sidebar a p {
-    display: none;
-}
-
-.small-sidebar h3 {
-    display: none;
-}
-
-.small-sidebar hr {
-    width: 50%;
-    margin-bottom: 25px;
-}
-
-/* ------- main-------- */
-
+/* Main container */
 .container {
     background: #f9f9f9;
-    padding-left: 17%;
-    padding-right: 2%;
-    padding-top: 20px;
-    padding-bottom: 20%;
-}
-
-.large-container {
-    padding-left: 7%;
-}
-
-.banner {
-    width: 100%;
+    padding: 20px 2%;
 }
 
 .banner img {
@@ -169,629 +89,67 @@ nav {
     border-radius: 8px;
 }
 
-.list-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-column-gap: 16px;
-    grid-row-gap: 30px;
-    margin-top: 15px;
-}
-
-.vid-list .thumbnail {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.vid-list .flex-div {
-    align-items: flex-start;
-    margin-top: 7px;
-}
-
-.vid-list .flex-div img {
-    width: 35px;
-    margin-right: 10px;
-    border-radius: 50%;
-}
-
-.vid-info {
-    color: #5a5a5a;
-    font-size: 13px;
-}
-
-.vid-info a {
-    color: #000;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 5px;
-}
-
-@media (max-width: 900px) {
-    .menu-icon {
-        display: none;
-    }
-    .sidebar {
-        display: none;
-    }
-    .container, .large-container {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    .nav-right img {
-        display: none;
-    }
-    .nav-right .user-icon {
-        display: block;
-        width: 30px;
-    }
-    .nav-middle .search-box input {
-        width: 100%;
-    }
-    .nav-middle .mic-icon {
-        display: none;
-    }
-    .logo {
-        width: 90px;
-    }
-}
-
-/* -------Play Video Page------ */
-
-.play-container {
-    padding-left: 2%;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.play-video {
-    flex-basis: 69%;
-}
-
-.right-sidebar {
-    flex-basis: 30%;
-}
-
-.play-video video {
-    width: 100%;
-}
-
-.side-video-list {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-}
-
-.side-video-list img {
-    width: 100%;
-}
-
-.side-video-list .small-thumbnail {
-    flex-basis: 49%;
-}
-
-.side-video-list .vid-info {
-    flex-basis: 49%;
-}
-
-.play-video .tags a {
-    color: #0000ff;
-    font-size: 13px;
-}
-
-.play-video h3 {
-    font-weight: 600;
-    font-size: 22px;
-}
-
-.play-video .play-video-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #5a5a5a;
-}
-
-.play-video .play-video-info a img {
-    width: 20px;
-    margin-right: 8px;
-}
-
-.play-video .play-video-info a {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 15px;
-}
-
-.play-video hr {
-    border: 0;
-    height: 1px;
-    background: #ccc;
-    margin: 10px 0;
-}
-
-.plublisher {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.plublisher div {
-    flex: 1;
-    line-height: 18px;
-}
-
-.plublisher img {
-    width: 40px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.plublisher div p {
-    color: #000;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.plublisher div span {
-    font-size: 13px;
-    color: #5a5a5a;
-}
-
-.plublisher button {
-    background: red;
-    color: #fff;
-    padding: 8px 30px;
-    border: 0;
-    outline: 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.vid-description {
-    padding-left: 55px;
-    margin: 15px 0;
-}
-
-.vid-description p {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #5a5a5a;
-}
-
-.vid-description h4 {
-    font-size: 14px;
-    color: #5a5a5a;
-    margin-top: 15px;
-}
-
-.add-comment {
-    display: flex;
-    align-items: center;
-    margin: 30px 0;
-}
-
-.add-comment img {
-    width: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.add-comment input {
-    border: 0;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    padding-top: 10px;
-    background: transparent;
-}
-
-.old-comment {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.old-comment img {
-    width: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.old-comment h3 {
-    font-size: 14px;
-    margin-bottom: 2px;
-}
-
-.old-comment h3 span {
-    font-size: 12px;
-    color: #5a5a5a;
-    font-weight: 500;
-    margin-left: 8px;
-}
-
-.old-comment .acomment-action {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    font-size: 14px;
-    color: #5a5a5a;
-}
-
-.old-comment .acomment-action img {
-    border-radius: 0;
-    width: 20px;
-    margin-right: 5px;
-}
-
-.old-comment .acomment-action span {
-    margin-right: 20px;
-    color: #5a5a5a;
-}
-
-.old-comment .acomment-action a {
-    color: #0000ff;
-}
-
-/* --------- Footer --------- */
-.bottom center {
-    padding: 5px;
-    font-size: 0.9375em;
-    background: #a3a3a3;
-    text-align: center;
-}
-
-.bottom center span {
-    color: #020202;
-}
-
-.bottom center a {
-    color: #f12020;
-    text-decoration: none;
-}
-
-.bottom center a:hover {
-    text-decoration: underline;
-}
-
-/* Sección de Videos, Playlists, y Shorts */
-#videos, #playlists, #shorts-section {
-    margin: 50px 0;
-    padding: 0 20px;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
+/* Video sliders */
 .video-slider, .playlist-slider, .shorts-slider {
     display: flex;
     overflow-x: auto;
     gap: 20px;
+    scroll-behavior: smooth;
 }
 
 .video-item, .playlist-item, .short-item {
     border-radius: 10px;
     overflow: hidden;
-}
-
-.video-item, .playlist-item {
-    flex: 0 0 300px; /* Ancho fijo para videos y playlists */
-    height: 200px; /* Altura fija para videos y playlists */
+    flex: 0 0 300px;
+    height: 200px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 10px;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
+    object-fit: cover;
 }
 
-/* Ocultar barras de scroll en navegadores modernos */
-.video-slider::-webkit-scrollbar, .playlist-slider::-webkit-scrollbar, .shorts-slider::-webkit-scrollbar, #shorts-section::-webkit-scrollbar {
-    display: none;
-}
-
-.video-slider, .playlist-slider, .shorts-slider, #shorts-section {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* Estilo para la sección de shorts */
 #shorts-section {
-    margin: 0; /* Elimina márgenes externos */
-    padding: 0; /* Elimina padding interno si es necesario */
-    overflow: hidden; /* Evita desbordamientos */
-}
-
-.shorts-slider {
-    display: flex;
-    overflow-x: auto; /* Permite desplazamiento horizontal */
-    scroll-behavior: smooth; /* Suaviza el desplazamiento */
-    gap: 10px; /* Espacio entre items */
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
-}
-
-.short-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 300px; /* Ancho fijo para los shorts */
-    height: 500px; /* Altura fija para los shorts */
-    margin-right: 10px; /* Espacio entre los shorts */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta desbordamientos */
-}
-
-.short-item iframe {
-    width: 100%; /* El iframe ocupa el ancho del contenedor */
-    height: 100%; /* El iframe ocupa la altura del contenedor */
-    border: none;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
-}
-
-/* Ocultar barras de scroll en navegadores modernos */
-#shorts-section::-webkit-scrollbar {
-    display: none;
-}
-#shorts-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
-/* Estilo para cada item de shorts */
-.short-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 300px; /* Ancho fijo para los shorts */
-    height: 500px; /* Altura fija para los shorts */
-    margin-right: 10px; /* Espacio entre los shorts */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta desbordamientos */
-    display: flex; /* Asegura que el contenido interno se ajuste */
-}
-
-/* Ajustar el iframe dentro de los shorts */
-.short-item iframe {
-    width: 100%; /* El iframe ocupa el ancho del contenedor */
-    height: 100%; /* El iframe ocupa la altura del contenedor */
-    border: none;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
-}
-
-/* Ocultar barras de scroll en navegadores modernos */
-#shorts-section::-webkit-scrollbar {
-    display: none;
-}
-#shorts-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Media Queries para mejorar la responsividad */
-
-/* Para pantallas medianas (tablets) */
-@media (max-width: 768px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
-    .short-item {
-        width: 250px; /* Ajustar ancho */
-        height: 400px; /* Ajustar altura */
-    }
-}
-
-/* Para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
-    .short-item {
-        width: 200px; /* Ajustar ancho */
-        height: 350px; /* Ajustar altura */
-    }
-}
-/* Estilo para la sección de patrocinadores */
-#sponsors-section {
-    overflow: hidden; /* Oculta el contenido que desborda */
-    position: relative;
-    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
-    height: 150px; /* Ajusta la altura según sea necesario */
-    background-color: #f1f1f1; /* Color de fondo (ajustar según diseño) */
-    padding: 10px 0; /* Espaciado vertical */
-}
-
-.sponsors-slider {
-    display: flex;
-    flex-wrap: nowrap; /* Evita el salto de línea entre los elementos */
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    white-space: nowrap; /* Evita el salto de línea entre los elementos */
-    scroll-behavior: smooth; /* Suaviza el desplazamiento */
-    height: 100%;
-    align-items: center;
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
-}
-
-.sponsor-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 150px; /* Ajusta el ancho de los logos */
-    height: 100%; /* Ajusta la altura del contenedor */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px; /* Espacio entre los logos */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-}
-
-.sponsor-item img {
-    max-width: 100%; /* Asegura que el logo se ajuste al ancho del contenedor */
-    max-height: 100%; /* Asegura que el logo se ajuste a la altura del contenedor */
-    object-fit: contain; /* Mantiene la proporción del logo */
-}
-
-/* Ocultar barras de scroll en navegadores modernos */
-#sponsors-section::-webkit-scrollbar {
-    display: none;
-}
-#sponsors-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Estilo para la sección de patrocinadores */
-#sponsors-section {
-    margin: 0; /* Elimina márgenes externos */
-    padding: 0; /* Elimina padding interno si es necesario */
     overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 150px;
     background-color: #f1f1f1;
 }
 
-/* Estilo para el slider de patrocinadores */
 .sponsors-slider {
     display: flex;
-    flex-wrap: nowrap;
     overflow-x: auto;
-    white-space: nowrap;
+    gap: 20px;
     scroll-behavior: smooth;
-    align-items: center;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
 }
 
-/* Estilo para los elementos de patrocinadores */
-.sponsor-item {
-    flex: 0 0 auto;
-    width: 150px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    scroll-snap-align: start;
-}
-
-/* Ajuste para las imágenes dentro de patrocinadores */
 .sponsor-item img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
-/* Ocultar barras de scroll */
-#sponsors-section::-webkit-scrollbar {
-    display: none;
-}
-#sponsors-section {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-}
-
-/* Estilo para cada item de shorts */
-.short-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 300px; /* Ancho fijo para los shorts */
-    height: 500px; /* Altura fija para los shorts */
-    margin-right: 10px; /* Espacio entre los shorts */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta desbordamientos */
-    display: flex; /* Asegura que el contenido interno se ajuste */
+/* Media Queries */
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
-/* Ajustar el iframe dentro de los shorts */
-.short-item iframe {
-    width: 100%; /* El iframe ocupa el ancho del contenedor */
-    height: 100%; /* El iframe ocupa la altura del contenedor */
-    border: none;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
-}
-
-/* Ocultar barras de scroll en navegadores modernos */
-#shorts-section::-webkit-scrollbar {
-    display: none;
-}
-#shorts-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Media Queries para mejorar la responsividad */
-
-/* Para pantallas medianas (tablets) */
 @media (max-width: 768px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
     .short-item {
-        width: 250px; /* Ajustar ancho */
-        height: 400px; /* Ajustar altura */
+        width: 250px;
+        height: 400px;
     }
 }
 
-/* Para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
     .short-item {
-        width: 200px; /* Ajustar ancho */
-        height: 350px; /* Ajustar altura */
+        width: 200px;
+        height: 350px;
     }
-}
-/* Estilo para la sección de patrocinadores */
-#sponsors-section {
-    overflow: hidden; /* Oculta el contenido que desborda */
-    position: relative;
-    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
-    height: 150px; /* Ajusta la altura según sea necesario */
-    background-color: #f1f1f1; /* Color de fondo (ajustar según diseño) */
-    padding: 10px 0; /* Espaciado vertical */
-}
-
-.sponsors-slider {
-    display: flex;
-    flex-wrap: nowrap; /* Evita el salto de línea entre los elementos */
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    white-space: nowrap; /* Evita el salto de línea entre los elementos */
-    scroll-behavior: smooth; /* Suaviza el desplazamiento */
-    height: 100%;
-    align-items: center;
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
-}
-
-.sponsor-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 150px; /* Ajusta el ancho de los logos */
-    height: 100%; /* Ajusta la altura del contenedor */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px; /* Espacio entre los logos */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-}
-
-.sponsor-item img {
-    max-width: 100%; /* Asegura que el logo se ajuste al ancho del contenedor */
-    max-height: 100%; /* Asegura que el logo se ajuste a la altura del contenedor */
-    object-fit: contain; /* Mantiene la proporción del logo */
-}
-
-/* Ocultar barras de scroll en navegadores modernos */
-#sponsors-section::-webkit-scrollbar {
-    display: none;
-}
-#sponsors-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
 }
