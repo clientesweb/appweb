@@ -9,71 +9,95 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
- <div class="background-container">
-
-    <nav class="flex-div">
-        <div class="nav-left flex-div">
-            <img src="images/menu.png" class="menu-icon">
-            <img src="images/logi.svg" class="logo">
-        </div>
-        <div class="nav-middle flex-div">
-            <div class="search-box flex-div">
-                <input type="text" placeholder="Bienvenidos a nuestra web">
-                <img src="images/search.png">
+    <div class="background-container">
+        <!-- Barra de Navegación -->
+        <nav class="flex-div">
+            <div class="nav-left flex-div">
+                <img src="images/menu.png" class="menu-icon">
+                <img src="images/logi.svg" class="logo">
             </div>
-            <img src="" class="">
-        </div>
-        <div class="nav-right flex-div">
-            <img src="">
-            <img src="">
-            <img src="">
-            <img src="Project-images/logi.png" class="">
-        </div>
-    </nav>
-
-    <!-- -------- Main ------- -->
-
-    <div class="main-container">
-        <div class="banner">
-            <img src="CaféClub TV_20240910_221458_0000.png">
-        </div>
-
-        <!-- Sección de Playlists -->
-        <section id="playlists">
-            <div class="playlist-slider">
-                <div class="playlist-item">
-                    <iframe src="https://www.youtube.com/embed/videoseries?si=n8cwAHaioiRo8OgZ&amp;list=PLZ_v3bWMqpjGGJD55fn6RP4lNo1sZZSEP" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="nav-middle flex-div">
+                <div class="search-box flex-div">
+                    <input type="text" placeholder="Bienvenidos a nuestra web">
+                    <img src="images/search.png">
                 </div>
-                <div class="playlist-item">
-                    <iframe src="https://www.youtube.com/embed/_NxhJmKeVaE?si=49Ov9ldBitxkcrPr" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-                <div class="playlist-item">
-                    <iframe src="https://www.youtube.com/embed/videoseries?si=pmQefftWSLyJfMSG&amp;list=PLZ_v3bWMqpjHvBO7wczNKcgePJ3lOR8ZB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
+                <img src="" class="mic-icon">
             </div>
-        </section>
-        <!-- Sección de Shorts -->
-        <section id="shorts-section">
-            <!-- Los Shorts se cargarán aquí dinámicamente -->
-        </section>
-         <!-- Sección de Patrocinadores -->
-<section id="sponsors-section">
-    <div class="sponsors-slider">
-        <!-- Añade tus logos de patrocinadores aquí -->
-        <div class="sponsor-item"><img src="logo1.png" alt="Sponsor 1"></div>
-        <div class="sponsor-item"><img src="logo2.png" alt="Sponsor 2"></div>
-        <div class="sponsor-item"><img src="logo3.png" alt="Sponsor 3"></div>
-        <div class="sponsor-item"><img src="logo4.png" alt="Sponsor 4"></div>
-        <!-- Repite los elementos para infinito efecto -->
-    </div>
-</section>
+            <div class="nav-right flex-div">
+                <img src="" class="upload-icon">
+                <img src="" class="more-icon">
+                <img src="" class="notification-icon">
+                <img src="Project-images/logi.png" class="user-icon">
+            </div>
+        </nav>
 
-    <!-- ---------- Footer ------------ -->
-    <div class="bottom">
-        <center>
-            <span class="credit">Powered By <a href="https://dualitydomain.github.io/Dualitydomain/">Duality Domain</a> | </span>
-            <span class="far fa-copyright"></span><span> 2021 All rights reserved.</span>
-        </center>
+        <!-- Barra Lateral -->
+        <div class="sidebar">
+            <div class="shortcut-links">
+                <a href=""><img src="images/home.png"><p>Home</p></a>
+                <a href=""><img src="images/explore.png"><p>Explore</p></a>
+                <a href=""><img src="images/subscription.png"><p>Subscription</p></a>
+                <a href=""><img src="images/library.png"><p>Library</p></a>
+                <a href=""><img src="images/history.png"><p>History</p></a>
+                <a href=""><img src="images/playlist.png"><p>Playlist</p></a>
+                <a href=""><img src="images/messages.png"><p>Messages</p></a>
+                <a href=""><img src="images/show-more.png"><p>Show More</p></a>
+                <hr>
+            </div>
+            <div class="subscribed-list">
+                <h3>SUBSCRIBED</h3>
+                <a href=""><img src="project-images/harry.png"><p>Harry</p></a>
+                <a href=""><img src="Project-images/vijay.png"><p>Vijay</p></a>
+                <a href=""><img src="Project-images/sundar.png"><p>Sundar</p></a>
+                <a href=""><img src="Project-images/ironman.png"><p>IronMan</p></a>
+                <a href=""><img src="Project-images/Mark.png"><p>Zuckerberg</p></a>
+            </div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="main-container">
+            <div class="banner">
+                <img src="CaféClub TV_20240910_221458_0000.png">
+            </div>
+
+            <!-- Sección de Playlists -->
+            <section id="playlists">
+                <div class="playlist-slider">
+                    <div class="playlist-item">
+                        <iframe src="https://www.youtube.com/embed/videoseries?si=n8cwAHaioiRo8OgZ&amp;list=PLZ_v3bWMqpjGGJD55fn6RP4lNo1sZZSEP" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="playlist-item">
+                        <iframe src="https://www.youtube.com/embed/_NxhJmKeVaE?si=49Ov9ldBitxkcrPr" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="playlist-item">
+                        <iframe src="https://www.youtube.com/embed/videoseries?si=pmQefftWSLyJfMSG&amp;list=PLZ_v3bWMqpjHvBO7wczNKcgePJ3lOR8ZB" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Shorts -->
+            <section id="shorts-section">
+                <!-- Los Shorts se cargarán aquí dinámicamente -->
+            </section>
+
+            <!-- Sección de Patrocinadores -->
+            <section id="sponsors-section">
+                <div class="sponsors-slider">
+                    <div class="sponsor-item"><img src="logo1.png" alt="Sponsor 1"></div>
+                    <div class="sponsor-item"><img src="logo2.png" alt="Sponsor 2"></div>
+                    <div class="sponsor-item"><img src="logo3.png" alt="Sponsor 3"></div>
+                    <div class="sponsor-item"><img src="logo4.png" alt="Sponsor 4"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="bottom">
+            <center>
+                <span class="credit">Powered By <a href="https://dualitydomain.github.io/Dualitydomain/">Duality Domain</a> | </span>
+                <span class="far fa-copyright"></span><span> 2021 All rights reserved.</span>
+            </center>
+        </div>
     </div>
     
     <script src="script.js"></script>
