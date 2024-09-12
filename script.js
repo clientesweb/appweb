@@ -1,7 +1,12 @@
-var menuIcon = document.querySelector(".menu-icon");
-var sidebar = document.querySelector(".sidebar");
-var container = document.querySelector(".container");
+document.addEventListener('DOMContentLoaded', function() {
+    var menuIcon = document.querySelector('.menu-icon');
+    var sidebar = document.querySelector('.sidebar');
 
+    // Al hacer clic en el icono del menú, mostrar/ocultar la barra lateral
+    menuIcon.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
+    });
+});
 // -------- Function -------- 
 
 var menuIcon = document.querySelector(".menu-icon");
