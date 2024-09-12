@@ -97,10 +97,10 @@ nav {
 /* Para pantallas menores a 768px */
 @media (max-width: 768px) {
     .sidebar {
-        width: 200px; /* Ajustar el ancho de la barra lateral */
-        transform: translateX(-100%); /* Mover fuera de pantalla inicialmente */
+        width: 250px;
+        transform: translateX(0); /* Hacer visible siempre en móviles para la prueba */
     }
-
+}
     .sidebar.show {
         transform: translateX(0); /* Mostrar la barra lateral al activarse */
     }
