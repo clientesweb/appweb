@@ -604,7 +604,7 @@ nav {
 .slick-list {
     overflow: hidden;
     position: relative;
-    height: 100vh; /* Ajusta la altura del contenedor del slider */
+    height: 80vh; /* Ajusta la altura del contenedor del slider */
 }
 
 .slick-track {
@@ -625,11 +625,12 @@ nav {
     justify-content: center;
     align-items: center;
     height: 100%; /* Ajusta la altura del contenido del slider */
-    width: 100%; /* Ajusta el ancho del contenido del slider */
+    max-width: 80vw; /* Limita el ancho del contenido del slider */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
 }
 
 iframe {
     width: 100%; /* Ajusta el ancho del iframe al 100% del contenedor */
-    height: 100%; /* Ajusta la altura del iframe al 100% del contenedor */
+    height: 80vh; /* Ajusta la altura del iframe al 80% del contenedor */
     object-fit: cover; /* Asegura que el contenido del iframe cubra el contenedor */
 }
