@@ -12,16 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mainContainer.classList.toggle("expanded");
     }
 });
-document.addEventListener('DOMContentLoaded', function() {
-    var menuIcon = document.querySelector(".menu-icon");
-    var sidebar = document.querySelector(".sidebar");
-    var mainContainer = document.querySelector(".main-container");
-
-    menuIcon.onclick = function() {
-        sidebar.classList.toggle("open");
-        mainContainer.classList.toggle("expanded");
-    }
-});
 
  document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
