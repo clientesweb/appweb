@@ -764,3 +764,53 @@ iframe {
     -ms-overflow-style: none; /* IE y Edge */
     scrollbar-width: none; /* Firefox */
 }
+/* General styles for the navigation bar */
+.flex-div {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the navigation bar */
+nav {
+    background-color: #333;
+    padding: 10px;
+    color: white;
+}
+
+.nav-left, .nav-middle, .nav-right {
+    flex: 1;
+}
+
+/* Styling for images in navigation */
+.menu-icon, .logo, .nav-right img {
+    height: 40px;
+}
+
+/* Styling for the search box */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.search-box img {
+    height: 20px;
+}
+
+/* Responsive design for navigation bar */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-left, .nav-middle, .nav-right {
+        flex: none;
+        margin-bottom: 10px;
+    }
+}
