@@ -1,20 +1,16 @@
-var menuIcon = document.querySelector(".menu-icon");
-var sidebar = document.querySelector(".sidebar");
-var container = document.querySelector(".container");
-
-// -------- Function -------- 
-
+// Seleccionar elementos
 var menuIcon = document.querySelector(".menu-icon");
 var sidebar = document.querySelector(".sidebar");
 var mainContainer = document.querySelector(".container");
 
-// -------- Function -------- 
-menuIcon.onclick = function(){
+// Función para alternar el tamaño de la barra lateral
+menuIcon.onclick = function() {
     sidebar.classList.toggle("small-sidebar");
     mainContainer.classList.toggle("large-container");
 }
 
- document.addEventListener('DOMContentLoaded', () => {
+// Función para inicializar la carga de shorts
+document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
     const shortsIds = [
         '5Ia0gTq0kq8',
@@ -41,7 +37,7 @@ menuIcon.onclick = function(){
         return shortItem;
     }
 
-    // Cargar Shorts
+    // Cargar Shorts iniciales
     shortsIds.forEach(id => {
         const shortElement = createShortElement(id);
         shortsSection.appendChild(shortElement);
@@ -52,10 +48,11 @@ menuIcon.onclick = function(){
         if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
             // Cargar más Shorts cuando el usuario se acerca al final
             const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
-            if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
+            const existingShorts = Array.from(shortsSection.children).map(child => child.innerHTML);
+            if (!existingShorts.some(content => content.includes(randomId))) {
                 const newShort = createShortElement(randomId);
                 shortsSection.appendChild(newShort);
             }
         }
     });
-}); 
+});
