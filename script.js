@@ -59,3 +59,33 @@ menuIcon.onclick = function(){
         }
     });
 }); 
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.sponsors-slider');
+    const items = slider.children;
+    const totalItems = items.length;
+    const itemWidth = items[0].offsetWidth;
+
+    // Clonar los primeros elementos para el efecto infinito
+    for (let i = 0; i < totalItems; i++) {
+        const clone = items[i].cloneNode(true);
+        slider.appendChild(clone);
+    }
+
+    let currentIndex = 0;
+    const slideToNext = () => {
+        currentIndex++;
+        if (currentIndex >= totalItems) {
+            currentIndex = 0;
+            slider.style.transition = 'none';
+            slider.style.transform = `translateX(0px)`;
+            setTimeout(() => {
+                slider.style.transition = 'transform 0.5s ease';
+            }, 20);
+        } else {
+            slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    };
+
+    // Cambiar el slide cada 3 segundos
+    setInterval(slideToNext, 3000);
+});
