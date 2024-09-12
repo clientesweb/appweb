@@ -2,17 +2,16 @@ var menuIcon = document.querySelector(".menu-icon");
 var sidebar = document.querySelector(".sidebar");
 var container = document.querySelector(".container");
 
-// -------- Function -------- 
+document.addEventListener('DOMContentLoaded', function() {
+    var menuIcon = document.querySelector(".menu-icon");
+    var sidebar = document.querySelector(".sidebar");
+    var mainContainer = document.querySelector(".main-container");
 
-var menuIcon = document.querySelector(".menu-icon");
-var sidebar = document.querySelector(".sidebar");
-var mainContainer = document.querySelector(".container");
-
-// -------- Function -------- 
-menuIcon.onclick = function(){
-    sidebar.classList.toggle("small-sidebar");
-    mainContainer.classList.toggle("large-container");
-}
+    menuIcon.onclick = function() {
+        sidebar.classList.toggle("small-sidebar");
+        mainContainer.classList.toggle("expanded");
+    }
+});
 
  document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
