@@ -81,7 +81,7 @@ nav {
     position: fixed;
     top: 0;
     left: -250px; /* Fuera de la pantalla inicialmente */
-    transition: left 0.3s ease;
+    transition: none;
     z-index: 1000;
 }
 
