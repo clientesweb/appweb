@@ -639,3 +639,38 @@ nav {
     height: 100%;
     object-fit: cover; /* Asegura que el contenido del iframe cubra el área del contenedor */
 }
+/* Agrega estilos para el menú, banners y sliders aquí */
+.menu-icon {
+    /* Estilos para el icono del menú */
+}
+
+.logo {
+    /* Estilos para el logo */
+}
+
+.search-box {
+    /* Estilos para la caja de búsqueda */
+}
+
+.profile-icon {
+    /* Estilos para el icono del perfil */
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.playlist-slider, .slick-slider {
+    /* Estilos para los sliders */
+}
+
+.slick-item iframe {
+    width: 100%;
+    height: auto;
+}
+
+.bottom {
+    text-align: center;
+    padding: 10px;
+}
