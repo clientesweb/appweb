@@ -516,17 +516,19 @@ body {
 #shorts-section {
     display: flex;
     overflow-x: auto; /* Desplazamiento horizontal */
-    scroll-snap-type: x mandatory; /* Para hacer que se alinee con los elementos */
+    scroll-snap-type: x mandatory; /* Alineación con los elementos */
     -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
     padding: 10px 0; /* Espacio arriba y abajo */
-    height: 90vh; /* Ajustar altura al 90% de la ventana */
+    height: 100vh; /* Altura completa de la ventana */
+    scroll-snap-type: x mandatory;
 }
 
 .short-item {
     flex: 0 0 auto; /* Para que los elementos no se estiren */
-    width: 80vw; /* Ancho ajustado a un porcentaje del viewport */
+    width: 90vw; /* Ancho ajustado a un porcentaje del viewport */
+    height: 160vh; /* Ajustar altura al 160% de la ventana */
     max-width: 400px; /* Ancho máximo para pantallas grandes */
-    height: 80vh; /* Ajustar altura al 80% de la ventana */
+    max-height: 711px; /* Altura máxima basada en una relación de 9:16 */
     margin-right: 10px; /* Espacio entre los shorts */
     scroll-snap-align: start; /* Alinear el inicio del elemento */
     border-radius: 10px; /* Bordes redondeados para una apariencia uniforme */
@@ -546,6 +548,29 @@ body {
 #shorts-section {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+/* Media Queries para mejor responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #shorts-section {
+        height: 80vh; /* Ajustar altura */
+        padding: 10px 0; /* Ajustar el padding */
+    }
+
+    .short-item {
+        width: 90vw; /* Ancho más grande en pantallas pequeñas */
+        height: 160vh; /* Mantener la relación de aspecto */
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .short-item {
+        width: 95vw; /* Ancho casi completo en móviles */
+        height: 160vh; /* Mantener la relación de aspecto */
+    }
 }
 
 /* Media Queries para mejor responsividad */
