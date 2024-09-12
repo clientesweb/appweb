@@ -504,6 +504,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .container {
@@ -520,7 +521,7 @@ body {
     -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
     padding: 10px 0; /* Espacio arriba y abajo */
     height: 100vh; /* Altura completa de la ventana */
-    scroll-snap-type: x mandatory;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para destacar los shorts */
 }
 
 .short-item {
@@ -561,29 +562,6 @@ body {
 
     .short-item {
         width: 90vw; /* Ancho más grande en pantallas pequeñas */
-        height: 160vh; /* Mantener la relación de aspecto */
-    }
-}
-
-/* Para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    .short-item {
-        width: 95vw; /* Ancho casi completo en móviles */
-        height: 160vh; /* Mantener la relación de aspecto */
-    }
-}
-
-/* Media Queries para mejor responsividad */
-
-/* Para pantallas medianas (tablets) */
-@media (max-width: 768px) {
-    #shorts-section {
-        height: 80vh; /* Ajustar altura */
-        padding: 10px 0; /* Ajustar el padding */
-    }
-
-    .short-item {
-        width: 90vw; /* Ancho más grande en pantallas pequeñas */
         height: 70vh; /* Ajustar altura */
     }
 }
@@ -595,13 +573,8 @@ body {
         height: 60vh; /* Ajustar altura */
     }
 }
-/* Aplica el fondo a toda la página */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
 
+/* Aplica el fondo a toda la página */
 .background-container {
     background-image: url('Caf.jpg'); /* Reemplaza con la ruta a tu imagen de fondo */
     background-size: cover;
@@ -642,21 +615,4 @@ nav {
 /* Estilo para los iframes de playlists */
 .playlist-item {
     margin: 10px;
-}
-
-/* Estilo para la sección de shorts */
-#shorts-section {
-    margin: 20px 0;
-}
-
-@media (max-width: 768px) {
-    .background-container {
-        background-image: url('Caf.jpg'); /* Imagen optimizada para móviles */
-    }
-}
-
-@media (min-width: 769px) {
-    .background-container {
-        background-image: url('Caf.jpg'); /* Imagen optimizada para pantallas grandes */
-    }
 }
