@@ -94,15 +94,31 @@ nav {
     z-index: 1001; /* Para asegurarse de que el ícono de menú esté sobre otros elementos */
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Para pantallas menores a 768px */
 @media (max-width: 768px) {
     .sidebar {
-        width: 80%; /* Más estrecho en pantallas pequeñas */
-        left: -80%; /* Fuera de pantalla inicialmente */
+        width: 200px; /* Ajustar el ancho de la barra lateral */
+        transform: translateX(-100%); /* Mover fuera de pantalla inicialmente */
     }
 
     .sidebar.show {
-        left: 0; /* Mostrar la barra lateral cuando se activa en pantallas pequeñas */
+        transform: translateX(0); /* Mostrar la barra lateral al activarse */
+    }
+
+    .menu-icon {
+        display: block; /* Mostrar el ícono del menú en dispositivos móviles */
+    }
+}
+
+/* Para pantallas menores a 480px */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
     }
 }
 
