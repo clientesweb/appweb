@@ -523,6 +523,8 @@ iframe {
     margin: 0; /* Elimina el margen alrededor del contenedor */
     height: 100vh; /* Altura completa de la ventana */
     box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho y alto */
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    display: flex; /* Asegura que los elementos se alineen horizontalmente */
 }
 
 /* Estilo para cada item de shorts */
@@ -530,8 +532,7 @@ iframe {
     flex: 0 0 auto; /* Los elementos no se estiran */
     width: 300px; /* Ancho fijo para los shorts */
     height: 500px; /* Altura fija para los shorts, en proporción vertical */
-    margin-right: 0; /* Elimina el margen derecho */
-    margin-left: 0; /* Elimina el margen izquierdo */
+    margin: 0; /* Elimina el margen entre los shorts */
     scroll-snap-align: start; /* Alinea el inicio del elemento */
     border-radius: 10px; /* Bordes redondeados */
     overflow: hidden; /* Oculta desbordamientos */
