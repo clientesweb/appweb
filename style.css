@@ -604,30 +604,28 @@ nav {
 .slick-list {
     overflow: hidden;
     position: relative;
-    height: auto; /* Ajusta la altura según el contenido de los shorts */
+    height: 100vh; /* Ajusta la altura del contenedor del slider */
 }
 
 .slick-track {
     display: flex;
-    flex-direction: row; /* Mantén el desplazamiento horizontal */
-}
-
-.slick-item {
-    width: 100%; /* Ajusta el ancho para que el contenido ocupe todo el espacio */
-    height: auto; /* Ajusta la altura según el contenido */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Desplazamiento vertical */
+    height: 100%;
 }
 
 .slick-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Asegura que las slides llenen el contenedor */
+    height: 100%; /* Asegura que cada slide llene el contenedor verticalmente */
+}
+
+.slick-item {
+    height: 100%; /* Ajusta la altura de cada item del slider */
 }
 
 iframe {
     width: 100%; /* Ajusta el ancho del iframe al 100% del contenedor */
-    height: auto; /* Ajusta la altura del iframe automáticamente */
+    height: 100%; /* Ajusta la altura del iframe al 100% del contenedor */
+    object-fit: cover; /* Asegura que el contenido del iframe cubra el contenedor */
 }
