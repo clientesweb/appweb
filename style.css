@@ -521,7 +521,6 @@ body {
     -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
     padding: 10px 0; /* Espacio arriba y abajo */
     height: 100vh; /* Altura completa de la ventana */
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para destacar los shorts */
 }
 
 /* Estilo para cada item de shorts */
