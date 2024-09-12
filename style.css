@@ -518,23 +518,25 @@ body {
     overflow-x: auto; /* Desplazamiento horizontal */
     scroll-snap-type: x mandatory; /* Para hacer que se alinee con los elementos */
     -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
-    height: 100vh; /* Ajustar altura al 100% de la ventana */
-    padding: 20px 0; /* Espacio arriba y abajo */
+    padding: 10px 0; /* Espacio arriba y abajo */
+    height: 90vh; /* Ajustar altura al 90% de la ventana */
 }
 
 .short-item {
     flex: 0 0 auto; /* Para que los elementos no se estiren */
-    width: 100vw; /* Ancho completo de la ventana */
-    height: 90vh; /* Altura vertical de la ventana (ajustar si es necesario) */
+    width: 80vw; /* Ancho ajustado a un porcentaje del viewport */
+    max-width: 400px; /* Ancho máximo para pantallas grandes */
+    height: 80vh; /* Ajustar altura al 80% de la ventana */
     margin-right: 10px; /* Espacio entre los shorts */
     scroll-snap-align: start; /* Alinear el inicio del elemento */
+    border-radius: 10px; /* Bordes redondeados para una apariencia uniforme */
 }
 
+/* Ajustar el iframe dentro de los shorts */
 .short-item iframe {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 10px; /* Bordes redondeados para una apariencia uniforme */
 }
 
 /* Ocultar barras de scroll en navegadores modernos */
@@ -544,6 +546,29 @@ body {
 #shorts-section {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+/* Media Queries para mejor responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #shorts-section {
+        height: 80vh; /* Ajustar altura */
+        padding: 10px 0; /* Ajustar el padding */
+    }
+
+    .short-item {
+        width: 90vw; /* Ancho más grande en pantallas pequeñas */
+        height: 70vh; /* Ajustar altura */
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .short-item {
+        width: 95vw; /* Ancho casi completo en móviles */
+        height: 60vh; /* Ajustar altura */
+    }
 }
 /* Aplica el fondo a toda la página */
 body {
