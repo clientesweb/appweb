@@ -864,7 +864,7 @@ iframe {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, #333, #555); /* Fondo con gradiente */
+    background: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
     color: #fff;
     display: flex;
     justify-content: space-around;
