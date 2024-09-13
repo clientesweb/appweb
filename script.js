@@ -76,3 +76,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambiar el slide cada 3 segundos
     setInterval(slideToNext, 3000);
 });
+document.addEventListener("DOMContentLoaded", function() {
+    var preloaderVideo = document.getElementById('preloader-video');
+    var preloader = document.getElementById('preloader');
+
+    preloaderVideo.onended = function() {
+        preloader.style.display = 'none'; // Oculta el preloader cuando el video termina
+    };
+});
