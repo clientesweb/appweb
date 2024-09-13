@@ -772,6 +772,7 @@ iframe {
     -ms-overflow-style: none; /* IE y Edge */
     scrollbar-width: none; /* Firefox */
 }
+
 /* Estilos para el botón de WhatsApp flotante */
 .whatsapp-button {
     position: fixed;
@@ -799,6 +800,7 @@ iframe {
 .whatsapp-button i {
     margin: 0;
 }
+
 /* Preloader */
 #preloader {
     position: fixed;
