@@ -78,6 +78,76 @@ nav {
     transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
+/* Estilos para el encabezado y navegación */
+header {
+    background-color: #d4d4d4; /* Plomo suave */
+    color: #333; /* Texto oscuro para contraste */
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    transition: transform 0.3s ease; /* Transición suave para el logo */
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle .bar {
+    background-color: #333; /* Color de las barras del menú */
+    height: 3px;
+    width: 25px;
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: background-color 0.3s ease; /* Transición suave para el color de las barras */
+}
+
+.menu-toggle:hover .bar {
+    background-color: #555; /* Cambio de color en el hover del menú */
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+    position: relative; /* Posicionamiento relativo para los elementos secundarios */
+}
+
+.nav-menu a {
+    color: #333; /* Color del texto de los enlaces */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para color y transformación */
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #FFDD00; /* Color al pasar el ratón o al estar activo */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+}
+
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
     .nav-menu {
@@ -85,7 +155,7 @@ nav {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #FF0000; /* Rojo YouTube */
+        background-color: #d4d4d4; /* Plomo suave */
         width: 100%;
         flex-direction: column;
         align-items: center;
