@@ -82,10 +82,6 @@ window.addEventListener('load', function() {
     var preloaderVideo = document.getElementById('preloader-video');
     var mainContent = document.getElementById('main-content');
 
-    // Carga y reproduce el video solo después de que el DOM esté completamente cargado
-    preloaderVideo.setAttribute('autoplay', true); // Activa autoplay dinámicamente
-    preloaderVideo.load(); // Carga el video
-
     // Oculta el preloader después de que termine el video
     preloaderVideo.onended = function() {
         preloader.style.display = 'none';  // Oculta el preloader
