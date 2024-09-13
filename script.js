@@ -76,3 +76,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambiar el slide cada 3 segundos
     setInterval(slideToNext, 3000);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    const carouselImages = document.querySelector('.carousel-images');
+    let index = 0;
+    const imageCount = document.querySelectorAll('.carousel-images img').length;
+
+    function updateCarousel() {
+        const offset = -index * 100;
+        carouselImages.style.transform = `translateX(${offset}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        index = (index > 0) ? index - 1 : imageCount - 1;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+        index = (index < imageCount - 1) ? index + 1 : 0;
+        updateCarousel();
+    });
+
+    // Optional: Auto-slide every 5 seconds
+    setInterval(() => {
+        nextButton.click();
+    }, 5000);
+});
