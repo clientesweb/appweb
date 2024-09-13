@@ -89,10 +89,11 @@ window.addEventListener('load', function() {
     };
 });
 document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.banner-slider');
-    const prevButton = document.querySelector('.banner-button.prev');
-    const nextButton = document.querySelector('.banner-button.next');
+    const slider = document.querySelector('.slider'); // Asegúrate de que este selector coincida con tu HTML
+    const prevButton = document.querySelector('.prev'); // Asegúrate de que este selector coincida con tu HTML
+    const nextButton = document.querySelector('.next'); // Asegúrate de que este selector coincida con tu HTML
     let index = 0;
+    let interval;
 
     function showSlide(n) {
         const slides = slider.children;
@@ -101,19 +102,30 @@ document.addEventListener('DOMContentLoaded', function () {
         slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
+    function startAutoSlide() {
+        interval = setInterval(function () {
+            index++;
+            showSlide(index);
+        }, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
     nextButton.addEventListener('click', function () {
         index++;
         showSlide(index);
+        stopAutoSlide(); // Stop auto-slide on manual interaction
+        startAutoSlide(); // Restart auto-slide after manual interaction
     });
 
     prevButton.addEventListener('click', function () {
         index--;
         showSlide(index);
+        stopAutoSlide(); // Stop auto-slide on manual interaction
+        startAutoSlide(); // Restart auto-slide after manual interaction
     });
 
-    // Optional: Auto-slide every 3 seconds
-    setInterval(function () {
-        index++;
-        showSlide(index);
-    }, 3000);
+    startAutoSlide(); // Start auto-slide on page load
 });
