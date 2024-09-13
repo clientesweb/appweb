@@ -46,17 +46,18 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
         }
     });
 }); 
+
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.sponsors-slider');
-    const items = slider.children;
+    const items = Array.from(slider.children);
     const totalItems = items.length;
     const itemWidth = items[0].offsetWidth;
 
     // Clonar los primeros elementos para el efecto infinito
-    for (let i = 0; i < totalItems; i++) {
-        const clone = items[i].cloneNode(true);
+    items.forEach(item => {
+        const clone = item.cloneNode(true);
         slider.appendChild(clone);
-    }
+    });
 
     let currentIndex = 0;
     const slideToNext = () => {
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambiar el slide cada 3 segundos
     setInterval(slideToNext, 3000);
 });
+
 // Ocultar el preloader una vez que el video termine
 window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
