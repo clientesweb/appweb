@@ -101,12 +101,43 @@ nav {
 }
 
 .banner {
+    position: relative;
     width: 100%;
+    overflow: hidden; /* Oculta las imágenes que se salen del contenedor */
+    border-radius: 8px;
 }
 
-.banner img {
+.banner-slider {
+    display: flex; /* Muestra las imágenes en una fila horizontal */
+    transition: transform 0.5s ease-in-out; /* Transición suave para el cambio de imágenes */
+}
+
+.banner-slider img {
     width: 100%;
     border-radius: 8px;
+}
+
+.banner-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.banner-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.banner-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .list-container {
