@@ -76,8 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cambiar el slide cada 3 segundos
     setInterval(slideToNext, 3000);
 });
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('preloader-video');
-    video.setAttribute('autoplay', true); // Activa autoplay dinámicamente
-    video.load(); // Carga el video una vez que la página esté lista
+// Ocultar el preloader una vez que el video termine
+window.addEventListener('load', function() {
+    var preloader = document.getElementById('preloader');
+    var preloaderVideo = document.getElementById('preloader-video');
+    var mainContent = document.getElementById('main-content');
+
+    // Carga y reproduce el video solo después de que el DOM esté completamente cargado
+    preloaderVideo.setAttribute('autoplay', true); // Activa autoplay dinámicamente
+    preloaderVideo.load(); // Carga el video
+
+    // Oculta el preloader después de que termine el video
+    preloaderVideo.onended = function() {
+        preloader.style.display = 'none';  // Oculta el preloader
+        mainContent.style.display = 'block';  // Muestra el contenido principal
+    };
 });
