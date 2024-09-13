@@ -96,15 +96,20 @@ nav {
     border-radius: 8px;
 }
 
-.banner-slider {
+.slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.banner-slider img {
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
     width: 100%;
-    flex: 0 0 100%;
-    border-radius: 8px;
+    height: auto;
+    display: block;
 }
 
 .banner-button {
@@ -124,14 +129,21 @@ nav {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.banner-button.prev {
+.prev {
     left: 10px;
 }
 
-.banner-button.next {
+.next {
     right: 10px;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .banner-button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
 /* -------Play Video Page------ */
 
 .play-container {
