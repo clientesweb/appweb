@@ -440,8 +440,8 @@ nav {
 
 /* Estilos para el footer */
 footer {
-    background-color: #FF0000; /* Rojo YouTube */
-    color: #fff;
+    background-color: #d4d4d4; /* Plomo suave */
+    color: #333; /* Texto oscuro para contraste */
     padding: 2rem 1rem;
     border-top: 5px solid #FFDD00; /* Borde superior para un toque adicional */
 }
@@ -475,14 +475,14 @@ footer {
 }
 
 .social-icon {
-    color: #fff;
+    color: #333; /* Color de los iconos */
     font-size: 1.5rem;
     text-decoration: none;
     transition: color 0.3s ease; /* Transición suave para el color de los iconos */
 }
 
 .social-icon:hover {
-    color: #f4a261; /* Color al pasar el ratón sobre los iconos */
+    color: #FFDD00; /* Color al pasar el ratón sobre los iconos */
 }
 
 .links ul {
@@ -495,35 +495,35 @@ footer {
 }
 
 .links ul li a {
-    color: #fff;
+    color: #333; /* Color de los enlaces */
     text-decoration: none;
     transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
 }
 
 .links ul li a:hover {
-    color: #f4a261; /* Color al pasar el ratón sobre los enlaces */
+    color: #FFDD00; /* Color al pasar el ratón sobre los enlaces */
     text-decoration: underline;
 }
 
 .map-container {
     width: 100%;
     height: 200px;
-    background-color: #ddd;
+    background-color: #ddd; /* Color de fondo del contenedor del mapa */
     border-radius: 8px; /* Bordes redondeados para la caja del mapa */
     overflow: hidden; /* Evita el desbordamiento del contenido */
 }
 
 .footer-bottom {
-    background-color: #222;
-    color: #bbb;
+    background-color: #333; /* Color de fondo oscuro */
+    color: #bbb; /* Color de texto claro */
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
-    border-top: 1px solid #333; /* Borde superior para separar la sección */
+    border-top: 1px solid #444; /* Borde superior para separar la sección */
 }
 
 .footer-bottom a {
-    color: #f4a261;
+    color: #FFDD00; /* Color de los enlaces en la parte inferior */
     text-decoration: none;
     transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
 }
