@@ -103,6 +103,8 @@ nav {
 .banner {
     position: relative;
     width: 100%;
+    max-width: 1200px; /* Ajusta según el tamaño deseado */
+    margin: 0 auto; /* Centra el banner */
     overflow: hidden; /* Oculta las imágenes que se salen del contenedor */
     border-radius: 8px;
 }
@@ -110,10 +112,12 @@ nav {
 .banner-slider {
     display: flex; /* Muestra las imágenes en una fila horizontal */
     transition: transform 0.5s ease-in-out; /* Transición suave para el cambio de imágenes */
+    width: 100%; /* Asegura que el slider ocupe el ancho completo del contenedor */
 }
 
 .banner-slider img {
     width: 100%;
+    flex: 0 0 100%; /* Cada imagen ocupa el 100% del contenedor */
     border-radius: 8px;
 }
 
@@ -134,6 +138,7 @@ nav {
     cursor: pointer;
     border-radius: 50%;
     font-size: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .banner-button:hover {
