@@ -116,7 +116,7 @@ nav {
 .banner-button {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Asegura que el botón esté verticalmente centrado */
+    transform: translateY(-50%); /* Centra verticalmente */
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
@@ -125,7 +125,10 @@ nav {
     border-radius: 50%;
     font-size: 20px;
     transition: background-color 0.3s ease;
+    text-align: center;
+    line-height: 30px; /* Ajusta la altura del botón si es necesario */
     z-index: 10; /* Asegura que los botones estén por encima del contenido del slider */
+    text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
 .banner-button:hover {
@@ -133,11 +136,11 @@ nav {
 }
 
 .prev {
-    left: 10px; /* Ajusta según el diseño deseado */
+    left: 10px; /* Ajusta la distancia desde el borde izquierdo */
 }
 
 .next {
-    right: 10px; /* Ajusta según el diseño deseado */
+    right: 10px; /* Ajusta la distancia desde el borde derecho */
 }
 
 /* Responsive Styles */
