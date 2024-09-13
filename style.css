@@ -858,26 +858,52 @@ iframe {
 .whatsapp-button i {
     margin: 0;
 }
-<!-- Barra de navegación inferior -->
-<div class="bottom-nav">
-    <a href="#playlists" class="nav-item">
-        <i class="fas fa-home"></i>
-        <span>Inicio</span>
-    </a>
-    <a href="#features" class="nav-item">
-        <i class="fas fa-calendar-alt"></i>
-        <span>Eventos</span>
-    </a>
-    <a href="#shorts-section" class="nav-item">
-        <i class="fas fa-tags"></i>
-        <span>Ofertas</span>
-    </a>
-    <a href="#sponsors-section" class="nav-item">
-        <i class="fas fa-star"></i>
-        <span>Subscribe</span>
-    </a>
-    <a href="#cta" class="nav-item">
-        <i class="fas fa-envelope"></i>
-        <span>Contacto</span>
-    </a>
-</div>
+/* Estilos para la barra de navegación inferior */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px; /* Ajusta la altura según sea necesario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto de elevación */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.bottom-nav .nav-item {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    flex: 1;
+}
+
+.bottom-nav .nav-item i {
+    display: block;
+    font-size: 24px; /* Tamaño del icono */
+}
+
+.bottom-nav .nav-item span {
+    display: block;
+    font-size: 12px; /* Tamaño del texto */
+    margin-top: 2px; /* Espacio entre icono y texto */
+}
+
+/* Ajusta el diseño en dispositivos móviles */
+@media (max-width: 600px) {
+    .bottom-nav {
+        height: 50px;
+    }
+    
+    .bottom-nav .nav-item i {
+        font-size: 20px;
+    }
+    
+    .bottom-nav .nav-item span {
+        font-size: 10px;
+    }
+}
