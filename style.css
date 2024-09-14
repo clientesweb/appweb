@@ -540,3 +540,35 @@ iframe {
         font-size: 10px;
     }
 }
+/* Estilo para el botón de instalación */
+#install-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#install-button {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+#install-button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el cursor */
+    transform: scale(1.05); /* Efecto de aumento */
+}
+
+#install-button:active {
+    background-color: #388e3c; /* Color de fondo cuando se presiona */
+    transform: scale(0.95); /* Efecto de contracción */
+}
