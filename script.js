@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.style.width = `${totalWidth * 2}px`;
 
     let currentIndex = 0;
-    const transitionDuration = 0.8; // Duración de la transición en segundos
+    const transitionDuration = 2; // Duración de la transición en segundos (más lenta)
+    const slideInterval = 5000; // Intervalo entre slides en milisegundos (5 segundos)
+    
     slider.style.transition = `transform ${transitionDuration}s ease-in-out`;
 
     const slideToNext = () => {
@@ -81,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Cambiar el slide cada 3 segundos
-    setInterval(slideToNext, 3000);
+    // Cambiar el slide cada 5 segundos
+    setInterval(slideToNext, slideInterval);
 
     // Asegurar la experiencia táctil para dispositivos móviles
     slider.addEventListener('touchstart', (e) => {
