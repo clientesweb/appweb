@@ -6,6 +6,7 @@ self.addEventListener('install', (event) => {
         '/index.html',
         '/style.css',
         '/script.js',
+        '/loadingcafe (1).mp4', // Agrega el video de loading al caché
         '/images/Icon192x192.png',
         '/images/Icon512x512.png',
         '/images/logi.svg',
