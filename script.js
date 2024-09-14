@@ -57,20 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
         slider.appendChild(clone);
     }
 
-    // Calcular el ancho total del slider
     let itemWidth = items[0].offsetWidth;
     let totalWidth = itemWidth * totalItems;
     slider.style.width = `${totalWidth * 2}px`;
 
     let currentIndex = 0;
+    const transitionDuration = 0.8; // Duración de la transición en segundos
+    slider.style.transition = `transform ${transitionDuration}s ease-in-out`;
 
     const slideToNext = () => {
         currentIndex++;
         if (currentIndex >= totalItems) {
+            currentIndex = 0;
             slider.style.transition = 'none';
             slider.style.transform = `translateX(0px)`;
             setTimeout(() => {
-                slider.style.transition = 'transform 0.5s ease';
+                slider.style.transition = `transform ${transitionDuration}s ease-in-out`;
                 currentIndex = totalItems;
                 slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             }, 20);
