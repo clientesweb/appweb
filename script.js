@@ -249,3 +249,12 @@ function lazyLoadIframes() {
 }
 
 window.onload = loadVideos;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    window.addEventListener('load', () => {
+        // Asegúrate de que el overlay se oculta una vez que la página haya terminado de cargar
+        loadingOverlay.style.display = 'none';
+    });
+});
