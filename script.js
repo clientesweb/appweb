@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
-const MAX_RESULTS = 50; // Número de resultados a obtener por solicitud
+const MAX_RESULTS = 10; // Número de resultados a obtener por solicitud
 const CACHE_KEY = 'playlistData';
 const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
 
@@ -183,8 +183,8 @@ async function loadVideos() {
 
     // Cargar más videos si hay un token para la siguiente página
     if (nextPageToken) {
-        const loadMoreButton = document.createElement('button');
-        loadMoreButton.textContent = 'Load More Videos';
+        const loadMoreButton = document.createElement('');
+        loadMoreButton.textContent = '';
         loadMoreButton.addEventListener('click', async () => {
             loadMoreButton.disabled = true;
             const moreVideos = await fetchPlaylistItems(nextPageToken);
