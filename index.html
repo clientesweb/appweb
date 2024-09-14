@@ -7,6 +7,12 @@
     <title>Cafe Club Tv</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Manifest file -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
     <header>
@@ -49,15 +55,16 @@
 
             <!-- Sección de Playlists -->
             <section id="playlists">
-    <div class="playlist-slider" id="playlist-slider">
-        <!-- Los videos se cargarán aquí -->
-    </div>
+                <div class="playlist-slider" id="playlist-slider">
+                    <!-- Los videos se cargarán aquí -->
+                </div>
             </section>
 
             <!-- Sección de Shorts -->
             <section id="shorts-section">
                 <!-- Los Shorts se cargarán aquí dinámicamente -->
             </section>
+
             <!-- Sección de Patrocinadores -->
             <section id="sponsors-section">
                 <div class="sponsors-slider">
@@ -129,5 +136,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="service-worker.js"></script> <!-- Registering the service worker -->
 </body>
 </html>
