@@ -107,11 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
-const MAX_RESULTS = 50; // Número de resultados a obtener
+const MAX_RESULTS = 50; // Número de resultados a obtener por solicitud
 const CACHE_KEY = 'playlistData';
 const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
 
 const playlistSlider = document.getElementById('playlist-slider');
+let nextPageToken = ''; // Token para la siguiente página
 
 // Función para obtener datos de la caché
 function getCachedData() {
@@ -120,31 +121,40 @@ function getCachedData() {
         const data = JSON.parse(cached);
         const now = new Date().getTime();
         if (now - data.timestamp < CACHE_EXPIRY) {
-            return data.items;
+            return data;
         }
     }
     return null;
 }
 
 // Función para guardar datos en caché
-function setCachedData(items) {
+function setCachedData(items, nextPageToken) {
     const data = {
         items: items,
+        nextPageToken: nextPageToken,
         timestamp: new Date().getTime()
     };
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
 }
 
-async function fetchPlaylistItems() {
-    const cachedItems = getCachedData();
-    if (cachedItems) {
-        return cachedItems;
+async function fetchPlaylistItems(pageToken = '') {
+    const cachedData = getCachedData();
+    if (cachedData && !pageToken) {
+        nextPageToken = cachedData.nextPageToken;
+        return cachedData.items;
     }
 
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=${MAX_RESULTS}`);
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=${MAX_RESULTS}${pageToken ? `&pageToken=${pageToken}` : ''}`;
+    const response = await fetch(url);
     const data = await response.json();
     const items = data.items;
-    setCachedData(items);
+    nextPageToken = data.nextPageToken || '';
+
+    // Guardar en caché si no estamos paginando
+    if (!pageToken) {
+        setCachedData(items, nextPageToken);
+    }
+
     return items;
 }
 
@@ -162,7 +172,7 @@ function createVideoElement(video) {
 
 // Función para cargar los videos
 async function loadVideos() {
-    const videos = await fetchPlaylistItems();
+    const videos = await fetchPlaylistItems(nextPageToken);
     videos.forEach(video => {
         const videoElement = createVideoElement(video);
         playlistSlider.appendChild(videoElement);
@@ -170,6 +180,23 @@ async function loadVideos() {
 
     // Carga diferida
     lazyLoadIframes();
+
+    // Cargar más videos si hay un token para la siguiente página
+    if (nextPageToken) {
+        const loadMoreButton = document.createElement('button');
+        loadMoreButton.textContent = 'Load More Videos';
+        loadMoreButton.addEventListener('click', async () => {
+            loadMoreButton.disabled = true;
+            const moreVideos = await fetchPlaylistItems(nextPageToken);
+            moreVideos.forEach(video => {
+                const videoElement = createVideoElement(video);
+                playlistSlider.appendChild(videoElement);
+            });
+            lazyLoadIframes();
+            loadMoreButton.disabled = false;
+        });
+        playlistSlider.parentElement.appendChild(loadMoreButton);
+    }
 }
 
 // Función para cargar iframes cuando están en el viewport
