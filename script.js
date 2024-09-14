@@ -250,27 +250,12 @@ function lazyLoadIframes() {
 
 window.onload = loadVideos;
 
-document.addEventListener('DOMContentLoaded', function () {
-  const videoElement = document.getElementById('loadingVideo');
-  const loadingOverlay = document.getElementById('loading-overlay');
-  
-  // Reproducir el video al cargar la página
-  videoElement.play();
+document.addEventListener("DOMContentLoaded", function() {
+    var preloaderVideo = document.getElementById('preloader-video');
+    var preloader = document.getElementById('preloader');
 
-  // Escuchar cuando el video termina
-  videoElement.addEventListener('ended', function () {
-    // Espera un pequeño intervalo para asegurar que el video finalice
-    setTimeout(function () {
-      loadingOverlay.style.display = 'none'; // Oculta el overlay
-      document.body.classList.add('loaded'); // Marca el cuerpo como cargado
-    }, 500); // Puedes ajustar el tiempo de espera si es necesario
-  });
-
-  // Asegurar ocultar el video si la página termina de cargar antes de que termine el video
-  window.addEventListener('load', function() {
-    setTimeout(function () {
-      loadingOverlay.style.display = 'none'; // Oculta el overlay
-      document.body.classList.add('loaded');
-    }, 500);
-  });
+    // Ocupar toda la pantalla mientras dura el video
+    preloaderVideo.onended = function() {
+        preloader.style.display = 'none'; // Ocultar el preloader cuando el video termine
+    };
 });
