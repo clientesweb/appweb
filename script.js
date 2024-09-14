@@ -104,3 +104,36 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.click();
     }, 5000);
 });
+
+const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
+const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
+
+const playlistSlider = document.getElementById('playlist-slider');
+
+async function fetchPlaylistItems() {
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=50`);
+    const data = await response.json();
+    return data.items;
+}
+
+function createVideoElement(video) {
+    const videoId = video.snippet.resourceId.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.frameBorder = '0';
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.className = 'playlist-item';
+
+    return iframe;
+}
+
+async function loadVideos() {
+    const videos = await fetchPlaylistItems();
+    videos.forEach(video => {
+        const videoElement = createVideoElement(video);
+        playlistSlider.appendChild(videoElement);
+    });
+}
+
+window.onload = loadVideos;
