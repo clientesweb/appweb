@@ -574,20 +574,18 @@ h2 {
     margin-bottom: 20px;
 }
 
-.video-slider, .playlist-slider, .shorts-slider {
+.playlist-slider {
     display: flex;
     overflow-x: auto;
     gap: 20px;
+    scroll-behavior: smooth; /* Transición suave al desplazarse */
 }
 
-.video-item, .playlist-item, .short-item {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.video-item, .playlist-item {
+.playlist-item {
     flex: 0 0 300px; /* Ancho fijo para videos y playlists */
     height: 200px; /* Altura fija para videos y playlists */
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 iframe {
@@ -599,11 +597,11 @@ iframe {
 }
 
 /* Ocultar barras de scroll en navegadores modernos */
-.video-slider::-webkit-scrollbar, .playlist-slider::-webkit-scrollbar, .shorts-slider::-webkit-scrollbar, #shorts-section::-webkit-scrollbar {
+.playlist-slider::-webkit-scrollbar {
     display: none;
 }
 
-.video-slider, .playlist-slider, .shorts-slider, #shorts-section {
+.playlist-slider {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
