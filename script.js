@@ -50,23 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.sponsors-slider');
     const items = slider.children;
     const totalItems = items.length;
-    const itemWidth = items[0].offsetWidth;
-
+    
     // Clonar los primeros elementos para el efecto infinito
     for (let i = 0; i < totalItems; i++) {
         const clone = items[i].cloneNode(true);
         slider.appendChild(clone);
     }
 
+    // Calcular el ancho total del slider
+    let itemWidth = items[0].offsetWidth;
+    let totalWidth = itemWidth * totalItems;
+    slider.style.width = `${totalWidth * 2}px`;
+
     let currentIndex = 0;
+
     const slideToNext = () => {
         currentIndex++;
         if (currentIndex >= totalItems) {
-            currentIndex = 0;
             slider.style.transition = 'none';
             slider.style.transform = `translateX(0px)`;
             setTimeout(() => {
                 slider.style.transition = 'transform 0.5s ease';
+                currentIndex = totalItems;
+                slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             }, 20);
         } else {
             slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
@@ -75,6 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cambiar el slide cada 3 segundos
     setInterval(slideToNext, 3000);
+
+    // Asegurar la experiencia táctil para dispositivos móviles
+    slider.addEventListener('touchstart', (e) => {
+        const touchStartX = e.touches[0].clientX;
+        slider.addEventListener('touchmove', (e) => {
+            const touchMoveX = e.touches[0].clientX;
+            if (touchMoveX - touchStartX < -50) { // Desplazar a la izquierda
+                slideToNext();
+                slider.removeEventListener('touchmove', arguments.callee);
+            }
+        }, { passive: true });
+    }, { passive: true });
+
+    // Reajustar el ancho del slider cuando se cambia el tamaño de la ventana
+    const updateItemWidth = () => {
+        itemWidth = items[0].offsetWidth;
+        totalWidth = itemWidth * totalItems;
+        slider.style.width = `${totalWidth * 2}px`;
+    };
+    window.addEventListener('resize', updateItemWidth);
+    updateItemWidth();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
