@@ -254,18 +254,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const videoElement = document.getElementById('loadingVideo');
   const loadingOverlay = document.getElementById('loading-overlay');
   
-  // Mostrar el video de carga al inicio
+  // Reproducir el video al cargar la página
   videoElement.play();
 
   // Escuchar cuando el video termina
   videoElement.addEventListener('ended', function () {
-    document.body.classList.add('loaded'); // Marca el cuerpo como cargado
-    loadingOverlay.style.display = 'none'; // Oculta el overlay del video
+    // Espera un pequeño intervalo para asegurar que el video finalice
+    setTimeout(function () {
+      loadingOverlay.style.display = 'none'; // Oculta el overlay
+      document.body.classList.add('loaded'); // Marca el cuerpo como cargado
+    }, 500); // Puedes ajustar el tiempo de espera si es necesario
   });
 
-  // Alternativamente, ocultar el overlay cuando toda la página esté cargada
+  // Asegurar ocultar el video si la página termina de cargar antes de que termine el video
   window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-    loadingOverlay.style.display = 'none'; // Oculta el overlay al cargar la página
+    setTimeout(function () {
+      loadingOverlay.style.display = 'none'; // Oculta el overlay
+      document.body.classList.add('loaded');
+    }, 500);
   });
 });
