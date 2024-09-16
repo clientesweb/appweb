@@ -254,13 +254,16 @@ window.addEventListener("load", function() {
     var preloaderVideo = document.getElementById('preloader-video');
     var preloader = document.getElementById('preloader');
 
-    // Ocultar el preloader cuando la página y todos los recursos estén cargados y el video haya terminado
-    preloaderVideo.onended = function() {
-        preloader.style.display = 'none'; // Ocultar el preloader cuando el video termine
-    };
+    // Escuchar el evento de carga completa de la página
+    window.onload = function() {
+        // Si el video ha terminado de reproducirse, ocultar el preloader
+        preloaderVideo.onended = function() {
+            preloader.style.display = 'none';
+        };
 
-    // Asegurarse de que el preloader también se oculte si el video ya ha terminado antes de que la página se cargue completamente
-    if (preloaderVideo.readyState === 4) { // Video ya cargado
-        preloader.style.display = 'none';
-    }
+        // En caso de que el video ya haya terminado antes de que la página cargue completamente
+        if (preloaderVideo.readyState === 4) { // 4 indica que el video está completamente cargado
+            preloader.style.display = 'none';
+        }
+    };
 });
