@@ -250,3 +250,25 @@ function lazyLoadIframes() {
 
 window.onload = loadVideos;
 
+// Obtener elementos
+const whatsappBtn = document.getElementById('whatsappBtn');
+const whatsappModal = document.getElementById('whatsappModal');
+const closeBtn = document.querySelector('.whatsapp-close');
+
+// Mostrar modal cuando se hace clic en el botón
+whatsappBtn.onclick = function () {
+    whatsappModal.style.display = 'block';
+}
+
+// Cerrar modal cuando se hace clic en la "x"
+closeBtn.onclick = function () {
+    whatsappModal.style.display = 'none';
+}
+
+// Cerrar modal cuando se hace clic fuera de la ventana emergente
+window.onclick = function (event) {
+    if (event.target == whatsappModal) {
+        whatsappModal.style.display = 'none';
+    }
+}
+
