@@ -254,6 +254,8 @@ window.onload = loadVideos;
 const whatsappBtn = document.getElementById('whatsappBtn');
 const whatsappModal = document.getElementById('whatsappModal');
 const closeBtn = document.querySelector('.whatsapp-close');
+const sendMessageBtn = document.getElementById('sendMessageBtn');
+const whatsappMessage = document.getElementById('whatsappMessage');
 
 // Mostrar modal cuando se hace clic en el botón
 whatsappBtn.onclick = function () {
@@ -272,3 +274,12 @@ window.onclick = function (event) {
     }
 }
 
+// Enviar mensaje cuando se hace clic en el botón "Enviar mensaje"
+sendMessageBtn.onclick = function () {
+    const message = encodeURIComponent(whatsappMessage.value);
+    const phone = "593978606269"; // Número de teléfono sin espacios ni símbolos
+    const url = `https://wa.me/${phone}?text=${message}`;
+    
+    // Redirigir a WhatsApp con el mensaje
+    window.open(url, '_blank');
+}
