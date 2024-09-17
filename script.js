@@ -4,13 +4,13 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
  document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
     const shortsIds = [
-        '5Ia0gTq0kq8',
-        '9Nr3SMzGuoU',
-        '-8OGNYFZJtM',
-        'QlQdYxAT_fk',
-        '5E24fAubqm0',
-        'X1IVvJuR8aA',
-        'S3oYxa0WHlI'
+        'n3a02UEWwhM',
+        'aug6ZvAjyVE',
+        '565kztuKF2A',
+        'J2J3cVbqHr0',
+        'CjOT--oEtDE',
+        'kPp8PCxp8qk',
+        'oFdVkDcE_sg'
         // Agrega más IDs de Shorts aquí
     ];
 
