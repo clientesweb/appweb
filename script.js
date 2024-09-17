@@ -1,31 +1,51 @@
 document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-menu').classList.toggle('active');
 });
- const apiKey = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0'; // Reemplaza con tu clave de la API
-const playlistId = 'TU_PLAYLIST_ID'; // Reemplaza con el ID de tu playlist
-const shortsSection = document.getElementById('shorts-section');
+ document.addEventListener('DOMContentLoaded', () => {
+    // Lista de IDs de YouTube Shorts
+    const shortsIds = [
+        '5Ia0gTq0kq8',
+        '9Nr3SMzGuoU',
+        '-8OGNYFZJtM',
+        'QlQdYxAT_fk',
+        '5E24fAubqm0',
+        'X1IVvJuR8aA',
+        'S3oYxa0WHlI'
+        // Agrega más IDs de Shorts aquí
+    ];
 
-// Función para cargar los shorts desde YouTube
-async function cargarShorts() {
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlistId}&key=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
+    const shortsSection = document.getElementById('shorts-section');
 
-    data.items.forEach(item => {
-        const videoId = item.snippet.resourceId.videoId;
-        const videoTitle = item.snippet.title;
-        const videoThumbnail = item.snippet.thumbnails.high.url;
-
-        const shortElement = document.createElement('div');
-        shortElement.classList.add('short-item');
-        shortElement.innerHTML = `
-            <img src="${videoThumbnail}" alt="${videoTitle}">
-            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">${videoTitle}</a>
+    // Función para crear un elemento de Short
+    function createShortElement(videoId) {
+        const shortItem = document.createElement('div');
+        shortItem.className = 'short-item';
+        shortItem.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
+                    allowfullscreen>
+            </iframe>
         `;
+        return shortItem;
+    }
 
+    // Cargar Shorts
+    shortsIds.forEach(id => {
+        const shortElement = createShortElement(id);
         shortsSection.appendChild(shortElement);
     });
-}
+
+    // Implementar scroll infinito
+    shortsSection.addEventListener('scroll', () => {
+        if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
+            // Cargar más Shorts cuando el usuario se acerca al final
+            const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
+            if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
+                const newShort = createShortElement(randomId);
+                shortsSection.appendChild(newShort);
+            }
+        }
+    });
+}); 
 
 // Llamar a la función para cargar los shorts al cargar la página
 cargarShorts();
