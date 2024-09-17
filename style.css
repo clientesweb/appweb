@@ -497,6 +497,17 @@ iframe {
     font-size: 24px;
     cursor: pointer;
 }
+
+.send-btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 /* Estilos para la barra de navegación inferior */
 .bottom-nav {
     position: fixed;
