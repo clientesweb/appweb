@@ -251,6 +251,7 @@ function lazyLoadIframes() {
 window.onload = loadVideos;
 
 
+// Script para manejar el modal de WhatsApp
 document.getElementById('whatsappBtn').addEventListener('click', function() {
     document.getElementById('whatsappModal').style.display = 'block';
 });
@@ -260,9 +261,13 @@ document.querySelector('.whatsapp-close').addEventListener('click', function() {
 });
 
 document.getElementById('sendMessageBtn').addEventListener('click', function() {
-    var message = document.getElementById('whatsappMessage').value;
-    var phoneNumber = '593978606269'; // Reemplaza con tu número de WhatsApp
-    var url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    document.getElementById('whatsappModal').style.display = 'none';
+    const message = document.getElementById('whatsappMessage').value;
+    if (message.trim() !== '') {
+        // Aquí puedes agregar la lógica para enviar el mensaje (p.ej., usando la API de WhatsApp)
+        alert('Mensaje enviado: ' + message);
+        document.getElementById('whatsappModal').style.display = 'none';
+        document.getElementById('whatsappMessage').value = '';
+    } else {
+        alert('Por favor, escribe un mensaje antes de enviar.');
+    }
 });
