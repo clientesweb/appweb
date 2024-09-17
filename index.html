@@ -128,31 +128,32 @@
             </div>
         </footer>
 
-       <!-- Botón de WhatsApp flotante -->
-<div class="whatsapp-float">
-    <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" title="Chatea con CaféClubTV en WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
+        <!-- Botón de WhatsApp flotante -->
+        <div class="whatsapp-float">
+            <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" title="Chatea con CaféClubTV en WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
 
-<!-- Modal de WhatsApp -->
-<div id="whatsappModal" class="whatsapp-modal">
-    <div class="whatsapp-modal-content">
-        <span class="whatsapp-close">&times;</span>
-        <h2>Chatea con CaféClubTV en WhatsApp</h2>
-        <p>Escribe tu mensaje:</p>
-        <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
-        <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
-    </div>
-</div>
+        <!-- Modal de WhatsApp -->
+        <div id="whatsappModal" class="whatsapp-modal">
+            <div class="whatsapp-modal-content">
+                <span class="whatsapp-close">&times;</span>
+                <h2>Chatea con CaféClubTV en WhatsApp</h2>
+                <p>Escribe tu mensaje:</p>
+                <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
+                <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
+            </div>
+        </div>
 
-    <!-- Barra de navegación inferior -->
-    <div class="bottom-nav">
-        <a href="#playlists" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
-        <a href="#features" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Eventos</span></a>
-        <a href="#shorts-section" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span></a>
-        <a href="#sponsors-section" class="nav-item"><i class="fas fa-star"></i><span>Patrocinadores</span></a>
-        <a href="#cta" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+        <!-- Barra de navegación inferior -->
+        <div class="bottom-nav">
+            <a href="#playlists" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+            <a href="#features" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Eventos</span></a>
+            <a href="#shorts-section" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span></a>
+            <a href="#sponsors-section" class="nav-item"><i class="fas fa-star"></i><span>Patrocinadores</span></a>
+            <a href="#cta" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+        </div>
     </div>
 
     <script src="script.js"></script>
@@ -163,32 +164,3 @@
 
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later.
-            deferredPrompt = e;
-            // Show the install button
-            installButton.style.display = 'block';
-
-            installButton.addEventListener('click', () => {
-                // Hide the install button
-                installButton.style.display = 'none';
-                // Show the install prompt
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((result) => {
-                    if (result.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt');
-                    } else {
-                        console.log('User dismissed the A2HS prompt');
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        });
-
-        window.addEventListener('appinstalled', () => {
-            // Clear the deferredPrompt variable, as the user has already installed the app
-            deferredPrompt = null;
-        });
-    </script>
-</body>
-</html>
