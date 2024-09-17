@@ -456,14 +456,20 @@ iframe {
     z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
 }
 
+/* Estilo del botón */
 .whatsapp-button {
     background-color: #25d366;
     color: white;
     padding: 15px;
     border-radius: 50%;
     font-size: 24px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Ajusta el tamaño del botón */
+    height: 60px; /* Ajusta el tamaño del botón */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para mejor visibilidad */
+    text-decoration: none;
 }
 
 .whatsapp-button:hover {
