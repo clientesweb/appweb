@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+d@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 /* Estilos generales */
 body {
@@ -451,9 +451,9 @@ iframe {
 /* Botón flotante de WhatsApp */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px; /* Ajusta este valor según el tamaño de tu barra de navegación inferior */
     right: 20px;
-    z-index: 99;
+    z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
 }
 
 .whatsapp-button {
@@ -463,6 +463,7 @@ iframe {
     border-radius: 50%;
     font-size: 24px;
     display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para mejor visibilidad */
 }
 
 .whatsapp-button:hover {
@@ -473,7 +474,7 @@ iframe {
 .whatsapp-modal {
     display: none; /* Oculto por defecto */
     position: fixed;
-    z-index: 100;
+    z-index: 10000; /* Asegúrate de que esté por encima de todo */
     left: 0;
     top: 0;
     width: 100%;
