@@ -451,25 +451,18 @@ iframe {
 /* Botón flotante de WhatsApp */
 .whatsapp-float {
     position: fixed;
-    bottom: 80px; /* Ajusta este valor según el tamaño de tu barra de navegación inferior */
+    bottom: 20px;
     right: 20px;
-    z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 99;
 }
 
-/* Estilo del botón */
 .whatsapp-button {
     background-color: #25d366;
     color: white;
     padding: 15px;
     border-radius: 50%;
     font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px; /* Ajusta el tamaño del botón */
-    height: 60px; /* Ajusta el tamaño del botón */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra para mejor visibilidad */
-    text-decoration: none;
+    display: inline-block;
 }
 
 .whatsapp-button:hover {
@@ -480,7 +473,7 @@ iframe {
 .whatsapp-modal {
     display: none; /* Oculto por defecto */
     position: fixed;
-    z-index: 10000; /* Asegúrate de que esté por encima de todo */
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
