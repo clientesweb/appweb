@@ -250,17 +250,19 @@ function lazyLoadIframes() {
 
 window.onload = loadVideos;
 
-window.addEventListener("load", function() {
-    var preloaderVideo = document.getElementById('preloader-video');
-    var preloader = document.getElementById('preloader');
 
-    // Ocultar el preloader cuando la página y todos los recursos estén cargados y el video haya terminado
-    preloaderVideo.onended = function() {
-        preloader.style.display = 'none'; // Ocultar el preloader cuando el video termine
-    };
+document.getElementById('whatsappBtn').addEventListener('click', function() {
+    document.getElementById('whatsappModal').style.display = 'block';
+});
 
-    // Asegurarse de que el preloader también se oculte si el video ya ha terminado antes de que la página se cargue completamente
-    if (preloaderVideo.readyState === 4) { // Video ya cargado
-        preloader.style.display = 'none';
-    }
+document.querySelector('.whatsapp-close').addEventListener('click', function() {
+    document.getElementById('whatsappModal').style.display = 'none';
+});
+
+document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    var message = document.getElementById('whatsappMessage').value;
+    var phoneNumber = '593978606269'; // Reemplaza con tu número de WhatsApp
+    var url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+    document.getElementById('whatsappModal').style.display = 'none';
 });
