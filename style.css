@@ -616,23 +616,3 @@ iframe {
     background-color: #5a636a; /* Plomo más oscuro para el estado activo */
     transform: scale(0.95); /* Efecto de contracción */
 }
-#live-stream-section {
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.live-stream-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.live-video, .live-chat {
-    margin: 10px;
-    width: 100%;
-    max-width: 560px;
-}
-
-.live-chat {
-    height: 400px; /* Ajusta la altura según lo necesites */
-}
