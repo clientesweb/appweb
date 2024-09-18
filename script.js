@@ -255,7 +255,7 @@ async function loadVideos() {
     // Cargar más videos si hay un token para la siguiente página
     if (nextPageToken) {
         const loadMoreButton = document.createElement('button');
-        loadMoreButton.textContent = 'Cargar más';
+        loadMoreButton.textContent = '';
         loadMoreButton.addEventListener('click', async () => {
             loadMoreButton.disabled = true;
             const moreVideos = await fetchPlaylistItems(nextPageToken);
