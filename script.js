@@ -21,7 +21,7 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
         const shortItem = document.createElement('div');
         shortItem.className = 'short-item';
         shortItem.innerHTML = `
-            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
+            <iframe src="https://www.youtube.com/embed/${videoId}=1&loop=1&playlist=${videoId}"
                     allowfullscreen>
             </iframe>
         `;
