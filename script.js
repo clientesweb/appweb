@@ -222,7 +222,7 @@ function createVideoElement(video) {
 function showYouTubeChat(videoId) {
     youtubeChat.innerHTML = `
         <iframe 
-            src="https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}" 
+            src="https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${www.cafeclubtv.com}" 
             width="350" 
             height="500" 
             frameborder="0" 
@@ -255,7 +255,7 @@ async function loadVideos() {
     // Cargar más videos si hay un token para la siguiente página
     if (nextPageToken) {
         const loadMoreButton = document.createElement('button');
-        loadMoreButton.textContent = '';
+        loadMoreButton.textContent =;
         loadMoreButton.addEventListener('click', async () => {
             loadMoreButton.disabled = true;
             const moreVideos = await fetchPlaylistItems(nextPageToken);
