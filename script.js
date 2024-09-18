@@ -274,3 +274,21 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
         alert('Por favor, escribe un mensaje antes de enviar.');
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const apiKey = ''AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
+    const channelId = 'UC2XzDp1e-Mi2aJm1moZ0Y-w';
+    const yourDomain = 'www.cafeclubtv.com';
+
+    async function getLiveStreamId(apiKey, channelId) {
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${apiKey}`);
+        const data = await response.json();
+        return data.items.length ? data.items[0].id.videoId : null;
+    }
+
+    getLiveStreamId(apiKey, channelId).then(videoId => {
+        if (videoId) {
+            document.getElementById('live-stream').src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
+            document.getElementById('live-chat-frame').src = `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${yourDomain}`;
+        }
+    });
+});
