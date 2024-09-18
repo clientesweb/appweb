@@ -5,6 +5,10 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
     const shortsIds = [
+
+        'e2C7FzMQWiY',
+        'E2E-UIDfPhE',
+        '64b83rJ19xE',
         'n3a02UEWwhM',
         'aug6ZvAjyVE',
         '565kztuKF2A',
@@ -12,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'CjOT--oEtDE',
         'kPp8PCxp8qk',
         'oFdVkDcE_sg'
+
         // Agrega más IDs de Shorts aquí
     ];
 
