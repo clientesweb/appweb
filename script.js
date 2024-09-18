@@ -1,7 +1,11 @@
 document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-menu').classList.toggle('active');
 });
- document.addEventListener('DOMContentLoaded', () => {
+ document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.getElementById('nav-menu').classList.toggle('active');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
     const shortsIds = [
         'n3a02UEWwhM',
@@ -21,7 +25,8 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
         const shortItem = document.createElement('div');
         shortItem.className = 'short-item';
         shortItem.innerHTML = `
-            <iframe src="https://www.youtube.com/embed/${videoId}=1&loop=1&playlist=${videoId}"
+            <iframe src="https://www.youtube.com/embed/${videoId}?rel=0"
+                    frameborder="0"
                     allowfullscreen>
             </iframe>
         `;
@@ -45,7 +50,7 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
             }
         }
     });
-}); 
+});
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.sponsors-slider');
     const items = slider.children;
