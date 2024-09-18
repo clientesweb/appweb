@@ -7,7 +7,11 @@
     <title>Cafe Club Tv</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Manifest file -->
     <link rel="manifest" href="manifest.json">
+
+    <!-- Add theme color for mobile browsers -->
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
@@ -33,6 +37,7 @@
     </header>
     
     <div class="background-container">
+        <!-- Contenido Principal -->
         <div class="main-container">
             <div class="banner">
                 <div class="carousel">
@@ -49,16 +54,19 @@
                 </div>
             </div>
 
+            <!-- Sección de Playlists -->
             <section id="playlists">
                 <div class="playlist-slider" id="playlist-slider">
                     <!-- Los videos se cargarán aquí -->
                 </div>
             </section>
 
+            <!-- Sección de Shorts -->
             <section id="shorts-section">
                 <!-- Los Shorts se cargarán aquí dinámicamente -->
             </section>
 
+            <!-- Sección de Patrocinadores -->
             <section id="sponsors-section">
                 <div class="sponsors-slider">
                     <div class="sponsor-item"><img src="images/logo1.png" alt="Sponsor 1" loading="lazy"></div>
@@ -68,6 +76,7 @@
                 </div>
             </section>
 
+            <!-- Botón de instalación de la PWA -->
             <section id="install-section">
                 <div class="install-container">
                     <button id="install-button" class="install-button" style="display: none;">Instalar CafeClubTV App</button>
@@ -75,6 +84,7 @@
             </section>
         </div>
 
+        <!-- Footer -->
         <footer>
             <div class="footer-content">
                 <div class="footer-section about">
@@ -101,15 +111,14 @@
                     <h3>Encuéntranos</h3>
                     <div class="map-container">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=..."
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.877027213511!2d-80.12933468429243!3d25.95361138391963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9acefaf2880f9%3A0xd11aa38e4d4d73f0!2sMystic%20Pointe%20Dr%2C%20Aventura%2C%20FL%2033180%2C%20EE.%20UU.!5e0!3m2!1ses!2sar!4v1694503364387!5m2!1ses!2sar"
                             width="100%" 
                             height="300" 
                             frameborder="0" 
                             style="border:0;" 
                             allowfullscreen="" 
                             aria-hidden="false" 
-                            tabindex="0"
-                            loading="lazy">
+                            tabindex="0">
                         </iframe>
                     </div>
                 </div>
@@ -119,40 +128,36 @@
             </div>
         </footer>
 
-        <div class="window.addEventListener('appinstalled', (evt) => {
-            // Log the event to the console
-            console.log('PWA was installed');
-        });
+        <!-- Botón de WhatsApp flotante -->
+        <div class="whatsapp-float">
+            <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" title="Chatea con CaféClubTV en WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
 
-        // WhatsApp Modal functionality
-        const whatsappBtn = document.getElementById('whatsappBtn');
-        const whatsappModal = document.getElementById('whatsappModal');
-        const whatsappClose = document.querySelector('.whatsapp-close');
-        const sendMessageBtn = document.getElementById('sendMessageBtn');
+        <!-- Modal de WhatsApp -->
+        <div id="whatsappModal" class="whatsapp-modal">
+            <div class="whatsapp-modal-content">
+                <span class="whatsapp-close">&times;</span>
+                <h2>Chatea con CaféClubTV en WhatsApp</h2>
+                <p>Escribe tu mensaje:</p>
+                <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
+                <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
+            </div>
+        </div>
 
-        whatsappBtn.addEventListener('click', () => {
-            whatsappModal.style.display = 'block';
-        });
+        <!-- Barra de navegación inferior -->
+        <div class="bottom-nav">
+            <a href="#playlists" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
+            <a href="#features" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Eventos</span></a>
+            <a href="#shorts-section" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span></a>
+            <a href="#sponsors-section" class="nav-item"><i class="fas fa-star"></i><span>Patrocinadores</span></a>
+            <a href="#cta" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+        </div>
+    </div>
 
-        whatsappClose.addEventListener('click', () => {
-            whatsappModal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === whatsappModal) {
-                whatsappModal.style.display = 'none';
-            }
-        });
-
-        sendMessageBtn.addEventListener('click', () => {
-            const message = document.getElementById('whatsappMessage').value;
-            if (message.trim()) {
-                window.open(`https://wa.me/PHONE_NUMBER?text=${encodeURIComponent(message)}`, '_blank');
-                whatsappModal.style.display = 'none';
-            } else {
-                alert('Please enter a message before sending.');
-            }
-        });
-    </script>
-</body>
-</html>
+    <script src="script.js"></script>
+    <script src="service-worker.js"></script> <!-- Registering the service worker -->
+    <script>
+        let deferredPrompt;
+        const install
