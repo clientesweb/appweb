@@ -143,13 +143,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
 });
 
+<section id="playlists">
+                <div class="playlist-slider" id="playlist-slider">
+                    <!-- Los videos se cargarán aquí dinámicamente -->
+                </div>
+            </section>
+
+
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
 const MAX_RESULTS = 10; // Número de resultados a obtener por solicitud
 const CACHE_KEY = 'playlistData';
 const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
+
 const playlistSlider = document.getElementById('playlist-slider');
-const youtubeChat = document.getElementById('youtube-live-chat'); // El contenedor del chat
 let nextPageToken = ''; // Token para la siguiente página
 
 // Función para obtener datos de la caché
@@ -173,16 +180,6 @@ function setCachedData(items, nextPageToken) {
         timestamp: new Date().getTime()
     };
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-}
-
-// Función para verificar si un video está en vivo
-async function checkIfLive(videoId) {
-    const url = `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=${videoId}&key=${API_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    
-    // Verifica si el video tiene detalles de transmisión en vivo
-    return data.items[0]?.liveStreamingDetails ? true : false;
 }
 
 async function fetchPlaylistItems(pageToken = '') {
@@ -218,44 +215,21 @@ function createVideoElement(video) {
     return iframe;
 }
 
-// Función para mostrar el chat de YouTube si hay un video en vivo
-function showYouTubeChat(videoId) {
-    youtubeChat.innerHTML = `
-        <iframe 
-            src="https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${www.cafeclubtv.com}" 
-            width="350" 
-            height="500" 
-            frameborder="0" 
-            allowfullscreen>
-        </iframe>
-    `;
-    youtubeChat.style.display = 'block'; // Muestra el chat
-}
-
 // Función para cargar los videos
 async function loadVideos() {
     const videos = await fetchPlaylistItems(nextPageToken);
-    
-    for (const video of videos) {
-        const videoId = video.snippet.resourceId.videoId;
-        const isLive = await checkIfLive(videoId); // Verifica si el video está en vivo
-        
+    videos.forEach(video => {
         const videoElement = createVideoElement(video);
         playlistSlider.appendChild(videoElement);
-
-        // Si hay un video en vivo, muestra el chat
-        if (isLive) {
-            showYouTubeChat(videoId);
-        }
-    }
+    });
 
     // Carga diferida
     lazyLoadIframes();
 
     // Cargar más videos si hay un token para la siguiente página
     if (nextPageToken) {
-        const loadMoreButton = document.createElement('button');
-        loadMoreButton.textContent =;
+        const loadMoreButton = document.createElement('');
+        loadMoreButton.textContent = '';
         loadMoreButton.addEventListener('click', async () => {
             loadMoreButton.disabled = true;
             const moreVideos = await fetchPlaylistItems(nextPageToken);
