@@ -1,27 +1,34 @@
-// Menú toggle
-document.getElementById('menu-toggle').addEventListener('click', () => {
+document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-menu').classList.toggle('active');
 });
-
-// Función para crear un elemento de Short
-function createShortElement(videoId) {
-    const shortItem = document.createElement('div');
-    shortItem.className = 'short-item';
-    shortItem.innerHTML = `
-        <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
-                allowfullscreen></iframe>
-    `;
-    return shortItem;
-}
-
-// Cargar YouTube Shorts
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
+    // Lista de IDs de YouTube Shorts
     const shortsIds = [
-        'n3a02UEWwhM', 'aug6ZvAjyVE', '565kztuKF2A', 'J2J3cVbqHr0',
-        'CjOT--oEtDE', 'kPp8PCxp8qk', 'oFdVkDcE_sg'
+        'n3a02UEWwhM',
+        'aug6ZvAjyVE',
+        '565kztuKF2A',
+        'J2J3cVbqHr0',
+        'CjOT--oEtDE',
+        'kPp8PCxp8qk',
+        'oFdVkDcE_sg'
+        // Agrega más IDs de Shorts aquí
     ];
+
     const shortsSection = document.getElementById('shorts-section');
 
+    // Función para crear un elemento de Short
+    function createShortElement(videoId) {
+        const shortItem = document.createElement('div');
+        shortItem.className = 'short-item';
+        shortItem.innerHTML = `
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}"
+                    allowfullscreen>
+            </iframe>
+        `;
+        return shortItem;
+    }
+
+    // Cargar Shorts
     shortsIds.forEach(id => {
         const shortElement = createShortElement(id);
         shortsSection.appendChild(shortElement);
@@ -30,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Implementar scroll infinito
     shortsSection.addEventListener('scroll', () => {
         if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
+            // Cargar más Shorts cuando el usuario se acerca al final
             const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
             if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
                 const newShort = createShortElement(randomId);
@@ -37,33 +45,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-});
-
-// Función para el slider de patrocinadores
+}); 
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.sponsors-slider');
     const items = slider.children;
     const totalItems = items.length;
     
+    // Clonar los primeros elementos para el efecto infinito
     for (let i = 0; i < totalItems; i++) {
-        slider.appendChild(items[i].cloneNode(true));
+        const clone = items[i].cloneNode(true);
+        slider.appendChild(clone);
     }
 
     let itemWidth = items[0].offsetWidth;
-    slider.style.width = `${itemWidth * totalItems * 2}px`;
-    slider.style.transition = 'transform 2s ease-in-out';
+    let totalWidth = itemWidth * totalItems;
+    slider.style.width = `${totalWidth * 2}px`;
 
     let currentIndex = 0;
-    const slideInterval = 5000;
+    const transitionDuration = 2; // Duración de la transición en segundos (más lenta)
+    const slideInterval = 5000; // Intervalo entre slides en milisegundos (5 segundos)
     
+    slider.style.transition = `transform ${transitionDuration}s ease-in-out`;
+
     const slideToNext = () => {
         currentIndex++;
         if (currentIndex >= totalItems) {
             currentIndex = 0;
             slider.style.transition = 'none';
-            slider.style.transform = 'translateX(0px)';
+            slider.style.transform = `translateX(0px)`;
             setTimeout(() => {
-                slider.style.transition = 'transform 2s ease-in-out';
+                slider.style.transition = `transform ${transitionDuration}s ease-in-out`;
                 currentIndex = totalItems;
                 slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
             }, 20);
@@ -72,26 +83,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Cambiar el slide cada 5 segundos
     setInterval(slideToNext, slideInterval);
 
+    // Asegurar la experiencia táctil para dispositivos móviles
     slider.addEventListener('touchstart', (e) => {
         const touchStartX = e.touches[0].clientX;
         slider.addEventListener('touchmove', (e) => {
             const touchMoveX = e.touches[0].clientX;
-            if (touchMoveX - touchStartX < -50) {
+            if (touchMoveX - touchStartX < -50) { // Desplazar a la izquierda
                 slideToNext();
                 slider.removeEventListener('touchmove', arguments.callee);
             }
         }, { passive: true });
     }, { passive: true });
 
-    window.addEventListener('resize', () => {
+    // Reajustar el ancho del slider cuando se cambia el tamaño de la ventana
+    const updateItemWidth = () => {
         itemWidth = items[0].offsetWidth;
-        slider.style.width = `${itemWidth * totalItems * 2}px`;
-    });
+        totalWidth = itemWidth * totalItems;
+        slider.style.width = `${totalWidth * 2}px`;
+    };
+    window.addEventListener('resize', updateItemWidth);
+    updateItemWidth();
 });
 
-// Carrusel de imágenes
 document.addEventListener('DOMContentLoaded', () => {
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -99,9 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let index = 0;
     const imageCount = document.querySelectorAll('.carousel-images img').length;
 
-    const updateCarousel = () => {
-        carouselImages.style.transform = `translateX(${-index * 100}%)`;
-    };
+    function updateCarousel() {
+        const offset = -index * 100;
+        carouselImages.style.transform = `translateX(${offset}%)`;
+    }
 
     prevButton.addEventListener('click', () => {
         index = (index > 0) ? index - 1 : imageCount - 1;
@@ -113,24 +130,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     });
 
-    setInterval(() => nextButton.click(), 5000);
+    // Optional: Auto-slide every 5 seconds
+    setInterval(() => {
+        nextButton.click();
+    }, 5000);
 });
 
-// Obtener y cachear videos de YouTube
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
-const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL';
-const MAX_RESULTS = 10;
+const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
+const MAX_RESULTS = 10; // Número de resultados a obtener por solicitud
 const CACHE_KEY = 'playlistData';
-const CACHE_EXPIRY = 10 * 60 * 1000;
+const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
 
 const playlistSlider = document.getElementById('playlist-slider');
-let nextPageToken = '';
+let nextPageToken = ''; // Token para la siguiente página
 
+// Función para obtener datos de la caché
 function getCachedData() {
     const cached = localStorage.getItem(CACHE_KEY);
     if (cached) {
         const data = JSON.parse(cached);
-        const now = Date.now();
+        const now = new Date().getTime();
         if (now - data.timestamp < CACHE_EXPIRY) {
             return data;
         }
@@ -138,12 +158,14 @@ function getCachedData() {
     return null;
 }
 
+// Función para guardar datos en caché
 function setCachedData(items, nextPageToken) {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({
+    const data = {
         items: items,
         nextPageToken: nextPageToken,
-        timestamp: Date.now()
-    }));
+        timestamp: new Date().getTime()
+    };
+    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
 }
 
 async function fetchPlaylistItems(pageToken = '') {
@@ -156,43 +178,50 @@ async function fetchPlaylistItems(pageToken = '') {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=${MAX_RESULTS}${pageToken ? `&pageToken=${pageToken}` : ''}`;
     const response = await fetch(url);
     const data = await response.json();
+    const items = data.items;
     nextPageToken = data.nextPageToken || '';
 
+    // Guardar en caché si no estamos paginando
     if (!pageToken) {
-        setCachedData(data.items, nextPageToken);
+        setCachedData(items, nextPageToken);
     }
 
-    return data.items;
+    return items;
 }
 
 function createVideoElement(video) {
     const videoId = video.snippet.resourceId.videoId;
     const iframe = document.createElement('iframe');
-    iframe.dataset.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.dataset.src = `https://www.youtube.com/embed/${videoId}`; // Usa data-src para carga diferida
     iframe.frameBorder = '0';
     iframe.allow = 'autoplay; encrypted-media';
     iframe.allowFullscreen = true;
-    iframe.className = 'playlist-item lazy';
+    iframe.className = 'playlist-item lazy'; // Añade la clase lazy
 
     return iframe;
 }
 
+// Función para cargar los videos
 async function loadVideos() {
     const videos = await fetchPlaylistItems(nextPageToken);
     videos.forEach(video => {
-        playlistSlider.appendChild(createVideoElement(video));
+        const videoElement = createVideoElement(video);
+        playlistSlider.appendChild(videoElement);
     });
 
+    // Carga diferida
     lazyLoadIframes();
 
+    // Cargar más videos si hay un token para la siguiente página
     if (nextPageToken) {
-        const loadMoreButton = document.createElement('button');
-        loadMoreButton.textContent = 'Load More';
+        const loadMoreButton = document.createElement('');
+        loadMoreButton.textContent = '';
         loadMoreButton.addEventListener('click', async () => {
             loadMoreButton.disabled = true;
             const moreVideos = await fetchPlaylistItems(nextPageToken);
             moreVideos.forEach(video => {
-                playlistSlider.appendChild(createVideoElement(video));
+                const videoElement = createVideoElement(video);
+                playlistSlider.appendChild(videoElement);
             });
             lazyLoadIframes();
             loadMoreButton.disabled = false;
@@ -201,6 +230,7 @@ async function loadVideos() {
     }
 }
 
+// Función para cargar iframes cuando están en el viewport
 function lazyLoadIframes() {
     const iframes = document.querySelectorAll('iframe.lazy');
     
@@ -208,9 +238,9 @@ function lazyLoadIframes() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
-                iframe.src = iframe.dataset.src;
+                iframe.src = iframe.dataset.src; // Carga el iframe
                 iframe.classList.remove('lazy');
-                observer.unobserve(iframe);
+                observer.unobserve(iframe); // Deja de observar el iframe
             }
         });
     });
@@ -220,22 +250,22 @@ function lazyLoadIframes() {
 
 window.onload = loadVideos;
 
-// WhatsApp Modal
-document.getElementById('whatsappBtn').addEventListener('click', () => {
+
+document.getElementById('whatsappBtn').addEventListener('click', function() {
     document.getElementById('whatsappModal').style.display = 'block';
 });
 
-document.querySelector('.whatsapp-close').addEventListener('click', () => {
+document.querySelector('.whatsapp-close').addEventListener('click', function() {
     document.getElementById('whatsappModal').style.display = 'none';
 });
 
-document.getElementById('sendMessageBtn').addEventListener('click', () => {
+document.getElementById('sendMessageBtn').addEventListener('click', function() {
     const message = document.getElementById('whatsappMessage').value.trim();
-    const phoneNumber = '593978606269';
+    const phoneNumber = '593978606269'; // Número de WhatsApp al que se enviará el mensaje
     if (message) {
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        window.open(whatsappUrl, '_blank');
+        window.open(whatsappUrl, '_blank'); // Abre WhatsApp Web con el mensaje preescrito
         document.getElementById('whatsappModal').style.display = 'none';
         document.getElementById('whatsappMessage').value = '';
     } else {
