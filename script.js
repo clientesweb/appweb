@@ -1,9 +1,6 @@
 document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-menu').classList.toggle('active');
 });
- document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.getElementById('nav-menu').classList.toggle('active');
-});
 
 document.addEventListener('DOMContentLoaded', () => {
     // Lista de IDs de YouTube Shorts
