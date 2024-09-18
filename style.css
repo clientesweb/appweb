@@ -1,21 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* Variables CSS */
-:root {
-    --color-plomo: #d4d4d4;
-    --color-oscuro: #333;
-    --color-amarillo: #FFDD00;
-    --color-rojo-youtube: #FF0000;
-    --color-verde-whatsapp: #25D366;
-    --color-verde-whatsapp-hover: #128C7E;
-    --color-blanco: #fff;
-    --color-negro-transparente: rgba(0, 0, 0, 0.5);
-    --color-negro-sombra: rgba(0, 0, 0, 0.2);
-}
-
 /* Estilos generales */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,12 +10,12 @@ body {
 
 /* Estilos para el encabezado y navegación */
 header {
-    background-color: var(--color-plomo);
-    color: var(--color-oscuro);
+    background-color: #d4d4d4; /* Plomo suave */
+    color: #333; /* Texto oscuro para contraste */
     padding: 1rem;
     position: relative;
-    box-shadow: 0 4px 8px var(--color-negro-sombra);
-    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
 
 nav {
@@ -39,11 +26,11 @@ nav {
 
 .logo img {
     max-height: 50px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Transición suave para el logo */
 }
 
 .logo img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
 }
 
 .menu-toggle {
@@ -54,16 +41,16 @@ nav {
 }
 
 .menu-toggle .bar {
-    background-color: var(--color-oscuro);
+    background-color: #333; /* Color de las barras del menú */
     height: 3px;
     width: 25px;
     margin: 5px 0;
     border-radius: 3px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Transición suave para el color de las barras */
 }
 
 .menu-toggle:hover .bar {
-    background-color: #555;
+    background-color: #555; /* Cambio de color en el hover del menú */
 }
 
 .nav-menu {
@@ -75,20 +62,20 @@ nav {
 
 .nav-menu li {
     margin-left: 20px;
-    position: relative;
+    position: relative; /* Posicionamiento relativo para los elementos secundarios */
 }
 
 .nav-menu a {
-    color: var(--color-oscuro);
+    color: #333; /* Color del texto de los enlaces */
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para color y transformación */
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #555;
-    transform: scale(1.05);
+    color: #555; /* Color al pasar el ratón o al estar activo */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
 /* Estilos para dispositivos móviles */
@@ -98,13 +85,13 @@ nav {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: var(--color-plomo);
+        background-color: #d4d4d4; /* Plomo suave */
         width: 100%;
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        box-shadow: 0px 4px 8px var(--color-negro-sombra);
-        z-index: 1000;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el menú */
+        z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
     }
 
     .nav-menu.active {
@@ -121,8 +108,9 @@ nav {
 }
 
 /* ------- main-------- */
+
 .container {
-    background: var(--color-rojo-youtube);
+    background: #FF0000; /* Rojo YouTube */
     padding-left: 17%;
     padding-right: 2%;
     padding-top: 20px;
@@ -163,16 +151,16 @@ nav {
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     border: none;
-    color: var(--color-blanco);
+    color: white;
     font-size: 24px;
     cursor: pointer;
     padding: 10px;
     z-index: 10;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
 }
 
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo más oscuro al pasar el ratón */
 }
 
 .carousel-button.prev {
@@ -183,19 +171,20 @@ nav {
     right: 10px;
 }
 
+
 /* Estilos para el footer */
 footer {
-    background-color: var(--color-plomo);
-    color: var(--color-oscuro);
+    background-color: #d4d4d4; /* Plomo suave */
+    color: #333; /* Texto oscuro para contraste */
     padding: 2rem 1rem;
-    border-top: 5px solid var(--color-amarillo);
+    border-top: 5px solid #FFDD00; /* Borde superior para un toque adicional */
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 2rem; /* Espaciado uniforme entre secciones */
 }
 
 .footer-section {
@@ -207,11 +196,11 @@ footer {
 .footer-logo {
     max-height: 50px;
     margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Transición suave para el logo */
 }
 
 .footer-logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
 }
 
 .socials {
@@ -220,14 +209,14 @@ footer {
 }
 
 .social-icon {
-    color: var(--color-oscuro);
+    color: #333; /* Color de los iconos */
     font-size: 1.5rem;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transición suave para el color de los iconos */
 }
 
 .social-icon:hover {
-    color: var(--color-amarillo);
+    color: #FFDD00; /* Color al pasar el ratón sobre los iconos */
 }
 
 .links ul {
@@ -240,37 +229,37 @@ footer {
 }
 
 .links ul li a {
-    color: var(--color-oscuro);
+    color: #333; /* Color de los enlaces */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
 }
 
 .links ul li a:hover {
-    color: var(--color-amarillo);
+    color: #FFDD00; /* Color al pasar el ratón sobre los enlaces */
     text-decoration: underline;
 }
 
 .map-container {
     width: 100%;
     height: 200px;
-    background-color: #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+    background-color: #ddd; /* Color de fondo del contenedor del mapa */
+    border-radius: 8px; /* Bordes redondeados para la caja del mapa */
+    overflow: hidden; /* Evita el desbordamiento del contenido */
 }
 
 .footer-bottom {
-    background-color: var(--color-oscuro);
-    color: #bbb;
+    background-color: #333; /* Color de fondo oscuro */
+    color: #bbb; /* Color de texto claro */
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
-    border-top: 1px solid #444;
+    border-top: 1px solid #444; /* Borde superior para separar la sección */
 }
 
 .footer-bottom a {
-    color: var(--color-amarillo);
+    color: #FFDD00; /* Color de los enlaces en la parte inferior */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
 }
 
 .footer-bottom a:hover {
@@ -282,7 +271,7 @@ footer {
     .footer-content {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1rem; /* Ajusta el espaciado en dispositivos más pequeños */
     }
     
     .footer-section {
@@ -308,7 +297,6 @@ footer {
         font-size: 0.8rem;
     }
 }
-
 /* Sección de Videos, Playlists, y Shorts */
 #videos, #playlists, #shorts-section {
     margin: 50px 0;
@@ -324,12 +312,12 @@ h2 {
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Transición suave al desplazarse */
 }
 
 .playlist-item {
-    flex: 0 0 300px;
-    height: 200px;
+    flex: 0 0 300px; /* Ancho fijo para videos y playlists */
+    height: 200px; /* Altura fija para videos y playlists */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -339,7 +327,7 @@ iframe {
     height: 100%;
     border: none;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
 }
 
 /* Ocultar barras de scroll en navegadores modernos */
@@ -348,132 +336,302 @@ iframe {
 }
 
 .playlist-slider {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
-
 /* Estilo para la sección de shorts */
 #shorts-section {
     display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    gap: 10px; /* Espacio entre los items de shorts */
+    padding: 10px 0; /* Espaciado vertical */
+    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
 }
 
 /* Estilo para cada item de shorts */
 .short-item {
-    flex: 0 0 auto;
-    width: 300px;
+    flex: 0 0 auto; /* Los elementos no se estiran */
+    width: 300px; /* Ancho fijo para los shorts */
+    height: 500px; /* Altura fija para los shorts */
+    margin-right: 10px; /* Espacio entre los shorts */
+    scroll-snap-align: start; /* Alinea el inicio del elemento */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta desbordamientos */
+    display: flex; /* Asegura que el contenido interno se ajuste */
+}
+
+/* Ajustar el iframe dentro de los shorts */
+.short-item iframe {
+    width: 100%; /* El iframe ocupa el ancho del contenedor */
+    height: 100%; /* El iframe ocupa la altura del contenedor */
+    border: none;
+    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+#shorts-section::-webkit-scrollbar {
+    display: none;
+}
+#shorts-section {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Media Queries para mejorar la responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    #shorts-section {
+        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
+    }
+    .short-item {
+        width: 250px; /* Ajustar ancho */
+        height: 400px; /* Ajustar altura */
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    #shorts-section {
+        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
+    }
+    .short-item {
+        width: 200px; /* Ajustar ancho */
+        height: 350px; /* Ajustar altura */
+    }
+}
+/* Estilo para la sección de patrocinadores */
+#sponsors-section {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    position: relative;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
+    height: 150px; /* Ajusta la altura según sea necesario */
+    background-color: #d4d4d4; /* Color de fondo plomo suave */
+    padding: 10px 0; /* Espaciado vertical */
+}
+
+.sponsors-slider {
+    display: flex;
+    flex-wrap: nowrap; /* Evita el salto de línea entre los elementos */
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    white-space: nowrap; /* Evita el salto de línea entre los elementos */
+    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+    height: 100%;
+    align-items: center;
+    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+}
+
+.sponsor-item {
+    flex: 0 0 auto; /* Los elementos no se estiran */
+    width: 150px; /* Ajusta el ancho de los logos */
+    height: 100%; /* Ajusta la altura del contenedor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px; /* Espacio entre los logos */
+    scroll-snap-align: start; /* Alinea el inicio del elemento */
+}
+
+.sponsor-item img {
+    max-width: 100%; /* Asegura que el logo se ajuste al ancho del contenedor */
+    max-height: 100%; /* Asegura que el logo se ajuste a la altura del contenedor */
+    object-fit: contain; /* Mantiene la proporción del logo */
+}
+
+/* Ocultar barras de scroll en navegadores modernos */
+#sponsors-section::-webkit-scrollbar {
+    display: none;
+}
+#sponsors-section {
+    -ms-overflow-style: none; /* IE y Edge */
+    scrollbar-width: none; /* Firefox */
+}
+/* Estilos para el botón de WhatsApp flotante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 70px; /* Ajusta el valor según el espacio necesario para la barra de navegación */
+    right: 20px;
+    z-index: 1000; /* Asegura que el botón esté sobre otros elementos */
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+/* Estilos para el modal de WhatsApp */
+.whatsapp-modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    z-index: 1001; /* Asegura que el modal esté sobre otros elementos */
+}
+
+.whatsapp-modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.whatsapp-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.send-btn {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background-color: #128C7E;
+}
+/* Estilos para la barra de navegación inferior */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px; /* Ajusta la altura según sea necesario */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    transition: transform 0.3s ease-in-out; /* Transición suave para aparición/desaparición */
+}
+
+.bottom-nav.hidden {
+    transform: translateY(100%); /* Mueve la barra fuera de la vista cuando esté oculta */
+}
+
+.bottom-nav .nav-item {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    flex: 1;
+    transition: color 0.3s ease; /* Transición suave para el color del texto */
+}
+
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active {
+    color: #ffdd00; /* Color al pasar el ratón o al estar activo */
+}
+
 .bottom-nav .nav-item i {
     display: block;
     font-size: 24px; /* Tamaño del icono */
-    margin-bottom: 5px; /* Espacio debajo del icono */
+    margin-bottom: 4px; /* Espacio entre icono y texto */
+    transition: transform 0.3s ease; /* Efecto de animación para el icono */
+}
+
+.bottom-nav .nav-item:hover i {
+    transform: scale(1.2); /* Efecto de escala al pasar el ratón */
 }
 
 .bottom-nav .nav-item span {
     display: block;
     font-size: 12px; /* Tamaño del texto */
-    margin-top: 2px; /* Espacio encima del texto */
 }
 
-/* Estilos para el botón de carga de ventas */
-.add-sale-button {
-    display: inline-block;
-    background-color: #28a745; /* Color verde para el botón */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+/* Ajusta el diseño en dispositivos móviles */
+@media (max-width: 600px) {
+    .bottom-nav {
+        height: 50px;
+    }
+    
+    .bottom-nav .nav-item i {
+        font-size: 20px;
+    }
+    
+    .bottom-nav .nav-item span {
+        font-size: 10px;
+    }
 }
-
-.add-sale-button:hover {
-    background-color: #218838; /* Color verde oscuro al pasar el ratón */
-}
-
-/* Estilos para los formularios */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #333; /* Color del texto del label */
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Incluye el padding en el ancho total del input */
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #007bff; /* Color del borde al enfocar */
-    outline: none; /* Elimina el borde predeterminado del navegador */
-}
-
-/* Estilos para los botones de envío de formularios */
-.submit-button {
-    background-color: #007bff; /* Color azul para el botón */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #0056b3; /* Color azul oscuro al pasar el ratón */
-}
-
-/* Estilos para mensajes de error */
-.error-message {
-    color: #dc3545; /* Color rojo para mensajes de error */
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Estilos para la barra de búsqueda */
-.search-bar {
+/* Estilo para el botón de instalación */
+#install-section {
     display: flex;
+    justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    max-width: 500px;
-    margin: 0 auto;
+    margin: 20px;
 }
 
-.search-bar input {
-    border: none;
-    outline: none;
-    padding: 10px;
-    flex: 1;
+#install-button {
+    background-color: #7d8c8d; /* Plomo suave */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
 }
 
-.search-bar button {
-    background-color: #007bff; /* Color azul para el botón de búsqueda */
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+#install-button:hover {
+    background-color: #6c757d; /* Plomo oscuro para el hover */
+    transform: scale(1.05); /* Efecto de aumento */
 }
 
-.search-bar button:hover {
-    background-color: #0056b3; /* Color azul oscuro al pasar el ratón */
+#install-button:active {
+    background-color: #5a636a; /* Plomo más oscuro para el estado activo */
+    transform: scale(0.95); /* Efecto de contracción */
+}
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000; /* Fondo negro mientras se carga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegúrate de que esté por encima de todo */
+}
+
+#preloader-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
