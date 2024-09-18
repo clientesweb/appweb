@@ -142,14 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.click();
     }, 5000);
 });
-
-<section id="playlists">
-                <div class="playlist-slider" id="playlist-slider">
-                    <!-- Los videos se cargarán aquí dinámicamente -->
-                </div>
-            </section>
-
-
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
 const MAX_RESULTS = 10; // Número de resultados a obtener por solicitud
@@ -263,7 +255,6 @@ function lazyLoadIframes() {
 }
 
 window.onload = loadVideos;
-
 
 document.getElementById('whatsappBtn').addEventListener('click', function() {
     document.getElementById('whatsappModal').style.display = 'block';
