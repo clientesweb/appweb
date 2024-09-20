@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const shortsSection = document.getElementById('shorts-section');
 
+    // Máximo de videos a cargar
+    const maxResults = 5;
+
     // Función para obtener los videos de la playlist
     function fetchPlaylistVideos(pageToken = '') {
-        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
+        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -22,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     shortsSection.appendChild(shortElement);
                 });
 
-                // Si hay más páginas de resultados, cargarlas
-                if (data.nextPageToken) {
+                // Solo cargar más si no hemos alcanzado el límite deseado
+                if (data.nextPageToken && shortsSection.childElementCount < maxResults) {
                     fetchPlaylistVideos(data.nextPageToken);
                 }
             })
@@ -79,16 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     }
 
-    // Evento para scroll infinito y lazy loading
-    shortsSection.addEventListener('scroll', () => {
-        if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
-            // Cargar más Shorts cuando el usuario se acerca al final
-            fetchPlaylistVideos(); // Esto carga más videos si hay
-        }
-
-        // Aplicar lazy loading
-        lazyLoadIfFrames();
-    });
+    // Aplicar lazy loading cuando se hace scroll
+    shortsSection.addEventListener('scroll', lazyLoadIfFrames);
 
     // También aplicar lazy loading cuando se haga scroll en la ventana
     window.addEventListener('scroll', lazyLoadIfFrames);
