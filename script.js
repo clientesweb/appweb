@@ -8,9 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const playlistId = 'PLZ_v3bWMqpjFa0xI11mahmOCxPk_1TK2s'; // Reemplaza con el ID de tu playlist
 
     const shortsSection = document.getElementById('shorts-section');
+    const maxResults = 5; // Máximo de shorts a mostrar
 
-    // Máximo de videos a cargar
-    const maxResults = 5;
+    // Mostrar un loader mientras se cargan los iframes
+    function showLoader() {
+        for (let i = 0; i < maxResults; i++) {
+            const shortItem = document.createElement('div');
+            shortItem.className = 'short-item loader'; // Clase para estilo de carga
+            shortsSection.appendChild(shortItem);
+        }
+    }
+
+    // Remover el loader
+    function removeLoader() {
+        const loaders = document.querySelectorAll('.loader');
+        loaders.forEach(loader => loader.remove());
+    }
 
     // Función para obtener los videos de la playlist
     function fetchPlaylistVideos(pageToken = '') {
@@ -19,76 +32,38 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
+                removeLoader(); // Elimina el loader antes de cargar los iframes
+
                 data.items.forEach(item => {
                     const videoId = item.snippet.resourceId.videoId;
-                    const shortElement = createThumbnailElement(videoId);
+                    const shortElement = createShortElement(videoId);
                     shortsSection.appendChild(shortElement);
                 });
-
-                // Solo cargar más si no hemos alcanzado el límite deseado
-                if (data.nextPageToken && shortsSection.childElementCount < maxResults) {
-                    fetchPlaylistVideos(data.nextPageToken);
-                }
             })
-            .catch(error => console.error('Error al cargar la playlist de YouTube:', error));
+            .catch(error => {
+                console.error('Error al cargar la playlist de YouTube:', error);
+                removeLoader(); // Remover el loader en caso de error
+            });
     }
 
-    // Crear elemento de thumbnail en lugar de iframe para carga inicial
-    function createThumbnailElement(videoId) {
+    // Crear elemento de Short con lazy loading
+    function createShortElement(videoId) {
         const shortItem = document.createElement('div');
         shortItem.className = 'short-item';
         shortItem.innerHTML = `
-            <img class="short-thumbnail" src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="YouTube Short">
-        `;
-        shortItem.addEventListener('click', () => {
-            replaceThumbnailWithIframe(shortItem, videoId);
-        });
-        return shortItem;
-    }
-
-    // Reemplazar la miniatura con un iframe cuando se haga clic
-    function replaceThumbnailWithIframe(element, videoId) {
-        element.innerHTML = `
             <iframe src="https://www.youtube.com/embed/${videoId}?rel=0"
+                    loading="lazy"  // Carga diferida para mejorar la velocidad
                     frameborder="0"
                     allowfullscreen>
             </iframe>
         `;
+        return shortItem;
     }
 
-    // Cargar Shorts de la playlist al iniciar
+    // Mostrar loaders y cargar Shorts al iniciar
+    showLoader();
     fetchPlaylistVideos();
-
-    // Implementar lazy loading para iframes cuando están cerca de la vista
-    function lazyLoadIfFrames() {
-        const shortThumbnails = document.querySelectorAll('.short-thumbnail');
-        shortThumbnails.forEach(img => {
-            if (isInViewport(img) && !img.classList.contains('loaded')) {
-                const videoId = img.src.split('/')[4];
-                replaceThumbnailWithIframe(img.parentElement, videoId);
-                img.classList.add('loaded');
-            }
-        });
-    }
-
-    // Verificar si el elemento está en la vista
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    // Aplicar lazy loading cuando se hace scroll
-    shortsSection.addEventListener('scroll', lazyLoadIfFrames);
-
-    // También aplicar lazy loading cuando se haga scroll en la ventana
-    window.addEventListener('scroll', lazyLoadIfFrames);
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.sponsors-slider');
     const items = slider.children;
