@@ -3,24 +3,34 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Lista de IDs de YouTube Shorts
-    const shortsIds = [
-
-        'e2C7FzMQWiY',
-        'E2E-UIDfPhE',
-        '64b83rJ19xE',
-        'n3a02UEWwhM',
-        'aug6ZvAjyVE',
-        '565kztuKF2A',
-        'J2J3cVbqHr0',
-        'CjOT--oEtDE',
-        'kPp8PCxp8qk',
-        'oFdVkDcE_sg'
-
-        // Agrega más IDs de Shorts aquí
-    ];
+    // Clave de API de YouTube y ID de la playlist
+    const apiKey = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0'; // Reemplaza con tu clave de API
+    const playlistId = 'PLZ_v3bWMqpjFa0xI11mahmOCxPk_1TK2s'; // Reemplaza con el ID de tu playlist
 
     const shortsSection = document.getElementById('shorts-section');
+    
+    // Función para obtener los videos de la playlist
+    function fetchPlaylistVideos(pageToken = '') {
+        // URL para obtener los videos de la playlist
+        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
+        
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Procesar los datos de la playlist
+                data.items.forEach(item => {
+                    const videoId = item.snippet.resourceId.videoId;
+                    const shortElement = createShortElement(videoId);
+                    shortsSection.appendChild(shortElement);
+                });
+                
+                // Si hay más páginas de resultados, cargarlas
+                if (data.nextPageToken) {
+                    fetchPlaylistVideos(data.nextPageToken);
+                }
+            })
+            .catch(error => console.error('Error al cargar la playlist de YouTube:', error));
+    }
 
     // Función para crear un elemento de Short
     function createShortElement(videoId) {
@@ -35,21 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return shortItem;
     }
 
-    // Cargar Shorts
-    shortsIds.forEach(id => {
-        const shortElement = createShortElement(id);
-        shortsSection.appendChild(shortElement);
-    });
+    // Cargar Shorts de la playlist al iniciar
+    fetchPlaylistVideos();
 
     // Implementar scroll infinito
     shortsSection.addEventListener('scroll', () => {
         if (shortsSection.scrollTop + shortsSection.clientHeight >= shortsSection.scrollHeight - 100) {
             // Cargar más Shorts cuando el usuario se acerca al final
-            const randomId = shortsIds[Math.floor(Math.random() * shortsIds.length)];
-            if (![...shortsSection.children].some(child => child.innerHTML.includes(randomId))) {
-                const newShort = createShortElement(randomId);
-                shortsSection.appendChild(newShort);
-            }
+            fetchPlaylistVideos(); // Esto carga más videos si hay
         }
     });
 });
