@@ -12,7 +12,7 @@ const RESOURCES_TO_CACHE = [
   '/images/logo3.png',
   '/images/logo4.png',
   '/image1.jpg',
-  '/image2.jpg',
+  '/image2 (1).jpg',
   '/image3.jpg',
   '/image4.jpg',
   '/image5.jpg',
