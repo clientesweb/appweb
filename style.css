@@ -2,7 +2,7 @@
 
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,12 +10,12 @@ body {
 
 /* Estilos para el encabezado y navegación */
 header {
-    background-color: #d4d4d4; /* Plomo suave */
-    color: #333; /* Texto oscuro para contraste */
+    background-color: #d4d4d4;
+    color: #333;
     padding: 1rem;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 nav {
@@ -26,11 +26,11 @@ nav {
 
 .logo img {
     max-height: 50px;
-    transition: transform 0.3s ease; /* Transición suave para el logo */
+    transition: transform 0.3s;
 }
 
 .logo img:hover {
-    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
+    transform: scale(1.05);
 }
 
 .menu-toggle {
@@ -41,16 +41,16 @@ nav {
 }
 
 .menu-toggle .bar {
-    background-color: #333; /* Color de las barras del menú */
+    background-color: #333;
     height: 3px;
     width: 25px;
     margin: 5px 0;
     border-radius: 3px;
-    transition: background-color 0.3s ease; /* Transición suave para el color de las barras */
+    transition: background-color 0.3s;
 }
 
 .menu-toggle:hover .bar {
-    background-color: #555; /* Cambio de color en el hover del menú */
+    background-color: #555;
 }
 
 .nav-menu {
@@ -62,20 +62,19 @@ nav {
 
 .nav-menu li {
     margin-left: 20px;
-    position: relative; /* Posicionamiento relativo para los elementos secundarios */
 }
 
 .nav-menu a {
-    color: #333; /* Color del texto de los enlaces */
+    color: #333;
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para color y transformación */
+    transition: color 0.3s, transform 0.3s;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #555; /* Color al pasar el ratón o al estar activo */
-    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+    color: #555;
+    transform: scale(1.05);
 }
 
 /* Estilos para dispositivos móviles */
@@ -85,13 +84,13 @@ nav {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #d4d4d4; /* Plomo suave */
+        background-color: #d4d4d4;
         width: 100%;
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el menú */
-        z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -107,14 +106,10 @@ nav {
     }
 }
 
-/* ------- main-------- */
-
+/* Estilos generales */
 .container {
-    background: #FF0000; /* Rojo YouTube */
-    padding-left: 17%;
-    padding-right: 2%;
-    padding-top: 20px;
-    padding-bottom: 20%;
+    background: #FF0000;
+    padding: 20px 2% 20%;
 }
 
 .large-container {
@@ -156,11 +151,11 @@ nav {
     cursor: pointer;
     padding: 10px;
     z-index: 10;
-    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    transition: background-color 0.3s;
 }
 
 .carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Color de fondo más oscuro al pasar el ratón */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-button.prev {
@@ -171,20 +166,19 @@ nav {
     right: 10px;
 }
 
-
 /* Estilos para el footer */
 footer {
-    background-color: #d4d4d4; /* Plomo suave */
-    color: #333; /* Texto oscuro para contraste */
+    background-color: #d4d4d4;
+    color: #333;
     padding: 2rem 1rem;
-    border-top: 5px solid #FFDD00; /* Borde superior para un toque adicional */
+    border-top: 5px solid #FFDD00;
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem; /* Espaciado uniforme entre secciones */
+    gap: 2rem;
 }
 
 .footer-section {
@@ -196,11 +190,11 @@ footer {
 .footer-logo {
     max-height: 50px;
     margin-bottom: 1rem;
-    transition: transform 0.3s ease; /* Transición suave para el logo */
+    transition: transform 0.3s;
 }
 
 .footer-logo:hover {
-    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
+    transform: scale(1.05);
 }
 
 .socials {
@@ -209,18 +203,18 @@ footer {
 }
 
 .social-icon {
-    color: #333; /* Color de los iconos */
+    color: #333;
     font-size: 1.5rem;
     text-decoration: none;
-    transition: color 0.3s ease; /* Transición suave para el color de los iconos */
+    transition: color 0.3s;
 }
 
 .social-icon:hover {
-    color: #FFDD00; /* Color al pasar el ratón sobre los iconos */
+    color: #FFDD00;
 }
 
 .links ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -229,37 +223,37 @@ footer {
 }
 
 .links ul li a {
-    color: #333; /* Color de los enlaces */
+    color: #333;
     text-decoration: none;
-    transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
+    transition: color 0.3s;
 }
 
 .links ul li a:hover {
-    color: #FFDD00; /* Color al pasar el ratón sobre los enlaces */
+    color: #FFDD00;
     text-decoration: underline;
 }
 
 .map-container {
     width: 100%;
     height: 200px;
-    background-color: #ddd; /* Color de fondo del contenedor del mapa */
-    border-radius: 8px; /* Bordes redondeados para la caja del mapa */
-    overflow: hidden; /* Evita el desbordamiento del contenido */
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .footer-bottom {
-    background-color: #333; /* Color de fondo oscuro */
-    color: #bbb; /* Color de texto claro */
+    background-color: #333;
+    color: #bbb;
     text-align: center;
     padding: 1rem 0;
     font-size: 0.9rem;
-    border-top: 1px solid #444; /* Borde superior para separar la sección */
+    border-top: 1px solid #444;
 }
 
 .footer-bottom a {
-    color: #FFDD00; /* Color de los enlaces en la parte inferior */
+    color: #FFDD00;
     text-decoration: none;
-    transition: color 0.3s ease; /* Transición suave para el color de los enlaces */
+    transition: color 0.3s;
 }
 
 .footer-bottom a:hover {
@@ -271,14 +265,14 @@ footer {
     .footer-content {
         flex-direction: column;
         align-items: center;
-        gap: 1rem; /* Ajusta el espaciado en dispositivos más pequeños */
+        gap: 1rem;
     }
-    
+
     .footer-section {
         margin-right: 0;
         margin-bottom: 2rem;
     }
-    
+
     .map-container {
         height: 150px;
     }
@@ -288,16 +282,17 @@ footer {
     .footer-logo {
         max-height: 40px;
     }
-    
+
     .social-icon {
         font-size: 1.2rem;
     }
-    
+
     .footer-bottom {
         font-size: 0.8rem;
     }
 }
-/* Sección de Videos, Playlists, y Shorts */
+
+/* Sección de Videos, Playlists y Shorts */
 #videos, #playlists, #shorts-section {
     margin: 50px 0;
     padding: 0 20px;
@@ -312,12 +307,12 @@ h2 {
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    scroll-behavior: smooth; /* Transición suave al desplazarse */
+    scroll-behavior: smooth;
 }
 
 .playlist-item {
-    flex: 0 0 300px; /* Ancho fijo para videos y playlists */
-    height: 200px; /* Altura fija para videos y playlists */
+    flex: 0 0 300px;
+    height: 200px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -327,299 +322,129 @@ iframe {
     height: 100%;
     border: none;
     border-radius: 10px;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
+    object-fit: cover;
 }
 
 /* Ocultar barras de scroll en navegadores modernos */
-.playlist-slider::-webkit-scrollbar {
+.playlist-slider::-webkit-scrollbar,
+#shorts-section::-webkit-scrollbar,
+#sponsors-section::-webkit-scrollbar {
     display: none;
 }
 
 .playlist-slider {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
 /* Estilo para la sección de shorts */
 #shorts-section {
     display: flex;
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    gap: 10px; /* Espacio entre los items de shorts */
-    padding: 10px 0; /* Espaciado vertical */
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Estilo para cada item de shorts */
 .short-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 300px; /* Ancho fijo para los shorts */
-    height: 500px; /* Altura fija para los shorts */
-    margin-right: 10px; /* Espacio entre los shorts */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta desbordamientos */
-    display: flex; /* Asegura que el contenido interno se ajuste */
+    flex: 0 0 auto;
+    width: 300px;
+    height: 500px;
+    margin-right: 10px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
 }
 
-/* Ajustar el iframe dentro de los shorts */
 .short-item iframe {
-    width: 100%; /* El iframe ocupa el ancho del contenedor */
-    height: 100%; /* El iframe ocupa la altura del contenedor */
+    width: 100%;
+    height: 100%;
     border: none;
-    object-fit: cover; /* Ajusta el contenido del iframe para cubrir el contenedor */
+    object-fit: cover;
 }
 
-/* Ocultar barras de scroll en navegadores modernos */
-#shorts-section::-webkit-scrollbar {
-    display: none;
-}
-#shorts-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-/* Media Queries para mejorar la responsividad */
-
-/* Para pantallas medianas (tablets) */
-@media (max-width: 768px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
-    .short-item {
-        width: 250px; /* Ajustar ancho */
-        height: 400px; /* Ajustar altura */
-    }
-}
-
-/* Para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
-    #shorts-section {
-        padding: 0 5px; /* Ajustar padding para pantallas más pequeñas */
-    }
-    .short-item {
-        width: 200px; /* Ajustar ancho */
-        height: 350px; /* Ajustar altura */
-    }
-}
 /* Estilo para la sección de patrocinadores */
 #sponsors-section {
-    overflow: hidden; /* Oculta el contenido que desborda */
+    overflow: hidden;
     position: relative;
-    width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
-    height: 150px; /* Ajusta la altura según sea necesario */
-    background-color: #d4d4d4; /* Color de fondo plomo suave */
-    padding: 10px 0; /* Espaciado vertical */
+    width: 100%;
+    height: 150px;
+    background-color: #d4d4d4;
+    padding: 10px 0;
 }
 
 .sponsors-slider {
     display: flex;
-    flex-wrap: nowrap; /* Evita el salto de línea entre los elementos */
-    overflow-x: auto; /* Permite el desplazamiento horizontal */
-    white-space: nowrap; /* Evita el salto de línea entre los elementos */
-    scroll-behavior: smooth; /* Suaviza el desplazamiento */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
     height: 100%;
     align-items: center;
-    scroll-snap-type: x mandatory; /* Alinea los elementos al desplazarse */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sponsor-item {
-    flex: 0 0 auto; /* Los elementos no se estiran */
-    width: 150px; /* Ajusta el ancho de los logos */
-    height: 100%; /* Ajusta la altura del contenedor */
+    flex: 0 0 auto;
+    width: 150px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px; /* Espacio entre los logos */
-    scroll-snap-align: start; /* Alinea el inicio del elemento */
+    margin-right: 20px;
+    scroll-snap-align: start;
 }
 
 .sponsor-item img {
-    max-width: 100%; /* Asegura que el logo se ajuste al ancho del contenedor */
-    max-height: 100%; /* Asegura que el logo se ajuste a la altura del contenedor */
-    object-fit: contain; /* Mantiene la proporción del logo */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-/* Ocultar barras de scroll en navegadores modernos */
-#sponsors-section::-webkit-scrollbar {
-    display: none;
-}
-#sponsors-section {
-    -ms-overflow-style: none; /* IE y Edge */
-    scrollbar-width: none; /* Firefox */
-}
 /* Estilos para el botón de WhatsApp flotante */
 .whatsapp-float {
     position: fixed;
-    bottom: 70px; /* Ajusta el valor según el espacio necesario para la barra de navegación */
+    bottom: 70px;
     right: 20px;
-    z-index: 1000; /* Asegura que el botón esté sobre otros elementos */
-}
-
-.whatsapp-button {
+    z-index: 1000;
     background-color: #25D366;
     color: white;
     border-radius: 50%;
-    padding: 15px;
-    font-size: 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
 }
 
-.whatsapp-button:hover {
-    background-color: #128C7E;
+.whatsapp-float:hover {
+    transform: scale(1.1);
 }
 
-/* Estilos para el modal de WhatsApp */
-.whatsapp-modal {
-    display: none; /* Inicialmente oculto */
+/* Estilos para el botón de regreso al inicio */
+.back-to-top {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-    z-index: 1001; /* Asegura que el modal esté sobre otros elementos */
-}
-
-.whatsapp-modal-content {
-    background: white;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    max-width: 500px;
-    position: relative;
-}
-
-.whatsapp-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #FFDD00;
     color: #333;
-}
-
-.send-btn {
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.send-btn:hover {
-    background-color: #128C7E;
-}
-/* Estilos para la barra de navegación inferior */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
-    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    height: 60px; /* Ajusta la altura según sea necesario */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-    transition: transform 0.3s ease-in-out; /* Transición suave para aparición/desaparición */
-}
-
-.bottom-nav.hidden {
-    transform: translateY(100%); /* Mueve la barra fuera de la vista cuando esté oculta */
-}
-
-.bottom-nav .nav-item {
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    flex: 1;
-    transition: color 0.3s ease; /* Transición suave para el color del texto */
-}
-
-.bottom-nav .nav-item:hover,
-.bottom-nav .nav-item.active {
-    color: #ffdd00; /* Color al pasar el ratón o al estar activo */
-}
-
-.bottom-nav .nav-item i {
-    display: block;
-    font-size: 24px; /* Tamaño del icono */
-    margin-bottom: 4px; /* Espacio entre icono y texto */
-    transition: transform 0.3s ease; /* Efecto de animación para el icono */
-}
-
-.bottom-nav .nav-item:hover i {
-    transform: scale(1.2); /* Efecto de escala al pasar el ratón */
-}
-
-.bottom-nav .nav-item span {
-    display: block;
-    font-size: 12px; /* Tamaño del texto */
-}
-
-/* Ajusta el diseño en dispositivos móviles */
-@media (max-width: 600px) {
-    .bottom-nav {
-        height: 50px;
-    }
-    
-    .bottom-nav .nav-item i {
-        font-size: 20px;
-    }
-    
-    .bottom-nav .nav-item span {
-        font-size: 10px;
-    }
-}
-/* Estilo para el botón de instalación */
-#install-section {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
-#install-button {
-    background-color: #7d8c8d; /* Plomo suave */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 15px 32px; /* Espaciado interno */
-    text-align: center; /* Alineación del texto */
-    text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Mostrar en línea */
-    font-size: 16px; /* Tamaño de fuente */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
-    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
-}
-
-#install-button:hover {
-    background-color: #6c757d; /* Plomo oscuro para el hover */
-    transform: scale(1.05); /* Efecto de aumento */
-}
-
-#install-button:active {
-    background-color: #5a636a; /* Plomo más oscuro para el estado activo */
-    transform: scale(0.95); /* Efecto de contracción */
-}
-.loader {
-    width: 100%;
-    height: 180px; /* Ajustar según el tamaño de los videos */
-    background: #f0f0f0;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.back-to-top:hover {
+    transform: scale(1.1);
 }
