@@ -1,137 +1,138 @@
-/* Archivo: style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* Reseteo básico */
-* {
+:root {
+  --primary-color: #FF0000;
+  --secondary-color: #FFDD00;
+  --background-color: #d4d4d4;
+  --text-color: #333;
+  --hover-color: #555;
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #128C7E;
+  --footer-background: #333;
+  --footer-text: #bbb;
+  --transition-speed: 0.3s;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Header */
+/* Estilos para el encabezado y navegación */
 header {
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
-header nav {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
 }
 
 .logo img {
-    max-width: 100%;
-    height: auto;
+    max-height: 50px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
-    background: transparent;
-    border: none;
     cursor: pointer;
+    padding: 5px;
 }
 
 .menu-toggle .bar {
-    width: 25px;
+    background-color: var(--text-color);
     height: 3px;
-    background-color: #333;
+    width: 25px;
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.menu-toggle:hover .bar {
+    background-color: var(--hover-color);
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu li {
-    padding: 0.5rem 0;
+    margin-left: 20px;
+    position: relative;
 }
 
 .nav-menu a {
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background 0.3s;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
 }
 
-.nav-menu a:hover {
-    background-color: #ddd;
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--hover-color);
+    transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        border-top: 1px solid #ddd;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-menu.open {
-        display: flex;
-    }
-
-    .nav-menu li {
-        text-align: center;
-    }
+/* Estilos para el main */
+.container {
+    background: var(--primary-color);
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20%;
 }
 
-/* Main */
-.main-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+.large-container {
+    padding-left: 7%;
 }
 
-/* Banner */
 .banner {
     position: relative;
+    width: 100%;
     overflow: hidden;
-    max-width: 100%;
 }
 
 .carousel {
+    display: flex;
+    align-items: center;
     position: relative;
+    width: 100%;
 }
 
 .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
 .carousel-images img {
-    min-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 8px;
 }
 
 .carousel-button {
@@ -139,12 +140,19 @@ header nav {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
     border: none;
-    padding: 0.5rem;
+    color: white;
+    font-size: 24px;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
+    padding: 10px;
+    z-index: 10;
+    transition: background-color var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel-button.prev {
@@ -155,94 +163,35 @@ header nav {
     right: 10px;
 }
 
-/* Playlist Section */
-#playlists {
-    padding: 2rem 0;
-}
-
-/* Shorts Section */
-#shorts-section {
-    background-color: #fff;
-    padding: 2rem 0;
-    margin-top: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#shorts-section h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-/* Sponsors Section */
-#sponsors-section {
-    padding: 2rem 0;
-    background-color: #f8f8f8;
-}
-
-.sponsors-slider {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.sponsor-item img {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-}
-
-.sponsor-item img:hover {
-    filter: none;
-}
-
-/* Install Section */
-#install-section {
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.install-button {
-    padding: 0.75rem 1.5rem;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.install-button:hover {
-    background-color: #555;
-}
-
-/* Footer */
+/* Estilos para el footer */
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 2rem 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 2rem 1rem;
+    border-top: 5px solid var(--secondary-color);
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .footer-section {
     flex: 1;
-    min-width: 250px;
-}
-
-.footer-section h3 {
+    min-width: 200px;
     margin-bottom: 1rem;
 }
 
 .footer-logo {
+    max-height: 50px;
     margin-bottom: 1rem;
+    transition: transform var(--transition-speed) ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
 }
 
 .socials {
@@ -251,75 +200,486 @@ footer {
 }
 
 .social-icon {
-    color: #fff;
+    color: var(--text-color);
     font-size: 1.5rem;
-    transition: color 0.3s;
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icon:hover {
-    color: #ddd;
+    color: var(--secondary-color);
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.links ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.links ul li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.map-container {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .footer-bottom {
+    background-color: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
-    margin-top: 1rem;
-    font-size: 0.875rem;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
 }
 
-/* Whatsapp Button */
+.footer-bottom a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Sección de Videos, Playlists, y Shorts */
+#videos, #playlists, #shorts-section {
+    margin: 50px 0;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.playlist-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.playlist-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.playlist-item {
+    flex: 0 0 300px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Estilo para la sección de shorts */
+#shorts-section {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#shorts-section::-webkit-scrollbar {
+    display: none;
+}
+
+.short-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 500px;
+    margin-right: 10px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.short-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+}
+
+/* Estilo para la sección de patrocinadores */
+#sponsors-section {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: var(--background-color);
+    padding: 10px 0;
+}
+
+.sponsors-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    height: 100%;
+    align-items: center;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sponsors-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.sponsor-item {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    scroll-snap-align: start;
+}
+
+.sponsor-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos para el botón de WhatsApp flotante */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
+    bottom: 70px;
     right: 20px;
     z-index: 1000;
 }
 
 .whatsapp-button {
+    background-color: var(--whatsapp-color);
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #25d366;
-    color: #fff;
-    padding: 0.75rem;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    transition: background 0.3s;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .whatsapp-button:hover {
-    background-color: #128c7e;
+    background-color: var(--whatsapp-hover);
 }
 
-/* Bottom Navigation */
-.bottom-nav {
+/* Estilos para el modal de WhatsApp */
+.whatsapp-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.whatsapp-modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.whatsapp-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    min-height: 44px;
+    min-width: 44px;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-btn {
+    background-color: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.send-btn:hover {
+    background-color: var(--whatsapp-hover);
+}
+
+/* Estilos para la barra de navegación inferior */
+.bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0;
+    width: 100%;
+    background: linear-gradient(to top, var(--primary-color), #CC0000);
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform var(--transition-speed) ease-in-out;
 }
 
-.nav-item {
+.bottom-nav.hidden {
+    transform: translateY(100%);
+}
+
+.bottom-nav .nav-item {
     text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
     flex: 1;
+    transition: color var(--transition-speed) ease;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-item i {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
+.bottom-nav .nav-item:hover,
+.bottom-nav .nav-item.active {
+    color: var(--secondary-color);
 }
 
-.nav-item span {
+.bottom-nav .nav-item i {
     display: block;
-    font-size: 0.75rem;
+    font-size: 24px;
+    margin-bottom: 4px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.bottom-nav .nav-item:hover i {
+    transform: scale(1.2);
+}
+
+.bottom-nav .nav-item span {
+    display: block;
+    font-size: 12px;
+}
+
+/* Estilo para el botón de instalación */
+#install-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+#install-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    min-height: 44px;
+    min-width: 44px;
+}
+
+#install-button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+#install-
+/* CSS Responsivo */
+
+@media (max-width: 1024px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 5%;
+        padding-top: 20px;
+        padding-bottom: 10%;
+    }
+
+    .large-container {
+        padding-left: 5%;
+    }
 }
 
 @media (max-width: 768px) {
-    .bottom-nav {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
         display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--background-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-menu li {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .carousel-button {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    .playlist-item {
+        flex: 0 0 80%;
+        height: auto;
+    }
+
+    .short-item {
+        width: 80%;
+        height: auto;
+    }
+
+    .socials {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bottom-nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .bottom-nav .nav-item {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    .logo img {
+        max-height: 40px;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+        padding: 0.8rem;
+    }
+
+    .carousel-button {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .playlist-item, .short-item {
+        width: 90%;
+    }
+
+    #videos, #playlists, #shorts-section {
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .sponsor-item {
+        width: 100px;
+        margin-right: 10px;
+    }
+
+    .bottom-nav .nav-item {
+        flex-direction: row;
+        justify-content: flex-start;
     }
 }
