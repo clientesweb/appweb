@@ -185,6 +185,61 @@ function setCachedData(items, nextPageToken) {
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
 }
 
+// Función para crear el elemento de miniatura
+function createThumbnailElement(video) {
+    const videoId = video.snippet.resourceId.videoId;
+    const thumbnailUrl = video.snippet.thumbnails.medium.url;
+    const thumbnail = document.createElement('div');
+    thumbnail.className = 'playlist-item-thumbnail';
+    thumbnail.innerHTML = `
+        <img src="${thumbnailUrl}" alt="${video.snippet.title}" loading="lazy" />
+        <button class="play-button" data-video-id="${videoId}">▶</button>
+    `;
+    return thumbnail;
+}
+
+// Función para cargar los iframes cuando están en el viewport
+function lazyLoadIframes() {
+    const iframes = document.querySelectorAll('iframe.lazy');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                iframe.src = iframe.dataset.src; // Carga el iframe
+                iframe.classList.remove('lazy');
+                observer.unobserve(iframe); // Deja de observar el iframe
+            }
+        });
+    });
+
+    iframes.forEach(iframe => observer.observe(iframe));
+}
+
+// Función para cargar más videos cuando se detecta el final de la lista
+function observeLastItem() {
+    const items = document.querySelectorAll('.playlist-item-thumbnail');
+    const lastItem = items[items.length - 1];
+    
+    if (!lastItem) return;
+
+    const observer = new IntersectionObserver(async entries => {
+        if (entries[0].isIntersecting && nextPageToken) {
+            observer.unobserve(lastItem); // Deja de observar el último elemento
+            const moreVideos = await fetchPlaylistItems(nextPageToken);
+            moreVideos.forEach(video => {
+                const thumbnailElement = createThumbnailElement(video);
+                playlistSlider.appendChild(thumbnailElement);
+            });
+            lazyLoadIframes();
+            observeLastItem(); // Volver a observar el nuevo último elemento
+        }
+    }, { rootMargin: '100px' }); // Dispara la carga cuando está a 100px del viewport
+
+    observer.observe(lastItem);
+}
+
+// Función para cargar los videos de la playlist
 async function fetchPlaylistItems(pageToken = '') {
     const cachedData = getCachedData();
     if (cachedData && !pageToken) {
@@ -206,8 +261,8 @@ async function fetchPlaylistItems(pageToken = '') {
     return items;
 }
 
-function createVideoElement(video) {
-    const videoId = video.snippet.resourceId.videoId;
+// Función para crear un elemento de video
+function createVideoElement(videoId) {
     const iframe = document.createElement('iframe');
     iframe.dataset.src = `https://www.youtube.com/embed/${videoId}`; // Usa data-src para carga diferida
     iframe.frameBorder = '0';
@@ -222,47 +277,24 @@ function createVideoElement(video) {
 async function loadVideos() {
     const videos = await fetchPlaylistItems(nextPageToken);
     videos.forEach(video => {
-        const videoElement = createVideoElement(video);
-        playlistSlider.appendChild(videoElement);
+        const thumbnailElement = createThumbnailElement(video);
+        playlistSlider.appendChild(thumbnailElement);
     });
 
-    // Carga diferida
-    lazyLoadIframes();
-
-    // Cargar más videos si hay un token para la siguiente página
-    if (nextPageToken) {
-        const loadMoreButton = document.createElement('');
-        loadMoreButton.textContent = '';
-        loadMoreButton.addEventListener('click', async () => {
-            loadMoreButton.disabled = true;
-            const moreVideos = await fetchPlaylistItems(nextPageToken);
-            moreVideos.forEach(video => {
-                const videoElement = createVideoElement(video);
-                playlistSlider.appendChild(videoElement);
-            });
+    // Evento para mostrar iframe al hacer clic en miniatura
+    playlistSlider.addEventListener('click', (event) => {
+        if (event.target && event.target.classList.contains('play-button')) {
+            const videoId = event.target.dataset.videoId;
+            const iframe = createVideoElement(videoId);
+            const parent = event.target.closest('.playlist-item-thumbnail');
+            parent.innerHTML = ''; // Limpiar miniatura
+            parent.appendChild(iframe); // Añadir iframe
             lazyLoadIframes();
-            loadMoreButton.disabled = false;
-        });
-        playlistSlider.parentElement.appendChild(loadMoreButton);
-    }
-}
-
-// Función para cargar iframes cuando están en el viewport
-function lazyLoadIframes() {
-    const iframes = document.querySelectorAll('iframe.lazy');
-    
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const iframe = entry.target;
-                iframe.src = iframe.dataset.src; // Carga el iframe
-                iframe.classList.remove('lazy');
-                observer.unobserve(iframe); // Deja de observar el iframe
-            }
-        });
+        }
     });
 
-    iframes.forEach(iframe => observer.observe(iframe));
+    // Observa el último elemento para cargar más videos
+    observeLastItem();
 }
 
 window.onload = loadVideos;
