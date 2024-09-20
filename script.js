@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para obtener los videos de la playlist
     function fetchPlaylistVideos(pageToken = '') {
-        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
+        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
-const MAX_RESULTS = 10; // Número de resultados a obtener por solicitud
+const MAX_RESULTS = 5; // Número de resultados a obtener por solicitud
 const CACHE_KEY = 'playlistData';
 const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
 
