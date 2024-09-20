@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe Club Tv - Entretenimiento y Servicios en Línea</title>
-    <meta name="description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv. Eventos, ofertas comerciales y más.">
+    <title>Cafe Club Tv</title>
+    <meta name="description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Open Graph tags -->
-    <meta property="og:title" content="Cafe Club Tv - Entretenimiento y Servicios en Línea">
-    <meta property="og:description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv. Eventos, ofertas comerciales y más.">
+    <meta property="og:title" content="Cafe Club Tv">
+    <meta property="og:description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
     <meta property="og:image" content="https://tudominio.com/og-image.jpg">
     <meta property="og:url" content="https://tudominio.com">
-    <meta property="og:type" content="website">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <a href="/">
-                    <img src="images/logi.svg" alt="Logo de Cafe Club Tv" width="150" height="50">
-                </a>
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv">
             </div>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -36,53 +31,52 @@
                 <li><a href="#playlists">Inicio</a></li>
                 <li><a href="#features">Eventos</a></li>
                 <li><a href="#shorts-section">Ofertas Comerciales</a></li>
-                <li><a href="#sponsors-section">Suscribirse</a></li>
+                <li><a href="#sponsors-section">Subscribe</a></li>
                 <li><a href="#cta">Contacto</a></li>
             </ul>
         </nav>
     </header>
     
-    <main>
+    <main class="background-container">
         <div class="main-container">
-            <section class="banner" aria-label="Carrusel de imágenes destacadas">
+            <section class="banner">
                 <div class="carousel">
                     <div class="carousel-images">
-                        <img src="image1.jpg" alt="Imagen destacada 1" width="800" height="400" loading="lazy">
-                        <img src="image2 (1).jpg" alt="Imagen destacada 2" width="800" height="400" loading="lazy">
-                        <img src="image3.jpg" alt="Imagen destacada 3" width="800" height="400" loading="lazy">
-                        <img src="image4.jpg" alt="Imagen destacada 4" width="800" height="400" loading="lazy">
-                        <img src="image5.jpg" alt="Imagen destacada 5" width="800" height="400" loading="lazy">
-                        <img src="image6.jpg" alt="Imagen destacada 6" width="800" height="400" loading="lazy">
+                        <img src="image1.jpg" alt="Imagen destacada 1" loading="lazy">
+                        <img src="image2 (1).jpg" alt="Imagen destacada 2" loading="lazy">
+                        <img src="image3.jpg" alt="Imagen destacada 3" loading="lazy">
+                        <img src="image4.jpg" alt="Imagen destacada 4" loading="lazy">
+                        <img src="image5.jpg" alt="Imagen destacada 5" loading="lazy">
+                        <img src="image6.jpg" alt="Imagen destacada 6" loading="lazy">
                     </div>
                     <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
                     <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
                 </div>
             </section>
 
-            <section id="playlists" aria-label="Lista de reproducción">
-                <div class="playlist-slider" id="playlist-slider">
-                    <!-- Los videos se cargarán aquí dinámicamente -->
-                </div>
-                <div id="youtube-live-chat" style="display: none;">
-                    <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
-                </div>
-            </section>
+           <section id="playlists">
+    <div class="playlist-slider" id="playlist-slider">
+        <!-- Los videos se cargarán aquí dinámicamente -->
+    </div>
+    <div id="youtube-live-chat" style="display: none;">
+        <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
+    </div>
+</section>
 
-            <section id="shorts-section" aria-label="Shorts y ofertas comerciales">
-                <h2></h2>
+            <section id="shorts-section">
                 <!-- Los Shorts se cargarán aquí dinámicamente -->
             </section>
          
-            <section id="sponsors-section" aria-label="Nuestros patrocinadores">
+            <section id="sponsors-section">
                 <div class="sponsors-slider">
-                    <div class="sponsor-item"><img src="images/logo1.png" alt="Logo del patrocinador 1" width="150" height="75" loading="lazy"></div>
-                    <div class="sponsor-item"><img src="images/logo2.png" alt="Logo del patrocinador 2" width="150" height="75" loading="lazy"></div>
-                    <div class="sponsor-item"><img src="images/logo3.png" alt="Logo del patrocinador 3" width="150" height="75" loading="lazy"></div>
-                    <div class="sponsor-item"><img src="images/logo4.png" alt="Logo del patrocinador 4" width="150" height="75" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo1.png" alt="Logo del patrocinador 1" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo2.png" alt="Logo del patrocinador 2" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo3.png" alt="Logo del patrocinador 3" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy"></div>
                 </div>
             </section>
 
-            <section id="install-section" aria-label="Instalar aplicación">
+            <section id="install-section">
                 <div class="install-container">
                     <button id="install-button" class="install-button" style="display: none;">Instalar CafeClubTV App</button>
                 </div>
@@ -93,13 +87,13 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section about">
-                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo" width="150" height="50">
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo">
                 <p>Estamos comprometidos con ofrecerte la mejor experiencia en entretenimiento y servicios en línea.</p>
                 <div class="socials">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Suscríbete a nuestro canal de YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="social-icon" aria-label="Síguenos en Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="Suscríbete a nuestro canal de YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section links">
@@ -108,7 +102,7 @@
                     <li><a href="#playlists">Inicio</a></li>
                     <li><a href="#features">Eventos</a></li>
                     <li><a href="#shorts-section">Ofertas Comerciales</a></li>
-                    <li><a href="#sponsors-section">Suscribirse</a></li>
+                    <li><a href="#sponsors-section">Subscribe</a></li>
                     <li><a href="#cta">Contacto</a></li>
                 </ul>
             </div>
@@ -129,22 +123,22 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener noreferrer">Duality Domain</a> | &copy; 2024 Todos los derechos reservados.</p>
+            <p>Powered by <a href="https://dualitydomain.github.io/Dualitydomain/" target="_blank" rel="noopener">Duality Domain</a> | &copy; 2024 Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <div class="whatsapp-float">
-        <a href="#" id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
+        <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <div id="whatsappModal" class="whatsapp-modal" aria-hidden="true">
+    <div id="whatsappModal" class="whatsapp-modal">
         <div class="whatsapp-modal-content">
             <button class="whatsapp-close" aria-label="Cerrar modal">&times;</button>
             <h2>Chatea con CaféClubTV en WhatsApp</h2>
             <p>Escribe tu mensaje:</p>
-            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4"></textarea>
+            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
             <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
         </div>
     </div>
@@ -158,20 +152,8 @@
     </nav>
 
     <script src="script.js"></script>
+    <script src="service-worker.js"></script>
     <script>
-        // Registro del Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registrado con éxito:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('Error al registrar el Service Worker:', error);
-                    });
-            });
-        }
-
         // Código para la instalación de la PWA
         let deferredPrompt;
         const installButton = document.getElementById('install-button');
