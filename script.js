@@ -155,12 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 const API_KEY = 'AIzaSyB4HGg2WVC-Sq3Qyj9T9Z9aBBGbET1oGs0';
 const PLAYLIST_ID = 'PLZ_v3bWMqpjEYZDAFLI-0GuAH4BpA5PiL'; // Reemplaza con tu ID de playlist
-const MAX_RESULTS = 5; // Número de resultados a obtener por solicitud
+const MAX_RESULTS = 5; // Número de videos a obtener
 const CACHE_KEY = 'playlistData';
 const CACHE_EXPIRY = 10 * 60 * 1000; // Caché expira en 10 minutos
 
 const playlistSlider = document.getElementById('playlist-slider');
-let nextPageToken = ''; // Token para la siguiente página
 
 // Función para obtener datos de la caché
 function getCachedData() {
@@ -169,36 +168,65 @@ function getCachedData() {
         const data = JSON.parse(cached);
         const now = new Date().getTime();
         if (now - data.timestamp < CACHE_EXPIRY) {
-            return data;
+            return data.items;
         }
     }
     return null;
 }
 
 // Función para guardar datos en caché
-function setCachedData(items, nextPageToken) {
+function setCachedData(items) {
     const data = {
         items: items,
-        nextPageToken: nextPageToken,
         timestamp: new Date().getTime()
     };
     localStorage.setItem(CACHE_KEY, JSON.stringify(data));
 }
 
-// Función para crear el elemento de miniatura
-function createThumbnailElement(video) {
-    const videoId = video.snippet.resourceId.videoId;
-    const thumbnailUrl = video.snippet.thumbnails.medium.url;
-    const thumbnail = document.createElement('div');
-    thumbnail.className = 'playlist-item-thumbnail';
-    thumbnail.innerHTML = `
-        <img src="${thumbnailUrl}" alt="${video.snippet.title}" loading="lazy" />
-        <button class="play-button" data-video-id="${videoId}">▶</button>
-    `;
-    return thumbnail;
+// Función para obtener videos de la playlist
+async function fetchPlaylistItems() {
+    const cachedData = getCachedData();
+    if (cachedData) {
+        return cachedData;
+    }
+
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=${MAX_RESULTS}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const items = data.items;
+
+    // Guardar en caché
+    setCachedData(items);
+
+    return items;
 }
 
-// Función para cargar los iframes cuando están en el viewport
+// Función para crear el elemento de iframe del video
+function createVideoElement(video) {
+    const videoId = video.snippet.resourceId.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.dataset.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.frameBorder = '0';
+    iframe.allow = 'autoplay; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.className = 'playlist-item lazy'; // Clase lazy para la carga diferida
+
+    return iframe;
+}
+
+// Función para cargar los videos
+async function loadVideos() {
+    const videos = await fetchPlaylistItems();
+    videos.forEach(video => {
+        const videoElement = createVideoElement(video);
+        playlistSlider.appendChild(videoElement);
+    });
+
+    // Carga diferida
+    lazyLoadIframes();
+}
+
+// Función para cargar iframes cuando están en el viewport
 function lazyLoadIframes() {
     const iframes = document.querySelectorAll('iframe.lazy');
 
@@ -206,9 +234,9 @@ function lazyLoadIframes() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const iframe = entry.target;
-                iframe.src = iframe.dataset.src; // Carga el iframe
+                iframe.src = iframe.dataset.src; // Carga el iframe cuando está visible
                 iframe.classList.remove('lazy');
-                observer.unobserve(iframe); // Deja de observar el iframe
+                observer.unobserve(iframe); // Deja de observar el iframe una vez cargado
             }
         });
     });
@@ -216,88 +244,8 @@ function lazyLoadIframes() {
     iframes.forEach(iframe => observer.observe(iframe));
 }
 
-// Función para cargar más videos cuando se detecta el final de la lista
-function observeLastItem() {
-    const items = document.querySelectorAll('.playlist-item-thumbnail');
-    const lastItem = items[items.length - 1];
-    
-    if (!lastItem) return;
-
-    const observer = new IntersectionObserver(async entries => {
-        if (entries[0].isIntersecting && nextPageToken) {
-            observer.unobserve(lastItem); // Deja de observar el último elemento
-            const moreVideos = await fetchPlaylistItems(nextPageToken);
-            moreVideos.forEach(video => {
-                const thumbnailElement = createThumbnailElement(video);
-                playlistSlider.appendChild(thumbnailElement);
-            });
-            lazyLoadIframes();
-            observeLastItem(); // Volver a observar el nuevo último elemento
-        }
-    }, { rootMargin: '100px' }); // Dispara la carga cuando está a 100px del viewport
-
-    observer.observe(lastItem);
-}
-
-// Función para cargar los videos de la playlist
-async function fetchPlaylistItems(pageToken = '') {
-    const cachedData = getCachedData();
-    if (cachedData && !pageToken) {
-        nextPageToken = cachedData.nextPageToken;
-        return cachedData.items;
-    }
-
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&key=${API_KEY}&maxResults=${MAX_RESULTS}${pageToken ? `&pageToken=${pageToken}` : ''}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    const items = data.items;
-    nextPageToken = data.nextPageToken || '';
-
-    // Guardar en caché si no estamos paginando
-    if (!pageToken) {
-        setCachedData(items, nextPageToken);
-    }
-
-    return items;
-}
-
-// Función para crear un elemento de video
-function createVideoElement(videoId) {
-    const iframe = document.createElement('iframe');
-    iframe.dataset.src = `https://www.youtube.com/embed/${videoId}`; // Usa data-src para carga diferida
-    iframe.frameBorder = '0';
-    iframe.allow = 'autoplay; encrypted-media';
-    iframe.allowFullscreen = true;
-    iframe.className = 'playlist-item lazy'; // Añade la clase lazy
-
-    return iframe;
-}
-
-// Función para cargar los videos
-async function loadVideos() {
-    const videos = await fetchPlaylistItems(nextPageToken);
-    videos.forEach(video => {
-        const thumbnailElement = createThumbnailElement(video);
-        playlistSlider.appendChild(thumbnailElement);
-    });
-
-    // Evento para mostrar iframe al hacer clic en miniatura
-    playlistSlider.addEventListener('click', (event) => {
-        if (event.target && event.target.classList.contains('play-button')) {
-            const videoId = event.target.dataset.videoId;
-            const iframe = createVideoElement(videoId);
-            const parent = event.target.closest('.playlist-item-thumbnail');
-            parent.innerHTML = ''; // Limpiar miniatura
-            parent.appendChild(iframe); // Añadir iframe
-            lazyLoadIframes();
-        }
-    });
-
-    // Observa el último elemento para cargar más videos
-    observeLastItem();
-}
-
 window.onload = loadVideos;
+
 
 document.getElementById('whatsappBtn').addEventListener('click', function() {
     document.getElementById('whatsappModal').style.display = 'block';
