@@ -623,34 +623,16 @@ iframe {
     border-radius: 10px;
     margin-bottom: 15px;
 }
-/* Animación de desvanecimiento */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
 
-.banner {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Animación de deslizamiento para los patrocinadores */
-.sponsors-slider {
-    display: flex;
-    overflow: hidden;
-    animation: slideIn 1s ease-in-out;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
 }
