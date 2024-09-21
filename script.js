@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playlistId = 'PLZ_v3bWMqpjFa0xI11mahmOCxPk_1TK2s'; // Reemplaza con el ID de tu playlist
 
     const shortsSection = document.getElementById('shorts-section');
-    const maxResults = 5; // Máximo de shorts a mostrar
+    const maxResults = 20; // Máximo de shorts a mostrar
 
     // Mostrar un loader mientras se cargan los iframes
     function showLoader() {
