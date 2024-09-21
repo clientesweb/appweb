@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const shortsSection = document.getElementById('shorts-section');
     const maxResults = 5; // Máximo de shorts a mostrar
+    const fetchResults = 20; // Máximo de resultados a obtener de la API
 
     // Mostrar un loader mientras se cargan los iframes
     function showLoader() {
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para obtener los videos de la playlist
     function fetchPlaylistVideos(pageToken = '') {
-        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${maxResults}&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
+        const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${fetchResults}&playlistId=${playlistId}&key=${apiKey}&pageToken=${pageToken}`;
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shortItem.className = 'short-item';
         shortItem.innerHTML = `
             <iframe src="https://www.youtube.com/embed/${videoId}?rel=0"
-                    loading="lazy"  // Carga diferida para mejorar la velocidad
+                    loading="lazy"
                     frameborder="0"
                     allowfullscreen>
             </iframe>
