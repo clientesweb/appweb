@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
+Optimiza mi código 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Club Tv</title>
     <meta name="description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
-    <link rel="icon" href="images/cafeclubtv.ico" type="image/x-icon">
+    <link rel="icon" href="images/cafeclubtv (1).ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
+    <!-- Open Graph tags -->
     <meta property="og:title" content="Cafe Club Tv">
     <meta property="og:description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
     <meta property="og:image" content="https://tudominio.com/og-image.jpg">
@@ -20,7 +20,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" width="150" height="50">
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv">
             </div>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 <span class="bar"></span>
@@ -39,40 +39,46 @@
     
     <main class="background-container">
         <div class="main-container">
-            <section class="banner" aria-label="Banner principal">
+            <section class="banner">
                 <div class="carousel">
                     <div class="carousel-images">
-                        <img src="image1.jpg" alt="Imagen destacada 1" loading="lazy" width="800" height="400">
-                        <img src="image2 (2).jpg" alt="Imagen destacada 2" loading="lazy" width="800" height="400">
-                        <img src="image3.jpg" alt="Imagen destacada 3" loading="lazy" width="800" height="400">
-                        <img src="image4.jpg" alt="Imagen destacada 4" loading="lazy" width="800" height="400">
-                        <img src="image5.jpg" alt="Imagen destacada 5" loading="lazy" width="800" height="400">
-                        <img src="image6.jpg" alt="Imagen destacada 6" loading="lazy" width="800" height="400">
+                        <img src="image1.jpg" alt="Imagen destacada 1" loading="lazy">
+                        <img src="image2 (1).jpg" alt="Imagen destacada 2" loading="lazy">
+                        <img src="image3.jpg" alt="Imagen destacada 3" loading="lazy">
+                        <img src="image4.jpg" alt="Imagen destacada 4" loading="lazy">
+                        <img src="image5.jpg" alt="Imagen destacada 5" loading="lazy">
+                        <img src="image6.jpg" alt="Imagen destacada 6" loading="lazy">
                     </div>
-                    <button class="carousel-button prev" aria-label="Imagen anterior">&lt;</button>
-                    <button class="carousel-button next" aria-label="Imagen siguiente">&gt;</button>
+                    <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+                    <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
                 </div>
             </section>
 
-            <section id="playlists" aria-label="Lista de reproducción">
-                <div class="playlist-slider" id="playlist-slider"></div>
-                <div id="youtube-live-chat" hidden></div>
-            </section>
+           <section id="playlists">
+    <div class="playlist-slider" id="playlist-slider">
+        <!-- Los videos se cargarán aquí dinámicamente -->
+    </div>
+    <div id="youtube-live-chat" style="display: none;">
+        <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
+    </div>
+</section>
 
-            <section id="shorts-section" aria-label="Sección de shorts"></section>
+            <section id="shorts-section">
+                <!-- Los Shorts se cargarán aquí dinámicamente -->
+            </section>
          
-            <section id="sponsors-section" aria-label="Patrocinadores">
+            <section id="sponsors-section">
                 <div class="sponsors-slider">
-                    <img src="images/logo1.png" alt="Logo del patrocinador 1" loading="lazy" width="150" height="50">
-                    <img src="images/logo2.png" alt="Logo del patrocinador 2" loading="lazy" width="150" height="50">
-                    <img src="images/logo3.png" alt="Logo del patrocinador 3" loading="lazy" width="150" height="50">
-                    <img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy" width="150" height="50">
+                    <div class="sponsor-item"><img src="images/logo1.png" alt="Logo del patrocinador 1" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo2.png" alt="Logo del patrocinador 2" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo3.png" alt="Logo del patrocinador 3" loading="lazy"></div>
+                    <div class="sponsor-item"><img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy"></div>
                 </div>
             </section>
 
-            <section id="install-section" aria-label="Instalación de la aplicación">
+            <section id="install-section">
                 <div class="install-container">
-                    <button id="install-button" class="install-button" hidden>Instalar CafeClubTV App</button>
+                    <button id="install-button" class="install-button" style="display: none;">Instalar CafeClubTV App</button>
                 </div>
             </section>
         </div>
@@ -81,7 +87,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section about">
-                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo" width="150" height="50">
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo">
                 <p>Estamos comprometidos con ofrecerte la mejor experiencia en entretenimiento y servicios en línea.</p>
                 <div class="socials">
                     <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -90,7 +96,7 @@
                     <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="Suscríbete a nuestro canal de YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <nav class="footer-section links">
+            <div class="footer-section links">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
                     <li><a href="#playlists">Inicio</a></li>
@@ -99,7 +105,7 @@
                     <li><a href="#sponsors-section">Subscribe</a></li>
                     <li><a href="#cta">Contacto</a></li>
                 </ul>
-            </nav>
+            </div>
             <div class="footer-section map">
                 <h3>Encuéntranos</h3>
                 <div class="map-container">
@@ -122,17 +128,17 @@
     </footer>
 
     <div class="whatsapp-float">
-        <button id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
+        <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
             <i class="fab fa-whatsapp"></i>
-        </button>
+        </a>
     </div>
 
-    <div id="whatsappModal" class="whatsapp-modal" hidden>
+    <div id="whatsappModal" class="whatsapp-modal">
         <div class="whatsapp-modal-content">
             <button class="whatsapp-close" aria-label="Cerrar modal">&times;</button>
             <h2>Chatea con CaféClubTV en WhatsApp</h2>
             <p>Escribe tu mensaje:</p>
-            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4"></textarea>
+            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
             <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
         </div>
     </div>
@@ -148,13 +154,14 @@
     <script src="script.js"></script>
     <script src="service-worker.js"></script>
     <script>
+        // Código para la instalación de la PWA
         let deferredPrompt;
         const installButton = document.getElementById('install-button');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installButton.hidden = false;
+            installButton.style.display = 'block';
         });
 
         installButton.addEventListener('click', async () => {
@@ -166,7 +173,7 @@
                 }
                 deferredPrompt = null;
             }
-            installButton.hidden = true;
+            installButton.style.display = 'none';
         });
     </script>
 </body>
