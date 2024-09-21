@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 removeLoader(); // Elimina el loader antes de cargar los iframes
 
-                data.items.forEach(item => {
+                // Invertir el orden de los items para mostrar los más recientes primero
+                const itemsToShow = data.items.reverse(); 
+
+                itemsToShow.forEach(item => {
                     const videoId = item.snippet.resourceId.videoId;
                     const shortElement = createShortElement(videoId);
                     shortsSection.appendChild(shortElement);
