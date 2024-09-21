@@ -34,8 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 removeLoader(); // Elimina el loader antes de cargar los iframes
 
-                // Tomar solo los primeros 5 videos (que ya deberían ser los más recientes)
-                const itemsToShow = data.items.slice(0, maxResults);
+                // Ordenar los videos por fecha de publicación
+                const sortedItems = data.items.sort((a, b) => {
+                    return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
+                });
+
+                // Tomar solo los primeros 5 videos más recientes
+                const itemsToShow = sortedItems.slice(0, maxResults);
 
                 itemsToShow.forEach(item => {
                     const videoId = item.snippet.resourceId.videoId;
