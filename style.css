@@ -409,7 +409,7 @@ iframe {
     position: relative;
     width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
     height: 150px; /* Ajusta la altura según sea necesario */
-    background-color: #d4d4d4; /* Color de fondo plomo suave */
+    background-color: #f7f7f7; /* Color de fondo plomo suave */
     padding: 10px 0; /* Espaciado vertical */
 }
 
@@ -527,7 +527,7 @@ iframe {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
+    background: linear-gradient(to top, #FF5722, #CC0000); /* Gradiente rojo */
     color: #fff;
     display: flex;
     justify-content: space-around;
