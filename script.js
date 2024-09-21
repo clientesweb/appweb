@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playlistId = 'PLZ_v3bWMqpjFa0xI11mahmOCxPk_1TK2s'; // Reemplaza con el ID de tu playlist
 
     const shortsSection = document.getElementById('shorts-section');
-    const maxResults = 10; // Máximo de shorts a mostrar
+    const maxResults = 5; // Máximo de shorts a mostrar
 
     // Mostrar un loader mientras se cargan los iframes
     function showLoader() {
@@ -34,13 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 removeLoader(); // Elimina el loader antes de cargar los iframes
 
-                // Ordenar los videos por fecha de publicación
-                const sortedItems = data.items.sort((a, b) => {
-                    return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
-                });
-
-                // Tomar solo los primeros 5 videos más recientes
-                const itemsToShow = sortedItems.slice(0, maxResults);
+                // Invertir el orden de los videos
+                const itemsToShow = data.items.reverse().slice(0, maxResults);
 
                 itemsToShow.forEach(item => {
                     const videoId = item.snippet.resourceId.videoId;
