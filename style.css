@@ -2,9 +2,9 @@
 
 /* Estilos generales */
 body {
-    background-color: #f3f4f6; /* Color gris claro */
-    color: #333; /* Color de texto oscuro */
-    font-family: 'Poppins', sans-serif;
+    background-color: #EAEAEA; /* Color gris claro */
+    color: #333; /* Color del texto oscuro */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,11 +12,12 @@ body {
 
 /* Estilos para el encabezado y navegación */
 header {
-    background-color: #ffffff; /* Blanco */
-    color: #333; /* Texto oscuro */
+    background-color: #C0C0C0; /* Gris más claro */
+    color: #222; /* Texto más oscuro para contraste */
     padding: 1rem;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 nav {
@@ -42,11 +43,16 @@ nav {
 }
 
 .menu-toggle .bar {
-    background-color: #333; /* Color de las barras del menú */
+    background-color: #222; /* Color de las barras del menú */
     height: 3px;
     width: 25px;
     margin: 5px 0;
     border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover .bar {
+    background-color: #444; /* Cambio de color en el hover del menú */
 }
 
 .nav-menu {
@@ -61,7 +67,7 @@ nav {
 }
 
 .nav-menu a {
-    color: #333; /* Color del texto de los enlaces */
+    color: #222; /* Color del texto de los enlaces */
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -69,7 +75,7 @@ nav {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: #FF5722; /* Color al pasar el ratón */
+    color: #444; /* Color al pasar el ratón o al estar activo */
     transform: scale(1.05);
 }
 
@@ -80,12 +86,12 @@ nav {
         position: absolute;
         top: 60px;
         right: 0;
-        background-color: #ffffff; /* Blanco */
+        background-color: #C0C0C0; /* Gris más claro */
         width: 100%;
         flex-direction: column;
         align-items: center;
         padding: 1rem;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 1000;
     }
 
@@ -102,10 +108,18 @@ nav {
     }
 }
 
-/* ------- main -------- */
+/* ------- main-------- */
+
 .container {
-    background: #ffffff; /* Blanco */
-    padding: 20px;
+    background: #FF9999; /* Rojo claro */
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20%;
+}
+
+.large-container {
+    padding-left: 7%;
 }
 
 .banner {
@@ -132,18 +146,45 @@ nav {
     border-radius: 8px;
 }
 
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
 /* Estilos para el footer */
 footer {
-    background-color: #ffffff; /* Blanco */
-    color: #333; /* Texto oscuro */
+    background-color: #C0C0C0; /* Gris más claro */
+    color: #222; /* Texto más oscuro para contraste */
     padding: 2rem 1rem;
-    border-top: 5px solid #FF5722; /* Borde superior color de acento */
+    border-top: 5px solid #FFD700; /* Borde superior dorado */
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .footer-section {
@@ -152,19 +193,109 @@ footer {
     margin-bottom: 1rem;
 }
 
+.footer-logo {
+    max-height: 50px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+}
+
 .socials {
     display: flex;
     gap: 1rem;
 }
 
 .social-icon {
-    color: #333;
+    color: #222; /* Color de los iconos */
     font-size: 1.5rem;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-    color: #FF5722; /* Color al pasar el ratón */
+    color: #FFD700; /* Color al pasar el ratón sobre los iconos */
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links ul li {
+    margin-bottom: 0.5rem;
+}
+
+.links ul li a {
+    color: #222; /* Color de los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links ul li a:hover {
+    color: #FFD700; /* Color al pasar el ratón sobre los enlaces */
+    text-decoration: underline;
+}
+
+.map-container {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd; /* Color de fondo del contenedor del mapa */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.footer-bottom {
+    background-color: #222; /* Color de fondo oscuro */
+    color: #bbb; /* Color de texto claro */
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom a {
+    color: #FFD700; /* Color de los enlaces en la parte inferior */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .footer-section {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .map-container {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo {
+        max-height: 40px;
+    }
+    
+    .social-icon {
+        font-size: 1.2rem;
+    }
+    
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
 
 /* Sección de Videos, Playlists, y Shorts */
@@ -185,77 +316,65 @@ h2 {
     scroll-behavior: smooth;
 }
 
-/* Estilos para la sección de patrocinadores */
-#sponsors-section {
+.playlist-item {
+    flex: 0 0 300px;
+    height: 200px;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 150px;
-    background-color: #f7f7f7; /* Color de fondo claro */
-    padding: 10px 0;
 }
 
-.sponsors-slider {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
+iframe {
+    width: 100%;
     height: 100%;
-    align-items: center;
+    border: none;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-/* Estilos para el botón de WhatsApp flotante */
-.whatsapp-float {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    z-index: 1000;
+/* Ocultar barras de scroll en navegadores modernos */
+.playlist-slider::-webkit-scrollbar {
+    display: none;
 }
 
-.whatsapp-button {
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    padding: 15px;
-    font-size: 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+.playlist-slider {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Estilo para la sección de shorts */
+#shorts-section {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-.whatsapp-button:hover {
-    background-color: #128C7E;
+/* Estilo para cada item de shorts */
+.short-item {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 500px;
+    margin-right: 10px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
 }
 
-/* Estilos para la barra de navegación inferior */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+/* Ajustar el iframe dentro de los shorts */
+.short-item iframe {
     width: 100%;
-    background: linear-gradient(to top, #FF5722, #CC0000); /* Gradiente rojo */
-    color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    height: 100%;
+    border: none;
+    object-fit: cover;
 }
 
-.bottom-nav .nav-item {
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    flex: 1;
-    transition: color 0.3s ease;
+/* Ocultar barras de scroll en navegadores modernos */
+#shorts-section::-webkit-scrollbar {
+    display: none;
 }
 
-.bottom-nav .nav-item:hover {
-    color: #ffdd00; /* Color al pasar el ratón */
-}
+#shorts-section {
+    -ms-overflow-style
