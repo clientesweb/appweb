@@ -5,54 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafe Club Tv</title>
     <meta name="description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
-    <link rel="icon" href="images/cafeclubtv (1).ico" type="image/x-icon">
+    <link rel="icon" href="images/cafeclubtv.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
-    <!-- Open Graph tags -->
     <meta property="og:title" content="Cafe Club Tv">
     <meta property="og:description" content="Descubre lo mejor en entretenimiento y servicios en línea con Cafe Club Tv.">
     <meta property="og:image" content="https://tudominio.com/og-image.jpg">
     <meta property="og:url" content="https://tudominio.com">
-    <style>
-        /* Estilos adicionales para los nuevos elementos */
-        .slider-container {
-            overflow-x: hidden;
-            position: relative;
-        }
-        .slider-content {
-            display: flex;
-            transition: transform 0.3s ease;
-        }
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .slider-button-left {
-            left: 10px;
-        }
-        .slider-button-right {
-            right: 10px;
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logi.svg" alt="Logo de Cafe Club Tv">
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" width="150" height="50">
             </div>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 <span class="bar"></span>
@@ -71,75 +39,40 @@
     
     <main class="background-container">
         <div class="main-container">
-            <section class="banner">
+            <section class="banner" aria-label="Banner principal">
                 <div class="carousel">
                     <div class="carousel-images">
-                        <img src="image1.jpg" alt="Imagen destacada 1" loading="lazy">
-                        <img src="image2 (1).jpg" alt="Imagen destacada 2" loading="lazy">
-                        <img src="image3.jpg" alt="Imagen destacada 3" loading="lazy">
-                        <img src="image4.jpg" alt="Imagen destacada 4" loading="lazy">
-                        <img src="image5.jpg" alt="Imagen destacada 5" loading="lazy">
-                        <img src="image6.jpg" alt="Imagen destacada 6" loading="lazy">
+                        <img src="image1.jpg" alt="Imagen destacada 1" loading="lazy" width="800" height="400">
+                        <img src="image2.jpg" alt="Imagen destacada 2" loading="lazy" width="800" height="400">
+                        <img src="image3.jpg" alt="Imagen destacada 3" loading="lazy" width="800" height="400">
+                        <img src="image4.jpg" alt="Imagen destacada 4" loading="lazy" width="800" height="400">
+                        <img src="image5.jpg" alt="Imagen destacada 5" loading="lazy" width="800" height="400">
+                        <img src="image6.jpg" alt="Imagen destacada 6" loading="lazy" width="800" height="400">
                     </div>
-                    <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
-                    <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+                    <button class="carousel-button prev" aria-label="Imagen anterior">&lt;</button>
+                    <button class="carousel-button next" aria-label="Imagen siguiente">&gt;</button>
                 </div>
             </section>
 
-            <section id="playlists">
-                <h2 class="text-2xl font-bold mb-4">Videos</h2>
-                <div class="slider-container">
-                    <div class="slider-content" id="videosSlider">
-                        <!-- Los videos se cargarán aquí dinámicamente -->
-                    </div>
-                    <button class="slider-button slider-button-left" id="videosSliderLeft">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="slider-button slider-button-right" id="videosSliderRight">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                <div id="youtube-live-chat" style="display: none;">
-                    <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
-                </div>
+            <section id="playlists" aria-label="Lista de reproducción">
+                <div class="playlist-slider" id="playlist-slider"></div>
+                <div id="youtube-live-chat" hidden></div>
             </section>
 
-            <section id="shorts-section">
-                <h2 class="text-2xl font-bold mb-4">Shorts</h2>
-                <div class="slider-container">
-                    <div class="slider-content" id="shortsSlider">
-                        <!-- Los Shorts se cargarán aquí dinámicamente -->
-                    </div>
-                    <button class="slider-button slider-button-left" id="shortsSliderLeft">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="slider-button slider-button-right" id="shortsSliderRight">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </section>
+            <section id="shorts-section" aria-label="Sección de shorts"></section>
          
-            <section id="sponsors-section">
-                <h2 class="text-2xl font-bold mb-4">Nuestros Patrocinadores</h2>
-                <div class="slider-container">
-                    <div class="slider-content" id="sponsorsSlider">
-                        <div class="sponsor-item"><img src="images/logo1.png" alt="Logo del patrocinador 1" loading="lazy"></div>
-                        <div class="sponsor-item"><img src="images/logo2.png" alt="Logo del patrocinador 2" loading="lazy"></div>
-                        <div class="sponsor-item"><img src="images/logo3.png" alt="Logo del patrocinador 3" loading="lazy"></div>
-                        <div class="sponsor-item"><img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy"></div>
-                    </div>
-                    <button class="slider-button slider-button-left" id="sponsorsSliderLeft">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="slider-button slider-button-right" id="sponsorsSliderRight">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+            <section id="sponsors-section" aria-label="Patrocinadores">
+                <div class="sponsors-slider">
+                    <img src="images/logo1.png" alt="Logo del patrocinador 1" loading="lazy" width="150" height="50">
+                    <img src="images/logo2.png" alt="Logo del patrocinador 2" loading="lazy" width="150" height="50">
+                    <img src="images/logo3.png" alt="Logo del patrocinador 3" loading="lazy" width="150" height="50">
+                    <img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy" width="150" height="50">
                 </div>
             </section>
 
-            <section id="install-section">
+            <section id="install-section" aria-label="Instalación de la aplicación">
                 <div class="install-container">
-                    <button id="install-button" class="install-button" style="display: none;">Instalar CafeClubTV App</button>
+                    <button id="install-button" class="install-button" hidden>Instalar CafeClubTV App</button>
                 </div>
             </section>
         </div>
@@ -148,7 +81,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section about">
-                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo">
+                <img src="images/logi.svg" alt="Logo de Cafe Club Tv" class="footer-logo" width="150" height="50">
                 <p>Estamos comprometidos con ofrecerte la mejor experiencia en entretenimiento y servicios en línea.</p>
                 <div class="socials">
                     <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -157,7 +90,7 @@
                     <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="Suscríbete a nuestro canal de YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="footer-section links">
+            <nav class="footer-section links">
                 <h3>Enlaces Rápidos</h3>
                 <ul>
                     <li><a href="#playlists">Inicio</a></li>
@@ -166,7 +99,7 @@
                     <li><a href="#sponsors-section">Subscribe</a></li>
                     <li><a href="#cta">Contacto</a></li>
                 </ul>
-            </div>
+            </nav>
             <div class="footer-section map">
                 <h3>Encuéntranos</h3>
                 <div class="map-container">
@@ -189,17 +122,17 @@
     </footer>
 
     <div class="whatsapp-float">
-        <a href="javascript:void(0);" id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
+        <button id="whatsappBtn" class="whatsapp-button" aria-label="Chatea con CaféClubTV en WhatsApp">
             <i class="fab fa-whatsapp"></i>
-        </a>
+        </button>
     </div>
 
-    <div id="whatsappModal" class="whatsapp-modal">
+    <div id="whatsappModal" class="whatsapp-modal" hidden>
         <div class="whatsapp-modal-content">
             <button class="whatsapp-close" aria-label="Cerrar modal">&times;</button>
             <h2>Chatea con CaféClubTV en WhatsApp</h2>
             <p>Escribe tu mensaje:</p>
-            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4" style="width: 100%;"></textarea>
+            <textarea id="whatsappMessage" placeholder="Escribe tu mensaje aquí..." rows="4"></textarea>
             <button id="sendMessageBtn" class="send-btn">Enviar mensaje</button>
         </div>
     </div>
@@ -215,14 +148,13 @@
     <script src="script.js"></script>
     <script src="service-worker.js"></script>
     <script>
-        // Código para la instalación de la PWA
         let deferredPrompt;
         const installButton = document.getElementById('install-button');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installButton.style.display = 'block';
+            installButton.hidden = false;
         });
 
         installButton.addEventListener('click', async () => {
@@ -234,76 +166,8 @@
                 }
                 deferredPrompt = null;
             }
-            installButton.style.display = 'none';
+            installButton.hidden = true;
         });
-
-        // Funciones para los sliders
-        function initSlider(sliderId, leftButtonId, rightButtonId) {
-            const slider = document.getElementById(sliderId);
-            const leftButton = document.getElementById(leftButtonId);
-            const rightButton = document.getElementById(rightButtonId);
-            let scrollAmount = 0;
-
-            leftButton.addEventListener('click', () => {
-                scrollAmount = Math.max(scrollAmount - 300, 0);
-                slider.style.transform = `translateX(-${scrollAmount}px)`;
-            });
-
-            rightButton.addEventListener('click', () => {
-                scrollAmount = Math.min(scrollAmount + 300, slider.scrollWidth - slider.clientWidth);
-                slider.style.transform = `translateX(-${scrollAmount}px)`;
-            });
-        }
-
-        // Inicializar sliders
-        initSlider('videosSlider', 'videosSliderLeft', 'videosSliderRight');
-        initSlider('shortsSlider', 'shortsSliderLeft', 'shortsSliderRight');
-        initSlider('sponsorsSlider', 'sponsorsSliderLeft', 'sponsorsSliderRight');
-
-        // Aquí puedes agregar el código para cargar dinámicamente los videos y shorts
-        // Por ejemplo:
-        function loadVideos() {
-            const videosSlider = document.getElementById('videosSlider');
-            // Aquí cargarías los videos desde tu API o fuente de datos
-            for (let i = 1; i <= 10; i++) {
-                videosSlider.innerHTML += `
-                    <div class="video-card">
-                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white absolute inset-0 m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold truncate">Video Title ${i}</h3>
-                            <p class="text-sm text-gray-500">Channel Name</p>
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        function loadShorts() {
-            const shortsSlider = document.getElementById('shortsSlider');
-            // Aquí cargarías los shorts desde tu API o fuente de datos
-            for (let i = 1; i <= 10; i++) {
-                shortsSlider.innerHTML += `
-                    <div class="short-card">
-                        <div class="aspect-w-9 aspect-h-16 bg-gray-200 rounded-md mb-2 relative">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white absolute inset-0 m-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="font-semibold text-sm truncate">Short Title ${i}</h3>
-                    </div>
-                `;
-            }
-        }
-
-        // Cargar videos y shorts al iniciar la página
-        loadVideos();
-        loadShorts();
     </script>
 </body>
 </html>
