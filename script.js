@@ -268,3 +268,23 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
         alert('Por favor, escribe un mensaje antes de enviar.');
     }
 });
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('active');
+
+    if (navMenu.classList.contains('active')) {
+        navMenu.style.animation = 'fadeIn 0.5s ease forwards';
+    } else {
+        navMenu.style.animation = 'fadeOut 0.5s ease forwards';
+    }
+});
+
+// Agrega las animaciones de salida
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
