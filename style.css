@@ -523,63 +523,72 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
+/* Estilos generales para la sección de contadores */
 .counters-container {
-    display: flex;                   /* Flexbox para disposición horizontal */
-    overflow-x: auto;               /* Permite desplazamiento horizontal si es necesario */
-    padding: 40px 20px;             /* Espaciado alrededor del contenedor */
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Degradado atractivo */
-    border-radius: 15px;            /* Bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    display: flex;                      /* Flexbox para disposición horizontal */
+    justify-content: space-around;      /* Espacio igual entre contadores */
+    align-items: center;                /* Centrar verticalmente */
+    padding: 20px;                     /* Espacio alrededor del contenedor */
+    background: linear-gradient(135deg, #6c5ce7, #00b894); /* Degradado atractivo */
+    border-radius: 15px;               /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    flex-wrap: wrap;                   /* Permite que los contadores se ajusten en múltiples filas */
 }
 
+/* Estilos individuales para cada contador */
 .counter {
-    display: flex;                   /* Flexbox para centrar contenido */
-    flex-direction: column;          /* Apilar icono y texto */
-    align-items: center;             /* Centrar horizontalmente */
-    justify-content: center;         /* Centrar verticalmente */
-    width: 180px;                    /* Ancho ajustado para contadores */
+    display: flex;                     /* Flexbox para el contenido interno */
+    flex-direction: column;            /* Apilar icono y texto */
+    align-items: center;               /* Centrar horizontalmente */
+    justify-content: center;           /* Centrar verticalmente */
+    width: 150px;                     /* Ancho fijo para cada contador */
     text-align: center;
-    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente más marcado */
-    border-radius: 15px;             /* Bordes redondeados */
-    padding: 30px;                  /* Espacio interno */
-    margin-right: 20px;             /* Espacio entre contadores */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border-radius: 10px;               /* Bordes redondeados */
+    padding: 30px;                     /* Espacio interno */
+    margin: 10px;                      /* Espacio alrededor de cada contador */
     transition: transform 0.3s, box-shadow 0.3s; /* Suave transición */
-}
-
-.counter:last-child {
-    margin-right: 0;                /* Sin margen a la derecha en el último contador */
 }
 
 .counter:hover {
     transform: translateY(-5px);      /* Levantar contador al pasar el ratón */
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Sombra más intensa en hover */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Sombra más intensa en hover */
 }
 
+/* Estilos para los iconos */
 .counter-icon {
-    font-size: 50px;                  /* Tamaño del icono más grande */
+    font-size: 50px;                  /* Tamaño del icono */
     margin-bottom: 15px;              /* Espacio debajo del icono */
-    color: #3498db;                   /* Color atractivo para el icono */
+    color: #e84393;                   /* Color atractivo para el icono */
 }
 
+/* Estilos para los números */
 .counter-number {
-    font-size: 48px;                  /* Tamaño del número */
+    font-size: 36px;                  /* Tamaño del número */
     font-weight: bold;
-    color: #ecf0f1;                   /* Color claro para el número */
+    color: #ffffff;                   /* Color claro para el número */
     margin-bottom: 5px;               /* Espacio debajo del número */
 }
 
+/* Estilos para las etiquetas */
 .counter-label {
-    font-size: 16px;                  /* Tamaño de la etiqueta */
+    font-size: 14px;                  /* Tamaño de la etiqueta */
     color: #ffffff;                   /* Color blanco para la etiqueta */
 }
 
-/* Media Query para ajustar en pantallas más pequeñas */
-@media (max-width: 600px) {
-    .counters-container {
-        padding: 20px;               /* Ajustar padding en pantallas pequeñas */
-    }
+/* Media Queries para ajustar en pantallas más grandes */
+@media (min-width: 600px) {
     .counter {
-        width: 150px;                /* Ancho ajustado para contadores en móviles */
-        margin-right: 15px;          /* Espacio entre contadores */
+        width: 200px;                 /* Aumentar el ancho en pantallas más grandes */
+    }
+}
+
+@media (min-width: 900px) {
+    .counters-container {
+        padding: 40px;                /* Ajustar padding en pantallas grandes */
+    }
+    
+    .counter {
+        width: 220px;                 /* Aumentar el ancho de los contadores aún más */
     }
 }
