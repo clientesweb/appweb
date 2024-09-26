@@ -523,3 +523,25 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
+#counters-section {
+    display: flex;
+    justify-content: space-around; /* Espacio entre contadores */
+    padding: 20px;
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.counter {
+    text-align: center;
+    font-size: 1.5em; /* Tamaño de fuente */
+}
+
+.counter h3 {
+    margin: 0; /* Sin márgenes */
+}
+
+.counter span {
+    font-weight: bold; /* Negrita para los números */
+    color: #007BFF; /* Color azul para destacar los números */
+}
