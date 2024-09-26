@@ -317,9 +317,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const now = new Date().getTime();
 
         // Modificar estos valores según el tiempo
-        const newVisitas = baseVisitas + Math.floor((now / 100000) % 1000); // Aumento más rápido para visitas
-        const newDescargas = baseDescargas + Math.floor((now / 100000) % 50); // Aumento más lento para descargas
-        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 500); // Aumento más rápido para interacciones
+        const newVisitas = baseVisitas + Math.floor((now / 100000) % 250); // Aumento más rápido para visitas
+        const newDescargas = baseDescargas + Math.floor((now / 100000) % 25); // Aumento más lento para descargas
+        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 150); // Aumento más rápido para interacciones
 
         counters.forEach(counter => {
             const type = counter.getAttribute('data-type');
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (count < target) {
                 count += increment;
                 counter.innerText = count;
-                setTimeout(updateCount, 20); // Ajusta el tiempo de actualización
+                setTimeout(updateCount, 10); // Ajusta el tiempo de actualización
             } else {
                 counter.innerText = target;
             }
