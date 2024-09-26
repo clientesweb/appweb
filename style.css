@@ -586,35 +586,33 @@ iframe {
         font-size: 10px;
     }
 }
-/* Estilo para el botón de instalación */
-#install-section {
+/* Estilo del contenedor del botón */
+.install-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px;
+    margin: 20px 0;
 }
 
-#install-button {
-    background-color: #7d8c8d; /* Plomo suave */
+/* Estilo del botón de instalación */
+.install-button {
+    background-color: #ff5722; /* Color de fondo atractivo */
     color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 15px 32px; /* Espaciado interno */
-    text-align: center; /* Alineación del texto */
-    text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Mostrar en línea */
-    font-size: 16px; /* Tamaño de fuente */
-    border-radius: 8px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
-    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    font-size: 18px; /* Tamaño de la fuente */
+    padding: 15px 25px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
-#install-button:hover {
-    background-color: #6c757d; /* Plomo oscuro para el hover */
-    transform: scale(1.05); /* Efecto de aumento */
+/* Efecto al pasar el mouse */
+.install-button:hover {
+    background-color: #e64a19; /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar tamaño ligeramente */
 }
 
-#install-button:active {
-    background-color: #5a636a; /* Plomo más oscuro para el estado activo */
-    transform: scale(0.95); /* Efecto de contracción */
+/* Estilo del icono */
+.install-button i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
 }
