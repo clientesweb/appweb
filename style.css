@@ -590,13 +590,6 @@ iframe {
 .install-container {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
-}
-
-/* Estilo del botón de instalación */
-.install-container {
-    display: flex;
-    justify-content: center;
     margin: 20px 0; /* Margen superior e inferior */
 }
 
