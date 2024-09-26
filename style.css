@@ -80,35 +80,51 @@ nav {
     transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #d4d4d4; /* Plomo suave */
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el menú */
-        z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li {
-        margin: 10px 0;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
+/* Estilos para el encabezado */
+header {
+    background-color: #d4d4d4; /* Plomo suave */
+    color: #333; /* Texto oscuro para contraste */
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
 
+.logo img {
+    max-height: 50px;
+    transition: transform 0.3s ease; /* Transición suave para el logo */
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Efecto de aumento en el logo al pasar el ratón */
+}
+
+/* Estilo del contenedor del botón */
+.install-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+.install-button {
+    background-color: #ff6347; /* Color atractivo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 15px 30px; /* Espaciado interno */
+    font-size: 1.2em; /* Tamaño de fuente */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+}
+
+.install-button:hover {
+    background-color: #e55347; /* Color al pasar el ratón */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+.install-button i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
 /* ------- main-------- */
 
 .container {
@@ -585,30 +601,4 @@ iframe {
     .bottom-nav .nav-item span {
         font-size: 10px;
     }
-}
-/* Estilo del contenedor del botón */
-.install-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0; /* Margen superior e inferior */
-}
-
-.install-button {
-    background-color: #ff6347; /* Color atractivo */
-    color: white; /* Color del texto */
-    border: none;
-    border-radius: 25px; /* Bordes redondeados */
-    padding: 15px 30px; /* Espaciado interno */
-    font-size: 1.2em; /* Tamaño de fuente */
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
-}
-
-.install-button:hover {
-    background-color: #e55347; /* Color al pasar el ratón */
-    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
-}
-
-.install-button i {
-    margin-right: 10px; /* Espacio entre el icono y el texto */
 }
