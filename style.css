@@ -523,25 +523,61 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
-#counters-section {
+.counter-container {
     display: flex;
-    justify-content: space-around; /* Espacio entre contadores */
-    padding: 20px;
-    background-color: #f9f9f9; /* Color de fondo */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .counter {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
-    font-size: 1.5em; /* Tamaño de fuente */
+    width: 200px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.counter h3 {
-    margin: 0; /* Sin márgenes */
+.counter:hover {
+    transform: translateY(-5px);
 }
 
-.counter span {
-    font-weight: bold; /* Negrita para los números */
-    color: #007BFF; /* Color azul para destacar los números */
+.counter-icon {
+    font-size: 40px;
+    color: #ff6347; /* Cambia este color al de tu elección */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.counter:hover .counter-icon {
+    color: #ff4500; /* Cambia este color al de tu elección */
+}
+
+.counter-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333; /* Color para el número */
+    margin: 0;
+    animation: fadeIn 1s ease;
+}
+
+.counter-label {
+    font-size: 16px;
+    color: #666; /* Color para el texto del contador */
+    margin-top: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
