@@ -358,4 +358,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Actualizar automáticamente cada 15 minutos
     setInterval(updateCountersByTime, 900000); // 15 minutos en milisegundos
-}););
+});
