@@ -285,12 +285,22 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
     }
 });
 // Siempre mostrar el botón al cargar la página
-document.getElementById('install-button').style.display = 'block';
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica si la app ya está instalada
+    const isInstalled = window.matchMedia('(display-mode: standalone)').matches;
 
-// Agregar evento al botón para ocultarlo solo al hacer clic para descargar
-document.getElementById('install-button').addEventListener('click', function() {
-    // Aquí puedes incluir la lógica para iniciar la instalación de la app
+    // Verifica si se accede desde Instagram
+    const isInstagram = /Instagram/.test(navigator.userAgent);
 
-    // Oculta el botón después de hacer clic para descargar
-    this.style.display = 'none'; 
+    const installButton = document.getElementById('install-button');
+
+    // Muestra el botón si no está instalada y se accede desde Instagram
+    if (!isInstalled || isInstagram) {
+        installButton.style.display = 'block'; // Muestra el botón
+    }
+
+    installButton.addEventListener('click', function() {
+        // Lógica para instalar la app
+        this.style.display = 'none'; // Oculta el botón después de la instalación
+    });
 });
