@@ -1,3 +1,4 @@
+Quiero mantener el logo allí y el botón debe estar donde iría la barra de navegación superior 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,16 +18,23 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
+        <nav>
             <div class="logo">
                 <img src="images/logi.svg" alt="Logo de Cafe Club Tv">
             </div>
-            <div class="install-container">
-                <button id="install-button" class="install-button" style="display: none;">
-                    <i class="fas fa-download"></i> Instalar CafeClubTV App
-                </button>
-            </div>
-        </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#playlists">Inicio</a></li>
+                <li><a href="#features">Eventos</a></li>
+                <li><a href="#shorts-section">Ofertas Comerciales</a></li>
+                <li><a href="#sponsors-section">Subscribe</a></li>
+                <li><a href="#cta">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     
     <main class="background-container">
@@ -47,13 +55,13 @@
             </section>
 
            <section id="playlists">
-                <div class="playlist-slider" id="playlist-slider">
-                    <!-- Los videos se cargarán aquí dinámicamente -->
-                </div>
-                <div id="youtube-live-chat" style="display: none;">
-                    <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
-                </div>
-            </section>
+    <div class="playlist-slider" id="playlist-slider">
+        <!-- Los videos se cargarán aquí dinámicamente -->
+    </div>
+    <div id="youtube-live-chat" style="display: none;">
+        <!-- El chat de YouTube se cargará aquí si hay un video en vivo -->
+    </div>
+</section>
 
             <section id="shorts-section">
                 <!-- Los Shorts se cargarán aquí dinámicamente -->
@@ -67,6 +75,14 @@
                     <div class="sponsor-item"><img src="images/logo4.png" alt="Logo del patrocinador 4" loading="lazy"></div>
                 </div>
             </section>
+
+            <section id="install-section">
+    <div class="install-container">
+        <button id="install-button" class="install-button" style="display: none;">
+            <i class="fas fa-download"></i> Instalar CafeClubTV App
+        </button>
+    </div>
+</section>
         </div>
     </main>
 
@@ -133,7 +149,8 @@
         <a href="#playlists" class="nav-item"><i class="fas fa-home"></i><span>Inicio</span></a>
         <a href="#features" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Eventos</span></a>
         <a href="#shorts-section" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span></a>
-        <a href="#sponsors-section" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a>
+        <a href="#sponsors-section" class="nav-item"><i class="fas fa-star"></i><span>Patrocinadores</span></a>
+        <a href="#cta" class="nav-item"><i class="fas fa-envelope"></i><span>Contacto</span></a>
     </nav>
 
     <script src="script.js"></script>
