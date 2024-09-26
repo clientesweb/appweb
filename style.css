@@ -523,6 +523,10 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
+body {
+    background-color: #f4f4f4; /* Asegúrate de que el fondo de la página sea del color deseado */
+}
+
 .counter-container {
     display: flex;
     justify-content: space-around; /* Espaciado uniforme entre contadores */
@@ -531,7 +535,7 @@ iframe {
 }
 
 .counter {
-    background-color: #fff;
+    background-color: transparent; /* Fondo transparente para combinar con el fondo de la página */
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 30px;
@@ -540,13 +544,12 @@ iframe {
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
-    border: 2px solid transparent; /* Bordes transparentes inicialmente */
     margin: 10px; /* Margen para separación entre contadores */
 }
 
 .counter:hover {
     transform: translateY(-5px);
-    border-color: #ff6347; /* Color del borde al pasar el mouse */
+    border: 2px solid #ff6347; /* Color del borde al pasar el mouse */
 }
 
 .counter-icon {
