@@ -12,14 +12,26 @@ body {
 
 /* Estilos para el encabezado */
 header {
-    background-color: #d4d4d4; /* Plomo suave */
-    color: #333; /* Texto oscuro para contraste */
+    background: linear-gradient(135deg, #8B0000, #d3d3d3, #B0B0B0); /* Degradado rojo bordo a tonos grises */
+    color: #ffffff; /* Texto claro para contraste */
     padding: 1rem;
     display: flex; /* Usar flexbox para alinear elementos */
     align-items: center; /* Alinear verticalmente los elementos */
     justify-content: space-between; /* Espacio entre el logo y el botón */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
     z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estilos para enlaces en el encabezado */
+header a {
+    color: #ffffff; /* Color de los enlaces */
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    margin: 0 15px; /* Espaciado horizontal entre enlaces */
+    transition: color 0.3s; /* Suavizar la transición del color al pasar el ratón */
+}
+
+header a:hover {
+    color: #d3d3d3; /* Color más claro al pasar el ratón */
 }
 
 .logo img {
