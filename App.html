@@ -1,35 +1,51 @@
-<!-- Página de aterrizaje -->
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descarga Cafe Club TV</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Incluye tu CSS -->
 </head>
 <body>
-    <h1>¡Descarga la app de Cafe Club TV!</h1>
-    <p>Haz clic en el botón de abajo para agregar la app a tu dispositivo móvil.</p>
-    <button id="install-button" style="display: none;">Instalar App</button>
-    <p>Para iOS: Selecciona el icono <img src="share-icon.png" alt="Share icon"> y luego "Añadir a la pantalla de inicio".</p>
-    <p>Para Android: Haz clic en el botón de "Instalar App" que aparecerá abajo.</p>
+    <header>
+        <h1>Bienvenido a Cafe Club TV</h1>
+        <p>Disfruta de entretenimiento y servicios en línea con nuestra app.</p>
+    </header>
 
-    <script>
-        let deferredPrompt;
-        const installButton = document.getElementById('install-button');
+    <main>
+        <section>
+            <h2>¿Por qué elegir Cafe Club TV?</h2>
+            <ul>
+                <li>Acceso a videos y eventos en línea.</li>
+                <li>Interfaz intuitiva y fácil de usar.</li>
+                <li>Actualizaciones frecuentes con nuevo contenido.</li>
+            </ul>
+        </section>
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installButton.style.display = 'block';
-        });
+        <section>
+            <h2>Descargar la App</h2>
+            <a href="https://tudominio.com/path/to/cafe-club-tv.apk" download>
+                <button>Descargar Cafe Club TV APK</button>
+            </a>
+        </section>
 
-        installButton.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-            }
-            installButton.style.display = 'none';
-        });
-    </script>
+        <section>
+            <h2>Capturas de Pantalla</h2>
+            <img src="images/screenshot1.png" alt="Captura de pantalla 1">
+            <img src="images/screenshot2.png" alt="Captura de pantalla 2">
+        </section>
+
+        <section>
+            <h2>Testimonios</h2>
+            <blockquote>
+                "Una experiencia increíble. Me encanta la variedad de contenido."
+            </blockquote>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cafe Club TV. Todos los derechos reservados.</p>
+        <p>Contacta con nosotros: <a href="mailto:support@cafclubtv.com">support@cafclubtv.com</a></p>
+    </footer>
 </body>
 </html>
