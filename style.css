@@ -38,20 +38,23 @@ header {
     margin-left: 20px; /* Margen izquierdo para separación */
 }
 
+/* Estilo del botón de descarga */
 .install-button {
-    background-color: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
+    background: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo */
     color: white; /* Color del texto */
     border: none;
     border-radius: 25px; /* Bordes redondeados */
-    padding: 10px 20px; /* Ajustar el espaciado interno */
+    padding: 12px 25px; /* Espaciado interno ajustado */
     font-size: 1em; /* Tamaño de fuente ajustado */
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s; /* Transiciones suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para mayor profundidad */
 }
 
 .install-button:hover {
-    background-color: #e55347; /* Color al pasar el ratón */
+    background: linear-gradient(to top, #e55347, #c44f47); /* Cambio de color en hover */
     transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa al hacer hover */
 }
 
 .install-button i {
