@@ -1,0 +1,35 @@
+<!-- Página de aterrizaje -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga Cafe Club TV</title>
+</head>
+<body>
+    <h1>¡Descarga la app de Cafe Club TV!</h1>
+    <p>Haz clic en el botón de abajo para agregar la app a tu dispositivo móvil.</p>
+    <button id="install-button" style="display: none;">Instalar App</button>
+    <p>Para iOS: Selecciona el icono <img src="share-icon.png" alt="Share icon"> y luego "Añadir a la pantalla de inicio".</p>
+    <p>Para Android: Haz clic en el botón de "Instalar App" que aparecerá abajo.</p>
+
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            }
+            installButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
