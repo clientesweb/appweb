@@ -304,11 +304,20 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.display = 'none'; // Oculta el botón después de la instalación
     });
 });
-// Ejemplo de función para actualizar los contadores
-function updateCounters(visitas, descargas) {
-    document.getElementById('visit-count').textContent = visitas;
-    document.getElementById('download-count').textContent = descargas;
-}
+document.querySelectorAll('.counter-number').forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
 
-// Llamada de ejemplo para actualizar contadores
-updateCounters(1200, 600); // Actualiza a 1200 visitas y 600 descargas
+        const increment = target / 200; // Cambia el divisor para ajustar la velocidad
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCount();
+});
