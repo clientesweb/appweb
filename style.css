@@ -594,25 +594,28 @@ iframe {
 }
 
 /* Estilo del botón de instalación */
+.install-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
 .install-button {
-    background-color: #ff5722; /* Color de fondo atractivo */
+    background-color: #ff6347; /* Color atractivo */
     color: white; /* Color del texto */
-    font-size: 18px; /* Tamaño de la fuente */
-    padding: 15px 25px; /* Espaciado interno */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    padding: 15px 30px; /* Espaciado interno */
+    font-size: 1.2em; /* Tamaño de fuente */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
 }
 
-/* Efecto al pasar el mouse */
 .install-button:hover {
-    background-color: #e64a19; /* Color de fondo al pasar el mouse */
-    transform: scale(1.05); /* Aumentar tamaño ligeramente */
+    background-color: #e55347; /* Color al pasar el ratón */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
 }
 
-/* Estilo del icono */
 .install-button i {
-    margin-right: 8px; /* Espacio entre el icono y el texto */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
 }
