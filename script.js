@@ -304,21 +304,56 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.display = 'none'; // Oculta el botón después de la instalación
     });
 });
-document.querySelectorAll('.counter-number').forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-
-        const increment = Math.ceil(target / 400); // Cambiado para ralentizar el conteo
-        const delay = Math.max(50, Math.floor(4000 / target)); // Calcula un retraso más largo
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, delay); // Ralentiza el conteo
-        } else {
-            counter.innerText = target;
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    const counters = {
+        visitas: document.querySelector('.counter-number[data-type="visitas"]'),
+        descargas: document.querySelector('.counter-number[data-type="descargas"]'),
+        interacciones: document.querySelector('.counter-number[data-type="interacciones"]')
     };
 
-    updateCount();
+    // Valores base iniciales para los contadores
+    let baseVisitas = 5000;
+    let baseDescargas = 3000;
+    let baseInteracciones = 1500;
+
+    // Función para actualizar los contadores en base al tiempo transcurrido
+    function updateCountersByTime() {
+        const now = new Date().getTime();
+
+        // Incrementar valores basados en el tiempo transcurrido
+        const newVisitas = baseVisitas + Math.floor((now / 100000) % 1000); // Modifica estos valores si lo necesitas
+        const newDescargas = baseDescargas + Math.floor((now / 100000) % 500);
+        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 300);
+
+        counters.visitas.setAttribute('data-count', newVisitas);
+        counters.descargas.setAttribute('data-count', newDescargas);
+        counters.interacciones.setAttribute('data-count', newInteracciones);
+
+        updateCounters(); // Llama la función de animación del conteo
+    }
+
+    // Función para la animación de conteo progresivo
+    function updateCounters() {
+        Object.values(counters).forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText;
+            const increment = target / 200;
+
+            const updateCount = () => {
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Llamada inicial para actualizar los contadores al cargar la página
+    updateCountersByTime();
+    
+    // Actualizar automáticamente cada 60 segundos
+    setInterval(updateCountersByTime, 60000); // Actualiza cada minuto
 });
