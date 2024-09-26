@@ -23,8 +23,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://cafeclubtv.com/index.html",
-  "display": "fullscreen",
+  "start_url": "/",
+  "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "description": "Disfruta de entretenimiento y servicios en línea con Cafe Club TV. Accede a nuestros videos, eventos y más.",
