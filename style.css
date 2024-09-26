@@ -39,7 +39,7 @@ header {
 }
 
 .install-button {
-    background-color: #ff6347; /* Color atractivo */
+    background-color: linear-gradient(to top, #FF0000, #CC0000); /* Fondo con gradiente rojo de YouTube */
     color: white; /* Color del texto */
     border: none;
     border-radius: 25px; /* Bordes redondeados */
