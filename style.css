@@ -523,84 +523,44 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
-body {
-    background-color: #f4f4f4;
-}
-
 .counter-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 40px auto;
-    max-width: 1200px;
-    flex-wrap: nowrap; /* Evita que se apilen */
-    padding: 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: transparent; /* Se adapta al fondo de la página */
 }
 
-.counter {
-    background-color: transparent;
-    border: none;
-    padding: 20px;
-    text-align: center;
-    flex: 1; /* Hace que cada contador ocupe el mismo espacio */
-    margin: 0 10px; /* Margen entre los contadores */
-    transition: transform 0.3s ease;
+.counter-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  margin: 10px;
 }
 
-.counter-icon {
-    font-size: 50px;
-    color: #ff6347;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
-}
-
-.counter:hover .counter-icon {
-    color: #ff4500;
+.counter-box i {
+  font-size: 2rem;
+  color: #FF6347;
+  margin-bottom: 10px;
 }
 
 .counter-number {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-    animation: fadeIn 1s ease;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
-.counter-label {
-    font-size: 18px;
-    color: #666;
-    margin-top: 5px;
+.counter-box p {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+  color: #555;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 1200px) {
-    .counter {
-        flex: 1 1 30%; /* Los contadores ocuparán el 30% del ancho disponible */
-        margin: 0 5px;
-    }
-}
-
+/* Responsivo */
 @media (max-width: 768px) {
-    .counter {
-        flex: 1 1 100%; /* En pantallas pequeñas, ocuparán el 100% del ancho */
-        margin-bottom: 20px; /* Se apilan solo si el espacio es muy pequeño */
-    }
-
-    .counter-icon {
-        font-size: 40px; /* Reduce el tamaño del icono en dispositivos pequeños */
-    }
-
-    .counter-number {
-        font-size: 28px; /* Reduce el tamaño del número en dispositivos pequeños */
-    }
+  .counter-container {
+    flex-direction: column;
+  }
 }
