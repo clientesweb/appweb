@@ -524,55 +524,62 @@ iframe {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
 .counters-container {
-    display: flex;                   /* Usar flexbox para disposición horizontal */
-    flex-wrap: wrap;                /* Permitir que los contadores se envuelvan en líneas */
-    justify-content: space-around;  /* Distribuir espacio entre contadores */
-    padding: 20px;
-    background: #2c3e50;             /* Fondo para contraste */
-    border-radius: 10px;             /* Bordes redondeados en el contenedor */
+    display: flex;                   /* Flexbox para disposición horizontal */
+    overflow-x: auto;               /* Permite desplazamiento horizontal si es necesario */
+    padding: 40px 20px;             /* Espaciado alrededor del contenedor */
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Degradado atractivo */
+    border-radius: 15px;            /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra sutil */
 }
 
 .counter {
-    display: flex;                    /* Flexbox para centrar contenido */
-    flex-direction: column;           /* Apilar icono y texto */
-    align-items: center;              /* Centrar horizontalmente */
-    justify-content: center;          /* Centrar verticalmente */
-    width: 200px;                     /* Ancho ajustado para contadores */
+    display: flex;                   /* Flexbox para centrar contenido */
+    flex-direction: column;          /* Apilar icono y texto */
+    align-items: center;             /* Centrar horizontalmente */
+    justify-content: center;         /* Centrar verticalmente */
+    width: 180px;                    /* Ancho ajustado para contadores */
     text-align: center;
-    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    border-radius: 10px;
-    padding: 30px;                   /* Más espacio interno */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin: 15px;                    /* Espacio entre contadores */
-    transition: transform 0.3s ease; /* Efecto de transformación suave */
+    background: rgba(255, 255, 255, 0.2); /* Fondo semitransparente más marcado */
+    border-radius: 15px;             /* Bordes redondeados */
+    padding: 30px;                  /* Espacio interno */
+    margin-right: 20px;             /* Espacio entre contadores */
+    transition: transform 0.3s, box-shadow 0.3s; /* Suave transición */
+}
+
+.counter:last-child {
+    margin-right: 0;                /* Sin margen a la derecha en el último contador */
 }
 
 .counter:hover {
-    transform: scale(1.05);          /* Escala al pasar el ratón sobre el contador */
+    transform: translateY(-5px);      /* Levantar contador al pasar el ratón */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Sombra más intensa en hover */
 }
 
 .counter-icon {
-    font-size: 40px;                  /* Aumentar el tamaño del icono */
-    margin-bottom: 15px;
-    color: #3498db;                   /* Color de los iconos */
+    font-size: 50px;                  /* Tamaño del icono más grande */
+    margin-bottom: 15px;              /* Espacio debajo del icono */
+    color: #3498db;                   /* Color atractivo para el icono */
 }
 
 .counter-number {
-    font-size: 48px;                  /* Aumentar el tamaño del número */
+    font-size: 48px;                  /* Tamaño del número */
     font-weight: bold;
-    color: #ffffff;                   /* Color del texto del contador */
-    transition: color 0.3s;           /* Transición suave del color */
+    color: #ecf0f1;                   /* Color claro para el número */
+    margin-bottom: 5px;               /* Espacio debajo del número */
 }
 
 .counter-label {
-    font-size: 18px;                  /* Aumentar el tamaño de la etiqueta */
-    color: #ffffff;                   /* Color de la etiqueta */
+    font-size: 16px;                  /* Tamaño de la etiqueta */
+    color: #ffffff;                   /* Color blanco para la etiqueta */
 }
 
 /* Media Query para ajustar en pantallas más pequeñas */
 @media (max-width: 600px) {
-    .counter {
-        width: 100%;                  /* Contadores ocupan el 100% en móviles */
-        margin: 10px 0;              /* Espacio vertical en lugar de horizontal */
+    .counters-container {
+        padding: 20px;               /* Ajustar padding en pantallas pequeñas */
     }
-}}
+    .counter {
+        width: 150px;                /* Ancho ajustado para contadores en móviles */
+        margin-right: 15px;          /* Espacio entre contadores */
+    }
+}
