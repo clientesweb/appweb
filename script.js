@@ -304,3 +304,11 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.display = 'none'; // Oculta el botón después de la instalación
     });
 });
+// Ejemplo de función para actualizar los contadores
+function updateCounters(visitas, descargas) {
+    document.getElementById('visit-count').textContent = visitas;
+    document.getElementById('download-count').textContent = descargas;
+}
+
+// Llamada de ejemplo para actualizar contadores
+updateCounters(1200, 600); // Actualiza a 1200 visitas y 600 descargas
