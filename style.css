@@ -524,48 +524,58 @@ iframe {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
 .counters-container {
-    display: block;                /* Mantener como bloque */
-    white-space: nowrap;          /* Evita que los contadores se apilen */
-    overflow-x: auto;             /* Permite el desplazamiento horizontal si es necesario */
+    display: flex;                   /* Usar flexbox para una disposición horizontal */
+    white-space: nowrap;             /* Evita que los contadores se apilen */
+    overflow-x: auto;                /* Permite el desplazamiento horizontal si es necesario */
     padding: 20px;
-    background: #2c3e50;          /* Fondo para contrastar con los contadores */
+    background: #2c3e50;             /* Fondo para contrastar con los contadores */
+    border-radius: 10px;             /* Bordes redondeados en el contenedor */
 }
 
 .counter {
-    display: inline-block;         /* Permite que cada contador esté en línea */
-    width: 150px;                 /* Ancho fijo para cada contador */
+    display: flex;                    /* Flexbox para centrar contenido */
+    flex-direction: column;           /* Apilar icono y texto */
+    align-items: center;              /* Centrar horizontalmente */
+    justify-content: center;          /* Centrar verticalmente */
+    width: 150px;                     /* Ancho fijo para cada contador */
     text-align: center;
     background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-right: 20px;           /* Espacio entre los contadores */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;               /* Espacio entre los contadores */
+    transition: transform 0.3s ease; /* Efecto de transformación suave */
+}
+
+.counter:hover {
+    transform: scale(1.05);          /* Escala al pasar el ratón sobre el contador */
 }
 
 .counter-icon {
-    font-size: 24px;
+    font-size: 30px;                  /* Aumentar el tamaño del icono */
     margin-bottom: 10px;
-    color: #3498db;               /* Color de los iconos */
+    color: #3498db;                   /* Color de los iconos */
 }
 
 .counter-number {
-    font-size: 36px;
+    font-size: 40px;                  /* Aumentar el tamaño del número */
     font-weight: bold;
-    color: #fff;                  /* Color del texto del contador */
+    color: #ffffff;                   /* Color del texto del contador */
+    transition: color 0.3s;           /* Transición suave del color */
 }
 
 .counter-label {
-    font-size: 14px;
-    color: #fff;                  /* Color de la etiqueta */
+    font-size: 16px;                  /* Aumentar el tamaño de la etiqueta */
+    color: #ffffff;                   /* Color de la etiqueta */
 }
 
 /* Media Query para ajustar en pantallas más pequeñas */
 @media (max-width: 600px) {
     .counters-container {
-        padding: 10px;            /* Ajustar padding en pantallas pequeñas */
+        padding: 10px;               /* Ajustar padding en pantallas pequeñas */
     }
     .counter {
-        width: 100px;             /* Reducir el ancho en pantallas pequeñas */
-        margin-right: 10px;       /* Espacio entre contadores */
+        width: 100px;                /* Reducir el ancho en pantallas pequeñas */
+        margin-right: 10px;          /* Espacio entre contadores */
     }
 }
