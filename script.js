@@ -308,18 +308,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter-number');
 
     // Valores base iniciales
-    let baseVisitas = 5000;
-    let baseDescargas = 3000;
-    let baseInteracciones = 1500;
+    let baseVisitas = 4870;
+    let baseDescargas = 110;
+    let baseInteracciones = 2340;
 
     // Función para actualizar los contadores
     function updateCountersByTime() {
         const now = new Date().getTime();
 
         // Modificar estos valores según el tiempo
-        const newVisitas = baseVisitas + Math.floor((now / 100000) % 1000);
-        const newDescargas = baseDescargas + Math.floor((now / 100000) % 500);
-        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 300);
+        const newVisitas = baseVisitas + Math.floor((now / 10000) % 500); // Incremento más alto
+        const newDescargas = baseDescargas + Math.floor((now / 100000) % 50); // Incremento menor
+        const newInteracciones = baseInteracciones + Math.floor((now / 10000) % 300); // Incremento alto
 
         counters.forEach(counter => {
             const type = counter.getAttribute('data-type');
