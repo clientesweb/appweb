@@ -325,6 +325,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const newDescargas = baseDescargas + Math.floor((now / 100000) % 500);
         const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 300);
 
+        // Establece los nuevos valores para la animación
         counters.visitas.setAttribute('data-count', newVisitas);
         counters.descargas.setAttribute('data-count', newDescargas);
         counters.interacciones.setAttribute('data-count', newInteracciones);
@@ -336,12 +337,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCounters() {
         Object.values(counters).forEach(counter => {
             const target = +counter.getAttribute('data-count');
-            const count = +counter.innerText;
-            const increment = target / 200;
+            let count = +counter.innerText;
+            const increment = (target - count) / 200;
 
             const updateCount = () => {
                 if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
                     setTimeout(updateCount, 20);
                 } else {
                     counter.innerText = target;
