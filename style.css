@@ -482,19 +482,18 @@ body {
     align-items: center;
     margin: 40px auto;
     max-width: 1200px;
-    flex-wrap: nowrap; /* Asegura que los contadores no se envuelvan */
+    flex-wrap: nowrap; /* Evita que se apilen */
+    padding: 0 20px;
 }
 
 .counter {
     background-color: transparent;
     border: none;
-    border-radius: 0;
     padding: 20px;
     text-align: center;
     flex: 1; /* Hace que cada contador ocupe el mismo espacio */
     margin: 0 10px; /* Margen entre los contadores */
     transition: transform 0.3s ease;
-    position: relative;
 }
 
 .counter-icon {
@@ -533,21 +532,24 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    .counter-container {
-        flex-wrap: nowrap; /* Evita que se apilen */
-        overflow-x: auto; /* Permite hacer scroll horizontal si el espacio es insuficiente */
-        padding: 10px;
-    }
+@media (max-width: 1200px) {
     .counter {
-        flex: 0 0 30%; /* Los contadores ocuparán el 30% del ancho disponible */
-        min-width: 30%; /* Asegura que mantengan ese tamaño mínimo */
-        margin: 0 5px; /* Ajusta el margen para que el espacio sea compacto */
+        flex: 1 1 30%; /* Los contadores ocuparán el 30% del ancho disponible */
+        margin: 0 5px;
     }
-    .counter-number {
-        font-size: 28px; /* Reduce el tamaño del texto en dispositivos pequeños */
+}
+
+@media (max-width: 768px) {
+    .counter {
+        flex: 1 1 100%; /* En pantallas pequeñas, ocuparán el 100% del ancho */
+        margin-bottom: 20px; /* Se apilan solo si el espacio es muy pequeño */
     }
+
     .counter-icon {
         font-size: 40px; /* Reduce el tamaño del icono en dispositivos pequeños */
+    }
+
+    .counter-number {
+        font-size: 28px; /* Reduce el tamaño del número en dispositivos pequeños */
     }
 }
