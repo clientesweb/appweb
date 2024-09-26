@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descarga Cafe Club TV</title>
     <link rel="stylesheet" href="styles.css"> <!-- Incluye tu CSS -->
+    <script>
+        // Asegúrate de que el service worker esté registrado
+        window.addEventListener('load', () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            }
+
+            // Evento para mostrar la opción de agregar a la pantalla de inicio
+            window.addEventListener('beforeinstallprompt', (event) => {
+                event.preventDefault(); // Evita que se muestre el banner automáticamente
+                const installButton = document.getElementById('install-button');
+                installButton.style.display = 'block'; // Muestra el botón de instalación
+                installButton.onclick = () => {
+                    event.prompt(); // Muestra el cuadro de diálogo para instalar la PWA
+                };
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -23,10 +47,9 @@
         </section>
 
         <section>
-            <h2>Descargar la App</h2>
-            <a href="https://tudominio.com/path/to/cafe-club-tv.apk" download>
-                <button>Descargar Cafe Club TV APK</button>
-            </a>
+            <h2>Instala Cafe Club TV PWA</h2>
+            <p>Haz clic en el botón a continuación para agregar Cafe Club TV a tu pantalla de inicio.</p>
+            <button id="install-button" style="display: none;">Instalar Cafe Club TV</button>
         </section>
 
         <section>
