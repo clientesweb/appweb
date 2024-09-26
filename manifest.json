@@ -11,26 +11,24 @@
       "src": "images/Icon512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "images/Icon144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "images/Icon256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
     }
   ],
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "description": "Disfruta de entretenimiento y servicios en línea con Cafe Club TV. Accede a nuestros videos, eventos y más.",
   "orientation": "portrait",
   "scope": "/",
-  "prefer_related_applications": false,
-  "splash_screens": [
-    {
-      "src": "images/Icon192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "images/Icon512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "prefer_related_applications": false
 }
