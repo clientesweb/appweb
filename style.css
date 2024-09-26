@@ -524,50 +524,37 @@ iframe {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
 .counters-container {
-    display: flex;               /* Utiliza flexbox para alinear horizontalmente */
-    justify-content: space-between; /* Espacio entre los elementos */
-    align-items: center;        /* Centra los elementos verticalmente */
-    flex-wrap: wrap;            /* Permite que los elementos se ajusten si es necesario */
+    display: flex;                 /* Utiliza flexbox para alinear horizontalmente */
+    justify-content: space-between; /* Espacio entre los contadores */
+    align-items: center;          /* Centra los elementos verticalmente */
+    flex-wrap: nowrap;            /* No permite que los elementos se ajusten a una nueva línea */
     padding: 20px;
-    gap: 20px;                  /* Espacio entre los contadores */
+    gap: 20px;                    /* Espacio entre los contadores */
 }
 
 .counter {
-    flex: 1 1 30%;              /* Permite que los contadores ocupen hasta un 30% del espacio disponible */
+    flex: 1;                       /* Cada contador ocupa el mismo espacio */
     text-align: center;
     background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    min-width: 180px;           /* Ancho mínimo para mantenerlos en una línea */
+    min-width: 180px;             /* Ancho mínimo para mantenerlos en una línea */
 }
 
 .counter-icon {
     font-size: 24px;
     margin-bottom: 10px;
-    color: #3498db;             /* Color de los iconos */
+    color: #3498db;               /* Color de los iconos */
 }
 
 .counter-number {
     font-size: 36px;
     font-weight: bold;
-    color: #fff;                /* Color del texto del contador */
+    color: #fff;                  /* Color del texto del contador */
 }
 
 .counter-label {
     font-size: 14px;
-    color: #fff;                /* Color de la etiqueta */
-}
-
-/* Media queries para asegurarse de que se vean bien en pantallas más pequeñas */
-@media (max-width: 768px) {
-    .counter {
-        flex: 1 1 calc(50% - 20px); /* Dos contadores en fila en pantallas pequeñas */
-    }
-}
-
-@media (max-width: 480px) {
-    .counter {
-        flex: 1 1 100%;           /* Un contador por fila en pantallas muy pequeñas */
-    }
+    color: #fff;                  /* Color de la etiqueta */
 }
