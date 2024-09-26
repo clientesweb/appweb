@@ -523,20 +523,23 @@ iframe {
 .nav-item:hover::after {
     transform: scaleX(1); /* Muestra la línea al pasar el ratón */
 }
-.counter-container {
-    display: flex;
-    justify-content: space-around; /* Espaciado entre contadores */
-    flex-wrap: nowrap; /* Sin apilamiento */
-    overflow: hidden; /* Sin barra de desplazamiento */
-    padding: 20px; /* Espaciado interno */
-    background: transparent; /* Fondo transparente o del color deseado */
+.counters-container {
+    display: block;                /* Mantener como bloque */
+    white-space: nowrap;          /* Evita que los contadores se apilen */
+    overflow-x: auto;             /* Permite el desplazamiento horizontal si es necesario */
+    padding: 20px;
+    background: #2c3e50;          /* Fondo para contrastar con los contadores */
 }
 
 .counter {
-    flex: 1; /* Hace que cada contador tome el mismo espacio */
-    text-align: center; /* Centra el texto dentro del contador */
-    margin: 0 10px; /* Espacio entre contadores */
-    font-size: 24px; /* Tamaño de la fuente */
+    display: inline-block;         /* Permite que cada contador esté en línea */
+    width: 150px;                 /* Ancho fijo para cada contador */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;           /* Espacio entre los contadores */
 }
 
 .counter-icon {
