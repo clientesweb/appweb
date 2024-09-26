@@ -304,20 +304,63 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.display = 'none'; // Oculta el botón después de la instalación
     });
 });
-document.querySelectorAll('.counter-number').forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
+.counter-container {
+    display: flex;
+    justify-content: center; /* Centra los contadores en la página */
+    gap: 20px; /* Espaciado entre contadores */
+    margin: 40px 0; /* Espaciado superior e inferior */
+}
 
-        const increment = target / 200; // Cambia el divisor para ajustar la velocidad
+.counter {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px; /* Padding aumentado para un mejor diseño */
+    text-align: center;
+    width: 220px; /* Ancho ajustado para contadores */
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Bordes transparentes inicialmente */
+}
 
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 1);
-        } else {
-            counter.innerText = target;
-        }
-    };
+.counter:hover {
+    transform: translateY(-5px);
+    border-color: #ff6347; /* Color del borde al pasar el mouse */
+}
 
-    updateCount();
-});
+.counter-icon {
+    font-size: 50px; /* Tamaño de icono aumentado */
+    color: #ff6347; /* Color del icono */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.counter:hover .counter-icon {
+    color: #ff4500; /* Color del icono al pasar el mouse */
+}
+
+.counter-number {
+    font-size: 36px; /* Tamaño de número aumentado */
+    font-weight: bold;
+    color: #333; /* Color para el número */
+    margin: 0;
+    animation: fadeIn 1s ease;
+}
+
+.counter-label {
+    font-size: 18px; /* Tamaño de texto aumentado */
+    color: #666; /* Color para el texto del contador */
+    margin-top: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
