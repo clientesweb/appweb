@@ -308,18 +308,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter-number');
 
     // Valores base iniciales
-    let baseVisitas = 4870;
-    let baseDescargas = 110;
-    let baseInteracciones = 2340;
+    let baseVisitas = 4870;      // Valor inicial para visitas
+    let baseDescargas = 110;     // Valor inicial para descargas
+    let baseInteracciones = 2340; // Valor inicial para interacciones
 
     // Función para actualizar los contadores
     function updateCountersByTime() {
         const now = new Date().getTime();
 
         // Modificar estos valores según el tiempo
-        const newVisitas = baseVisitas + Math.floor((now / 10000) % 500); // Incremento más alto
-        const newDescargas = baseDescargas + Math.floor((now / 100000) % 50); // Incremento menor
-        const newInteracciones = baseInteracciones + Math.floor((now / 10000) % 300); // Incremento alto
+        const newVisitas = baseVisitas + Math.floor((now / 10000) % 1000); // Incremento rápido para visitas
+        const newDescargas = baseDescargas + Math.floor((now / 30000) % 50); // Incremento más lento para descargas
+        const newInteracciones = baseInteracciones + Math.floor((now / 10000) % 300); // Incremento rápido para interacciones
 
         counters.forEach(counter => {
             const type = counter.getAttribute('data-type');
@@ -330,11 +330,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (type === 'descargas') newValue = newDescargas;
             if (type === 'interacciones') newValue = newInteracciones;
 
-            // Solo actualizar si el nuevo valor es diferente
-            if (newValue !== +counter.innerText) {
-                counter.setAttribute('data-count', newValue);
-                animateCounter(counter);
-            }
+            counter.setAttribute('data-count', newValue);
+            animateCounter(counter);
         });
     }
 
@@ -344,11 +341,10 @@ document.addEventListener('DOMContentLoaded', function () {
         let count = +counter.innerText;
         const increment = Math.ceil((target - count) / 200); // Modifica la velocidad
 
-        // Asegúrate de que el incremento sea al menos 1 para que el conteo avance
         const updateCount = () => {
             if (count < target) {
-                count += increment > 0 ? increment : 1; // Evitar conteo hacia atrás
-                counter.innerText = count > target ? target : count; // No superar el objetivo
+                count += increment;
+                counter.innerText = count;
                 setTimeout(updateCount, 20); // Ajusta el tiempo de actualización
             } else {
                 counter.innerText = target;
