@@ -15,7 +15,9 @@ header {
     background-color: #d4d4d4; /* Plomo suave */
     color: #333; /* Texto oscuro para contraste */
     padding: 1rem;
-    position: relative;
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre el logo y el botón */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
     z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
 }
@@ -32,8 +34,8 @@ header {
 /* Estilo del contenedor del botón */
 .install-container {
     display: flex;
-    justify-content: center;
-    margin: 20px 0; /* Margen superior e inferior */
+    align-items: center; /* Alinear el botón verticalmente con el logo */
+    margin-left: 20px; /* Margen izquierdo para separación */
 }
 
 .install-button {
@@ -41,8 +43,8 @@ header {
     color: white; /* Color del texto */
     border: none;
     border-radius: 25px; /* Bordes redondeados */
-    padding: 15px 30px; /* Espaciado interno */
-    font-size: 1.2em; /* Tamaño de fuente */
+    padding: 10px 20px; /* Ajustar el espaciado interno */
+    font-size: 1em; /* Tamaño de fuente ajustado */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
 }
@@ -53,7 +55,7 @@ header {
 }
 
 .install-button i {
-    margin-right: 10px; /* Espacio entre el icono y el texto */
+    margin-right: 8px; /* Espacio entre el icono y el texto */
 }
 /* ------- main-------- */
 
