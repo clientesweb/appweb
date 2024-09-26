@@ -19,25 +19,25 @@ const RESOURCES_TO_CACHE = [
   '/image6.jpg'
 ];
 
-// Instalación del Service Worker
+// Instalación del Service Worker y almacenamiento en caché estático
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return Promise.all(
-        RESOURCES_TO_CACHE.map((resource) => cache.add(resource))
-      );
+      console.log('Caching resources during install...');
+      return cache.addAll(RESOURCES_TO_CACHE);
     })
   );
 });
 
-// Activación del Service Worker
+// Activación del Service Worker y limpieza de cachés antiguas
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName); // Eliminar cachés antiguos
+            console.log(`Deleting old cache: ${cacheName}`);
+            return caches.delete(cacheName);
           }
         })
       );
@@ -49,14 +49,22 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request).then((fetchResponse) => {
-        // Almacenar los recursos solicitados en caché
+      if (response) {
+        // Si hay una respuesta en caché, devolverla
+        return response;
+      }
+      // Si no está en caché, buscar en la red
+      return fetch(event.request).then((fetchResponse) => {
         return caches.open(CACHE_NAME).then((cache) => {
+          // Almacenar el recurso recién obtenido en caché
           cache.put(event.request, fetchResponse.clone());
           return fetchResponse;
-        }).catch((error) => {
-          console.error('Error al almacenar en caché:', error);
         });
+      }).catch(() => {
+        // Si falla tanto la red como la caché, puedes devolver una respuesta de fallback
+        if (event.request.destination === 'document') {
+          return caches.match('/offline.html'); // Puedes crear una página 'offline.html' para mostrar cuando no haya conexión
+        }
       });
     })
   );
