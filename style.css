@@ -529,7 +529,7 @@ iframe {
     justify-content: space-around;      /* Espacio igual entre contadores */
     align-items: center;                /* Centrar verticalmente */
     padding: 20px;                     /* Espacio alrededor del contenedor */
-    background: linear-gradient(135deg, #8B0000, #FFFFFF, #B0B0B0); /* Degradado rojo bordo, blanco y gris plomo */
+    background: linear-gradient(135deg, #8B0000, #D3D3D3, #B0B0B0); /* Degradado rojo bordo, gris claro y gris plomo */
     border-radius: 15px;               /* Bordes redondeados */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     flex-wrap: wrap;                   /* Permite que los contadores se ajusten en múltiples filas */
