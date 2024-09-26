@@ -317,9 +317,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const now = new Date().getTime();
 
         // Modificar estos valores según el tiempo
-        const newVisitas = baseVisitas + Math.floor((now / 100000) % 2000); // Aumento más rápido para visitas
-        const newDescargas = baseDescargas + Math.floor((now / 100000) % 100); // Aumento más lento para descargas
-        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 800); // Aumento más rápido para interacciones
+        const newVisitas = baseVisitas + Math.floor((now / 100000) % 2000);
+        const newDescargas = baseDescargas + Math.floor((now / 100000) % 100);
+        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 800);
 
         counters.forEach(counter => {
             const type = counter.getAttribute('data-type');
@@ -339,13 +339,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function animateCounter(counter) {
         const target = +counter.getAttribute('data-count');
         let count = +counter.innerText;
-        const increment = Math.ceil((target - count) / 400); // Reduce la velocidad general del conteo
+        const increment = Math.ceil((target - count) / 800); // Reduce la velocidad inicial
 
         const updateCount = () => {
             if (count < target) {
                 count += increment;
                 counter.innerText = count;
-                setTimeout(updateCount, 20); // Ajusta el tiempo de actualización
+                setTimeout(updateCount, 50); // Ajusta el tiempo de actualización
             } else {
                 counter.innerText = target;
             }
