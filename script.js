@@ -309,11 +309,12 @@ document.querySelectorAll('.counter-number').forEach(counter => {
         const target = +counter.getAttribute('data-count');
         const count = +counter.innerText;
 
-        const increment = target / 200; // Cambia el divisor para ajustar la velocidad
+        const increment = Math.ceil(target / 400); // Cambiado para ralentizar el conteo
+        const delay = Math.max(50, Math.floor(4000 / target)); // Calcula un retraso más largo
 
         if (count < target) {
             counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 1);
+            setTimeout(updateCount, delay); // Ralentiza el conteo
         } else {
             counter.innerText = target;
         }
