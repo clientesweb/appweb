@@ -308,18 +308,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const counters = document.querySelectorAll('.counter-number');
 
     // Valores base iniciales
-    let baseVisitas = 4870;      // Valor inicial para visitas
-    let baseDescargas = 110;     // Valor inicial para descargas
-    let baseInteracciones = 2340; // Valor inicial para interacciones
+    let baseVisitas = 4870;
+    let baseDescargas = 110;
+    let baseInteracciones = 2340;
 
     // Función para actualizar los contadores
     function updateCountersByTime() {
         const now = new Date().getTime();
 
         // Modificar estos valores según el tiempo
-        const newVisitas = baseVisitas + Math.floor((now / 10000) % 1000); // Incremento rápido para visitas
-        const newDescargas = baseDescargas + Math.floor((now / 30000) % 50); // Incremento más lento para descargas
-        const newInteracciones = baseInteracciones + Math.floor((now / 10000) % 300); // Incremento rápido para interacciones
+        const newVisitas = baseVisitas + Math.floor((now / 100000) % 2000); // Aumento más rápido para visitas
+        const newDescargas = baseDescargas + Math.floor((now / 100000) % 100); // Aumento más lento para descargas
+        const newInteracciones = baseInteracciones + Math.floor((now / 100000) % 800); // Aumento más rápido para interacciones
 
         counters.forEach(counter => {
             const type = counter.getAttribute('data-type');
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function animateCounter(counter) {
         const target = +counter.getAttribute('data-count');
         let count = +counter.innerText;
-        const increment = Math.ceil((target - count) / 200); // Modifica la velocidad
+        const increment = Math.ceil((target - count) / 400); // Reduce la velocidad general del conteo
 
         const updateCount = () => {
             if (count < target) {
@@ -356,6 +356,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializar contadores al cargar la página
     updateCountersByTime();
 
-    // Actualizar automáticamente cada 60 segundos
-    setInterval(updateCountersByTime, 60000); // 60 segundos
+    // Actualizar automáticamente cada 15 minutos
+    setInterval(updateCountersByTime, 900000); // 15 minutos en milisegundos
 });
