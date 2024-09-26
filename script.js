@@ -273,3 +273,8 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
         alert('Por favor, escribe un mensaje antes de enviar.');
     }
 });
+document.getElementById('install-button').addEventListener('click', function() {
+    // Aquí podrías incluir la lógica para instalar la app
+    // Después de instalar, ocultamos el botón
+    this.style.display = 'none'; // Oculta el botón
+});
