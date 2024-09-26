@@ -312,9 +312,9 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Valores base iniciales para los contadores
-    let baseVisitas = 5000;
-    let baseDescargas = 3000;
-    let baseInteracciones = 1500;
+    let baseVisitas = 4721;
+    let baseDescargas = 128;
+    let baseInteracciones = 1891;
 
     // Función para actualizar los contadores en base al tiempo transcurrido
     function updateCountersByTime() {
