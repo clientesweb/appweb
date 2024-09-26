@@ -473,55 +473,52 @@ iframe {
     background-color: #128C7E;
 }
 body {
-    background-color: #f4f4f4; /* Asegúrate de que el fondo de la página sea del color deseado */
+    background-color: #f4f4f4;
 }
 
 .counter-container {
     display: flex;
-    justify-content: space-around; /* Espaciado uniforme entre contadores */
-    flex-wrap: wrap; /* Permite que los contadores se muevan a la siguiente línea en pantallas más pequeñas */
-    margin: 40px 0; /* Espaciado superior e inferior */
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 1200px;
+    flex-wrap: nowrap; /* Asegura que los contadores no se envuelvan */
 }
 
 .counter {
-    background-color: transparent; /* Fondo transparente para combinar con el fondo de la página */
-    border: none; /* Sin borde */
-    border-radius: 0; /* Sin bordes redondeados */
-    padding: 20px; /* Espaciado interno reducido */
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 20px;
     text-align: center;
-    width: 220px; /* Ancho ajustado para contadores */
+    flex: 1; /* Hace que cada contador ocupe el mismo espacio */
+    margin: 0 10px; /* Margen entre los contadores */
     transition: transform 0.3s ease;
     position: relative;
-    overflow: hidden;
-    margin: 10px; /* Margen para separación entre contadores */
-}
-
-.counter:hover {
-    transform: translateY(-5px);
 }
 
 .counter-icon {
-    font-size: 50px; /* Tamaño de icono aumentado */
-    color: #ff6347; /* Color del icono */
+    font-size: 50px;
+    color: #ff6347;
     margin-bottom: 10px;
     transition: color 0.3s ease;
 }
 
 .counter:hover .counter-icon {
-    color: #ff4500; /* Color del icono al pasar el mouse */
+    color: #ff4500;
 }
 
 .counter-number {
-    font-size: 36px; /* Tamaño de número aumentado */
+    font-size: 36px;
     font-weight: bold;
-    color: #333; /* Color para el número */
+    color: #333;
     margin: 0;
     animation: fadeIn 1s ease;
 }
 
 .counter-label {
-    font-size: 18px; /* Tamaño de texto aumentado */
-    color: #666; /* Color para el texto del contador */
+    font-size: 18px;
+    color: #666;
     margin-top: 5px;
 }
 
@@ -537,7 +534,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    .counter-container {
+        flex-wrap: nowrap; /* Evita que se apilen */
+        overflow-x: auto; /* Permite hacer scroll horizontal si el espacio es insuficiente */
+        padding: 10px;
+    }
     .counter {
-        width: 80%; /* Contadores ocupan más ancho en pantallas pequeñas */
+        flex: 0 0 30%; /* Los contadores ocuparán el 30% del ancho disponible */
+        min-width: 30%; /* Asegura que mantengan ese tamaño mínimo */
+        margin: 0 5px; /* Ajusta el margen para que el espacio sea compacto */
+    }
+    .counter-number {
+        font-size: 28px; /* Reduce el tamaño del texto en dispositivos pequeños */
+    }
+    .counter-icon {
+        font-size: 40px; /* Reduce el tamaño del icono en dispositivos pequeños */
     }
 }
