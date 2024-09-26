@@ -1,5 +1,16 @@
-document.getElementById('menu-toggle').addEventListener('click', function() {
-    document.getElementById('nav-menu').classList.toggle('active');
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    } else {
+        console.warn('Elementos de navegación no encontrados.');
+    }
+
+    // Resto de tu código...
 });
 
 document.addEventListener('DOMContentLoaded', () => {
