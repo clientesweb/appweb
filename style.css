@@ -116,9 +116,10 @@ header a:hover {
 }
 
 .carousel-images img {
-    width: 100%;
-    height: auto; /* Mantener la proporción de las imágenes */
-    flex-shrink: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Asegura que la imagen cubra toda la altura */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+    flex-shrink: 0; /* Previene que la imagen se reduzca */
     border-radius: 15px; /* Bordes redondeados */
     filter: brightness(0.9); /* Oscurecer ligeramente las imágenes */
     transition: transform 0.3s ease; /* Transición suave al pasar el mouse */
