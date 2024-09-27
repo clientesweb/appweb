@@ -82,25 +82,23 @@ header a:hover {
 
 /* ------- main -------- */
 .container {
-    background: rgba(31, 41, 55, 0.6);
-    backdrop-filter: blur(15px);
-    padding-left: 17%;
-    padding-right: 2%;
-    padding-top: 30px;
-    padding-bottom: 30%;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    background: rgba(31, 41, 55, 0.7); /* Fondo más oscuro para mejor contraste */
+    backdrop-filter: blur(20px); /* Mayor desenfoque para profundidad */
+    padding: 40px 5%; /* Más espacio en la parte superior e inferior */
+    border-radius: 20px; /* Bordes redondeados más pronunciados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más intensa */
 }
 
 .large-container {
-    padding-left: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .banner {
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 15px; /* Bordes redondeados */
+    border-radius: 20px; /* Bordes redondeados */
 }
 
 .carousel {
@@ -108,6 +106,7 @@ header a:hover {
     align-items: center;
     position: relative;
     width: 100%;
+    animation: slide 30s infinite; /* Animación de desplazamiento */
 }
 
 .carousel-images {
@@ -118,21 +117,22 @@ header a:hover {
 .carousel-images img {
     width: 100%;
     flex-shrink: 0;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Sombra suave en imágenes */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    filter: brightness(0.85); /* Oscurecer ligeramente las imágenes */
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
     border: none;
-    color: #000; /* Texto negro */
+    color: #333; /* Texto oscuro */
     font-size: 28px; /* Tamaño de fuente aumentado */
     cursor: pointer;
     padding: 12px 16px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 50%; /* Botones redondos */
     z-index: 10;
     transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave en botones */
@@ -144,11 +144,20 @@ header a:hover {
 }
 
 .carousel-button.prev {
-    left: 10px;
+    left: 20px; /* Aumentar espacio desde los bordes */
 }
 
 .carousel-button.next {
-    right: 10px;
+    right: 20px; /* Aumentar espacio desde los bordes */
+}
+
+/* Animación de desplazamiento */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(-400%); }
 }
 
 /* Estilos para el footer */
