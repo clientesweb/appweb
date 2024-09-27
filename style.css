@@ -372,8 +372,10 @@ iframe {
     position: relative;
     width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
     height: 150px; /* Ajusta la altura según sea necesario */
-    background: linear-gradient(135deg, #8B0000, #d4d4d4, #B0B0B0); /* Degradado de rojo bordo a plomo suave y gris */
+    background: linear-gradient(135deg, #8B0000, #d4d4d4, #B0B0B0); /* Degradado de rojo bordó a plomo suave y gris */
     padding: 10px 0; /* Espaciado vertical */
+    border-radius: 8px; /* Bordes redondeados para un efecto más suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
 .sponsors-slider {
@@ -397,6 +399,11 @@ iframe {
     justify-content: center;
     margin-right: 20px; /* Espacio entre los logos */
     scroll-snap-align: start; /* Alinea el inicio del elemento */
+    transition: transform 0.3s; /* Transición suave al pasar el mouse */
+}
+
+.sponsor-item:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el logo al pasar el mouse */
 }
 
 .sponsor-item img {
@@ -407,8 +414,9 @@ iframe {
 
 /* Ocultar barras de scroll en navegadores modernos */
 #sponsors-section::-webkit-scrollbar {
-    display: none;
+    display: none; /* Oculta scrollbar en navegadores basados en WebKit */
 }
+
 #sponsors-section {
     -ms-overflow-style: none; /* IE y Edge */
     scrollbar-width: none; /* Firefox */
