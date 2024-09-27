@@ -502,7 +502,7 @@ iframe {
 
 .nav-item {
     text-align: center; /* Centra el texto e iconos */
-    color: #666; /* Color del texto */
+    color: #ffffff; /* Cambiado a blanco */
     text-decoration: none; /* Sin subrayado */
     font-size: 12px; /* Tamaño de fuente más pequeño */
     transition: color 0.3s, transform 0.3s; /* Transiciones suaves */
@@ -513,6 +513,7 @@ iframe {
     font-size: 24px; /* Aumenta el tamaño de los iconos */
     display: block; /* Permite centrar el icono */
     margin-bottom: 5px; /* Espacio entre icono y texto */
+    color: #ffffff; /* Color de los iconos cambiado a blanco */
 }
 
 .nav-item:hover {
