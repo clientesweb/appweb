@@ -263,25 +263,48 @@ function lazyLoadIframes() {
 window.onload = loadVideos;
 
 
-document.getElementById('whatsappBtn').addEventListener('click', function() {
-    document.getElementById('whatsappModal').style.display = 'block';
+// Seleccionar elementos
+const whatsappBtn = document.getElementById('whatsappBtn');
+const whatsappModal = document.getElementById('whatsappModal');
+const whatsappClose = document.querySelector('.whatsapp-close');
+const sendMessageBtn = document.getElementById('sendMessageBtn');
+const whatsappMessage = document.getElementById('whatsappMessage');
+
+// Mostrar el modal cuando se hace clic en el botón de WhatsApp
+whatsappBtn.addEventListener('click', function() {
+    whatsappModal.classList.add('show');
 });
 
-document.querySelector('.whatsapp-close').addEventListener('click', function() {
-    document.getElementById('whatsappModal').style.display = 'none';
+// Cerrar el modal cuando se hace clic en el botón de cerrar
+whatsappClose.addEventListener('click', function() {
+    whatsappModal.classList.remove('show');
 });
 
-document.getElementById('sendMessageBtn').addEventListener('click', function() {
-    const message = document.getElementById('whatsappMessage').value.trim();
-    const phoneNumber = '593978606269'; // Número de WhatsApp al que se enviará el mensaje
+// Enviar el mensaje a WhatsApp cuando se hace clic en el botón "Enviar"
+sendMessageBtn.addEventListener('click', function() {
+    const message = whatsappMessage.value.trim();
     if (message) {
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-        window.open(whatsappUrl, '_blank'); // Abre WhatsApp Web con el mensaje preescrito
-        document.getElementById('whatsappModal').style.display = 'none';
-        document.getElementById('whatsappMessage').value = '';
+        // Formatear el mensaje para enviar a WhatsApp
+        const phoneNumber = '549123456789'; // Cambia este número por el de CaféClubTV
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        
+        // Abrir el enlace en una nueva ventana/pestaña
+        window.open(url, '_blank');
+
+        // Cerrar el modal
+        whatsappModal.classList.remove('show');
+
+        // Limpiar el campo de texto
+        whatsappMessage.value = '';
     } else {
         alert('Por favor, escribe un mensaje antes de enviar.');
+    }
+});
+
+// Cerrar el modal si el usuario hace clic fuera del contenido del modal
+window.addEventListener('click', function(event) {
+    if (event.target == whatsappModal) {
+        whatsappModal.classList.remove('show');
     }
 });
 // Siempre mostrar el botón al cargar la página
