@@ -96,7 +96,8 @@ header a:hover {
 .banner {
     position: relative;
     width: 100%;
-    height: 400px; /* Aumentar altura del banner */
+    height: auto; /* Dejar que la altura sea calculada según la imagen */
+    aspect-ratio: 16 / 9; /* Mantener la relación de aspecto de 16:9 */
     overflow: hidden;
     border-radius: 15px; /* Bordes redondeados */
 }
@@ -106,26 +107,28 @@ header a:hover {
     align-items: center;
     position: relative;
     width: 100%;
-    height: 100%; /* Asegura que el carrusel ocupe toda la altura del banner */
+    height: 100%;
 }
 
 .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 100%; /* Asegura que las imágenes ocupen toda la altura */
+    height: 100%;
 }
 
 .carousel-images img {
     width: 100%;
-    height: auto; /* Mantener la proporción de las imágenes */
+    height: 100%;
+    object-fit: cover; /* Mantener la relación de aspecto y cubrir todo el área del banner */
+    max-height: 100%; /* Asegura que la imagen no exceda la altura del banner */
     flex-shrink: 0;
     border-radius: 15px; /* Bordes redondeados */
     filter: brightness(0.9); /* Oscurecer ligeramente las imágenes */
-    transition: transform 0.3s ease; /* Transición suave al pasar el mouse */
+    transition: transform 0.3s ease;
 }
 
 .carousel-images img:hover {
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
 }
 
 .carousel-button {
