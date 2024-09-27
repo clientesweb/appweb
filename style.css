@@ -485,7 +485,7 @@ iframe {
     background-color: #128C7E;
 }
 .bottom-nav {
-    background-color: #ffffff; /* Fondo blanco */
+    background: linear-gradient(135deg, #8B0000, #d4d4d4); /* Degradado de rojo bordo a plomo suave */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
     display: flex;
     justify-content: space-around; /* Espaciado uniforme */
