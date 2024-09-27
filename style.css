@@ -372,7 +372,7 @@ iframe {
     position: relative;
     width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
     height: 150px; /* Ajusta la altura según sea necesario */
-    background: linear-gradient(135deg, #8B0000, #d4d4d4, #B0B0B0); /* Degradado de rojo bordó a plomo suave y gris */
+    background: radial-gradient(circle, #d4d4d4, #8B0000 70%, #B0B0B0); /* Degradado radial desde el centro hacia afuera */
     padding: 10px 0; /* Espaciado vertical */
     border-radius: 8px; /* Bordes redondeados para un efecto más suave */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
