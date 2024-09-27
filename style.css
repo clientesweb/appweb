@@ -372,7 +372,7 @@ iframe {
     position: relative;
     width: 100%; /* Asegura que el contenedor ocupe el ancho completo */
     height: 150px; /* Ajusta la altura según sea necesario */
-    background-color: #d4d4d4; /* Color de fondo plomo suave */
+    background: linear-gradient(135deg, #8B0000, #d4d4d4, #B0B0B0); /* Degradado de rojo bordo a plomo suave y gris */
     padding: 10px 0; /* Espaciado vertical */
 }
 
