@@ -285,7 +285,7 @@ sendMessageBtn.addEventListener('click', function() {
     const message = whatsappMessage.value.trim();
     if (message) {
         // Formatear el mensaje para enviar a WhatsApp
-        const phoneNumber = '549123456789'; // Cambia este número por el de CaféClubTV
+        const phoneNumber = '+593978606269'; // Cambia este número por el de CaféClubTV
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         
         // Abrir el enlace en una nueva ventana/pestaña
