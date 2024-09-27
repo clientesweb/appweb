@@ -2,7 +2,7 @@
 
 /* Estilos generales */
 body {
-    background: linear-gradient(135deg, #8B0000, #d4d4d4, #B0B0B0); /* Degradado de rojo bordo a plomo suave y gris */
+    background: linear-gradient(135deg, #8B0000, #d4d4d4 70%, #B0B0B0); /* Degradado de rojo bordó a plomo suave y gris */
     color: #ffffff; /* Color del texto claro */
     font-family: Arial, sans-serif;
     margin: 0;
