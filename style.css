@@ -96,9 +96,9 @@ header a:hover {
 .banner {
     position: relative;
     width: 100%;
-    height: 400px; /* Aumentar altura del banner */
+    height: 600px; /* Aumentar altura */
     overflow: hidden;
-    border-radius: 15px; /* Bordes redondeados */
+    border-radius: 15px;
 }
 
 .carousel {
