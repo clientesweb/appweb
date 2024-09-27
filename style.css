@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --primary-gradient: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899);
-  --secondary-gradient: linear-gradient(135deg, #3B82F6, #2563EB);
-  --accent-color: #F472B6;
-  --text-color: #F3F4F6;
-  --text-color-dark: #1F2937;
-  --button-gradient: linear-gradient(to right, #EC4899, #F472B6, #F59E0B);
-  --background-gradient: linear-gradient(to bottom right, #111827, #1F2937);
+  --primary-gradient: linear-gradient(135deg, #8B0000, #7D7D7D, #FFFFFF); /* Rojo oscuro, gris plomo, blanco opaco */
+  --secondary-gradient: linear-gradient(135deg, #3B3B3B, #7D7D7D); /* Puedes ajustar esto si es necesario */
+  --accent-color: #F472B6; /* Puedes mantener este color o cambiarlo */
+  --text-color: #F3F4F6; /* Mantén o ajusta según tu preferencia */
+  --text-color-dark: #1F2937; /* Mantén o ajusta según tu preferencia */
+  --button-gradient: linear-gradient(to right, #EC4899, #F472B6, #F59E0B); /* Mantén o ajusta según tu preferencia */
+  --background-gradient: linear-gradient(to bottom right, #111827, #1F2937); /* Mantén o ajusta según tu preferencia */
 }
-
 /* Estilos generales */
 body {
     background: var(--background-gradient);
