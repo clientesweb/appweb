@@ -13,7 +13,7 @@ export default function Footer() {
         const logoSection = document.createElement('div');
         logoSection.className = "w-full md:w-1/3 mb-8 md:mb-0";
         logoSection.innerHTML = `
-            <img src="https://clientesweb.github.io/CafeClubTv/images/logi.svg" alt="Logo de Cafe Club Tv" class="h-16 mb-4">
+            <img src="https://www.cafeclubtv.com/images/logi.svg" alt="Logo de Cafe Club Tv" class="h-16 mb-4">
             <p class="text-sm">Estamos comprometidos con ofrecerte la mejor experiencia en entretenimiento y servicios en línea.</p>
         `;
         container.appendChild(logoSection);
