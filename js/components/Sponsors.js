@@ -1,11 +1,11 @@
 export default function Sponsors() {
     const sponsors = document.getElementById('sponsors');
     const sponsorsData = [
-        { id: 1, name: 'Sponsor 1', logo: 'https://clientesweb.github.io/CafeClubTv/images/logo1.png' },
-        { id: 2, name: 'Sponsor 2', logo: 'https://clientesweb.github.io/CafeClubTv/images/logo2.png' },
-        { id: 3, name: 'Sponsor 3', logo: 'https://clientesweb.github.io/CafeClubTv/images/logo3.png' },
-        { id: 4, name: 'Sponsor 4', logo: 'https://clientesweb.github.io/CafeClubTv/images/logo4.png' },
-        { id: 5, name: 'Sponsor 5', logo: 'https://clientesweb.github.io/CafeClubTv/images/LOGO%20MONO%20COMICS%20NEGRO%20(1).png' },
+        { id: 1, name: 'Sponsor 1', logo: 'https://www.cafeclubtv.com/images/logo1.png' },
+        { id: 2, name: 'Sponsor 2', logo: 'https://www.cafeclubtv.com/images/logo2.png' },
+        { id: 3, name: 'Sponsor 3', logo: 'https://www.cafeclubtv.com/images/logo3.png' },
+        { id: 4, name: 'Sponsor 4', logo: 'https://www.cafeclubtv.com/images/logo4.png' },
+        { id: 5, name: 'Sponsor 5', logo: 'https://www.cafeclubtv.com/images/LOGO%20MONO%20COMICS%20NEGRO%20(1).png' },
     ];
 
     sponsors.innerHTML = `
