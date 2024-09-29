@@ -12,7 +12,7 @@ export default function Header() {
     header.innerHTML = `
         <header class="bg-gray-200 bg-opacity-80 backdrop-blur-md text-gray-800 p-4 flex items-center justify-between shadow-md z-50">
             <div class="logo flex items-center space-x-2">
-                <img src="https://clientesweb.github.io/CafeClubTv/images/logi.svg" alt="Logo de Cafe Club Tv" class="h-12 transition-transform duration-300 hover:scale-105">
+                <img src="https://www.cafeclubtv.com/images/logi.svg" alt="Logo de Cafe Club Tv" class="h-12 transition-transform duration-300 hover:scale-105">
                 <span class="text-lg font-semibold">Cafe Club TV</span>
             </div>
             ${isInstallable ? `
