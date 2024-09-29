@@ -1,6 +1,7 @@
 export default async function Shorts() {
     const shorts = document.getElementById('shorts');
 
+    // Establecer la estructura HTML inicial
     shorts.innerHTML = `
         <section class="my-12">
             <h2 class="text-2xl font-bold mb-6 text-center">Shorts</h2>
@@ -32,10 +33,8 @@ export default async function Shorts() {
             return;
         }
 
-        // Los shorts ya vienen en el orden más reciente a menos reciente
-        const latestShorts = shortsData.slice(0, 5); // No es necesario invertir, ya que la API devuelve los más recientes
-
-        shortsContainer.innerHTML = latestShorts.map(short => `
+        // Ya que la API devuelve los más recientes, simplemente mapear los datos
+        shortsContainer.innerHTML = shortsData.map(short => `
             <div class="flex-none w-48 h-80 rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 duration-300">
                 <iframe
                     src="https://www.youtube.com/embed/${short.snippet.resourceId.videoId}"
