@@ -1,12 +1,12 @@
 export default function Carousel() {
     const carousel = document.getElementById('carousel');
     const images = [
-        'https://clientesweb.github.io/CafeClubTv/images/image1.jpg',
-        'https://clientesweb.github.io/CafeClubTv/images/image2%20(1).jpg', // Codificado
-        'https://clientesweb.github.io/CafeClubTv/images/image3.jpg',
-        'https://clientesweb.github.io/CafeClubTv/images/image4.jpg',
-        'https://clientesweb.github.io/CafeClubTv/images/image5.jpg',
-        'https://clientesweb.github.io/CafeClubTv/images/image6.jpg'
+        'https://www.cafeclubtv.com/images/image1.jpg',
+        'https://www.cafeclubtv.com/images/image2%20(1).jpg', // Codificado
+        'https://www.cafeclubtv.com/images/image3.jpg',
+        'https://www.cafeclubtv.com/images/image4.jpg',
+        'https://www.cafeclubtv.com/images/image5.jpg',
+        'https://www.cafeclubtv.com/images/image6.jpg'
     ];
 
     let currentSlide = 0;
