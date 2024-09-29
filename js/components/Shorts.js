@@ -1,7 +1,6 @@
 export default async function Shorts() {
     const shorts = document.getElementById('shorts');
 
-    // Establecer la estructura HTML inicial
     shorts.innerHTML = `
         <section class="my-12">
             <h2 class="text-2xl font-bold mb-6 text-center">Shorts</h2>
@@ -17,7 +16,8 @@ export default async function Shorts() {
     const PLAYLIST_ID = 'PLZ_v3bWMqpjFa0xI11mahmOCxPk_1TK2s'; // Reemplaza esto con la ID de tu playlist
 
     try {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=5&key=${API_KEY}`);
+        // Obtener todos los elementos de la playlist (puedes ajustar maxResults si tienes más de 50 elementos)
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=50&key=${API_KEY}`);
 
         if (!response.ok) {
             throw new Error('Network response was not ok: ' + response.statusText);
@@ -33,15 +33,17 @@ export default async function Shorts() {
             return;
         }
 
-        // Ya que la API devuelve los más recientes, simplemente mapear los datos
-        shortsContainer.innerHTML = shortsData.map(short => `
+        // Ordenar shorts por fecha de publicación (más reciente primero)
+        const latestShorts = shortsData.sort((a, b) => new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt)).slice(0, 5);
+
+        shortsContainer.innerHTML = latestShorts.map(short => `
             <div class="flex-none w-48 h-80 rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 duration-300">
                 <iframe
                     src="https://www.youtube.com/embed/${short.snippet.resourceId.videoId}"
                     title="${short.snippet.title}"
                     class="w-full h-full"
                     frameborder="0"
-                    loading="lazy"  <!-- Lazy loading optimización -->
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                 ></iframe>
