@@ -1,0 +1,11 @@
+@import 'components/header.css';
+@import 'components/carousel.css';
+@import 'components/playlists.css';
+@import 'components/shorts.css';
+@import 'components/sponsors.css';
+@import 'components/counters.css';
+@import 'components/footer.css';
+@import 'components/whatsapp-float.css';
+@import 'components/bottom-nav.css';
+
+/* Estilos globales adicionales si son necesarios */
