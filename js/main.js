@@ -39,3 +39,12 @@ if ('serviceWorker' in navigator) {
             });
     });
 }
+if ('windowControlsOverlay' in navigator) {
+    const overlayHeight = navigator.windowControlsOverlay.getTitlebarAreaRect().height;
+    document.documentElement.style.setProperty('--window-controls-overlay-height', `${overlayHeight}px`);
+
+    navigator.windowControlsOverlay.addEventListener('geometrychange', () => {
+        const newOverlayHeight = navigator.windowControlsOverlay.getTitlebarAreaRect().height;
+        document.documentElement.style.setProperty('--window-controls-overlay-height', `${newOverlayHeight}px`);
+    });
+}
