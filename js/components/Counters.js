@@ -3,9 +3,9 @@ export default function Counters() {
     
     // Inicialización de los contadores
     let counts = {
-        visitas: 4870,
-        descargas: 110,
-        interacciones: 2340
+        visitas: 6267,
+        descargas: 131,
+        interacciones: 3653
     };
 
     // Función para actualizar los contadores en el DOM
