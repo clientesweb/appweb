@@ -6,10 +6,11 @@ const urlsToCache = [
     'images/logi.svg',
     'images/Icon512x512.png',
     'images/Icon192x192.png',
+    'offline.html', // Puedes incluir una página de "offline"
     // Añade aquí otras rutas que quieras cachear
 ];
 
-// Instalar el Service Worker
+// Instalar el Service Worker y cachear los archivos
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -19,7 +20,7 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Activar el Service Worker y limpiar cachés viejos
+// Activar el Service Worker y eliminar cachés viejos
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
@@ -39,8 +40,18 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then((response) => {
-                // Devuelve el recurso del caché si existe, o de la red si no
-                return response || fetch(event.request);
+                // Devuelve el recurso del caché si existe, o busca en la red si no
+                return response || fetch(event.request).then((networkResponse) => {
+                    // Actualiza la caché con el nuevo recurso de la red
+                    return caches.open(CACHE_NAME).then((cache) => {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                });
+            })
+            .catch(() => {
+                // Devuelve una página de "offline" si falla la solicitud y no está en caché
+                return caches.match('offline.html');
             })
     );
 });
