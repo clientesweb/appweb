@@ -9,3 +9,32 @@
 @import 'components/bottom-nav.css';
 
 /* Estilos globales adicionales si son necesarios */
+html {
+    --window-controls-overlay-height: env(titlebar-area-height, 0px);
+    padding-top: var(--window-controls-overlay-height);
+}
+
+#titlebar {
+    height: var(--window-controls-overlay-height);
+    background-color: var(--theme_color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 16px;
+}
+
+#titlebar .window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+#titlebar .window-controls button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
