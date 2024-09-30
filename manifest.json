@@ -6,6 +6,9 @@
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ff0000",
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    },
     "icons": [
         {
             "src": "images/Icon192x192.png",
@@ -21,8 +24,23 @@
     "description": "Bienvenido a CafeClubTV, tu destino para disfrutar de los mejores videos y playlists de entretenimiento de calidad.",
     "id": "https://www.cafeclubtv.com/",
     "lang": "es",
+    "dir": "ltr",
     "orientation": "portrait",
     "iarc_rating_id": "YOUR_IARC_RATING_ID",
+    "scope_extensions": [
+        {
+            "origin": "https://videos.cafeclubtv.com",
+            "path": "/"
+        },
+        {
+            "origin": "https://media.cafeclubtv.com",
+            "path": "/content/"
+        }
+    ],
+    "display_override": [
+        "window-controls-overlay",
+        "standalone"
+    ],
     "related_applications": [
         {
             "platform": "play",
@@ -37,7 +55,6 @@
             "id": "com.ejemplo.aplicacion2"
         }
     ],
-    
     "protocol_handlers": [
         {
             "protocol": "web+videos",
@@ -72,9 +89,5 @@
             "type": "image/png",
             "description": "Sección de videos cortos"
         }
-    ],
-    "display_override": [
-        "standalone",
-        "minimal-ui"
     ]
 }
